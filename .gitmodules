@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/msanders-snipmate"]
 	path = .vim/bundle/msanders-snipmate
 	url = http://github.com/msanders/snipmate.vim.git
+[submodule ".vim/bundle/reinh-vim-makegreen"]
+	path = .vim/bundle/reinh-vim-makegreen
+	url = http://github.com/reinh/vim-makegreen.git
