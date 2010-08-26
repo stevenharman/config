@@ -30,8 +30,6 @@
   map <leader>tf :tabfirst<cr>
   map <leader>tl :tablast<cr>
   map <leader>tm :tabmove
-" close all other tabs
-  nmap gT :tabonly<cr>
 
 " previous/next buffer (for going without tabs)
   nmap g[ :bp<cr>
