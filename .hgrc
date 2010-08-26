@@ -1,0 +1,6 @@
+[ui]
+username = Steven Harman <steveharman@gmail.com>
+
+[extensions]
+wincolor = ~/.hgext/wincolor/wincolor.py
+color =

@@ -1,0 +1,3 @@
+# look and feel for the bottom two lines.
+caption     always        "%{+b rk}%H%{gk} |%C%a %{yk}%d.%m.%Y | %72=Load: %l %{wk}"
+hardstatus alwayslastline "%?%{yk}%-Lw%?%{wb}%n*%f %t%?(%u)%?%?%{yk}%+Lw%?"
