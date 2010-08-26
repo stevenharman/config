@@ -1,3 +1,9 @@
 [submodule ".vim/bundle/tpope-vim-surround"]
 	path = .vim/bundle/tpope-vim-surround
 	url = http://github.com/tpope/vim-surround.git
+[submodule ".vim/bundle/tpope-vim-ragtag"]
+	path = .vim/bundle/tpope-vim-ragtag
+	url = http://github.com/tpope/vim-ragtag.git
+[submodule ".vim/bundle/tpope-vim-rails"]
+	path = .vim/bundle/tpope-vim-rails
+	url = http://github.com/tpope/vim-rails.git
