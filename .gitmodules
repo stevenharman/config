@@ -1,0 +1,3 @@
+[submodule ".vim/bundle/tpope-vim-surround"]
+	path = .vim/bundle/tpope-vim-surround
+	url = http://github.com/tpope/vim-surround.git
