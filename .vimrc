@@ -13,7 +13,7 @@ runtime macros/matchit.vim        " Load the matchit plugin.
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 set showmatch                     " Show matching parens
-set completeopt=menu,preview 
+set completeopt=longest,menuone		" Use longest text of all matches, even if only one match
 
 set backspace=indent,eol,start    " Intuitive backspacing.
 
