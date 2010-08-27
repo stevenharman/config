@@ -30,6 +30,8 @@
   map <leader>tf :tabfirst<cr>
   map <leader>tl :tablast<cr>
   map <leader>tm :tabmove
+" NERDTree
+	map <leader>n :NERDTreeToggle<cr>
 
 " previous/next buffer (for going without tabs)
   nmap g[ :bp<cr>
