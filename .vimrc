@@ -50,7 +50,7 @@ set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp/,$TEMP/,.  " Keep swap files in one location
 
 " Tabs or spaces? Spaces!
-"set expandtab                    " Use spaces instead of tabs
+set expandtab                    " Use spaces instead of tabs
 set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
 set softtabstop=2
