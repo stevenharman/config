@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/vim-ruby"]
 	path = .vim/bundle/vim-ruby
 	url = http://github.com/vim-ruby/vim-ruby.git
+[submodule ".vim/bundle/raimond-delimitMate"]
+	path = .vim/bundle/raimond-delimitMate
+	url = http://github.com/Raimondi/delimitMate.git
