@@ -45,8 +45,8 @@
   nmap gp :lprev<cr>
 
 " shortcuts for frequenly used files
-  nmap gs :e db/schema.rb<cr>
-  nmap gr :e config/routes.rb<cr>
+"  nmap gs :e db/schema.rb<cr>
+"  nmap gr :e config/routes.rb<cr>
 
 " align pipe-separated tables for cucumber or textile with g| in visual mode
 	vmap g\| :Align \|<cr>
