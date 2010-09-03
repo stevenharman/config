@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'rake'
 require 'wirble'
 require 'win32console' if RUBY_PLATFORM =~ /(mswin|mingw|cygwin)32$/i
 
