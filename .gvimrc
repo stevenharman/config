@@ -1,5 +1,5 @@
 " Vim graphical configuration.
-  set guifont=Monaco:h18,Consolas:h12,Lucida_Console:h9
+  set guifont=Inconsolata:h18,Monaco:h18,Consolas:h12,Lucida_Console:h9
 	set antialias                     " MacVim: smooth fonts.
 	set encoding=utf-8                " Use UTF-8 everywhere.
 	set guioptions-=T                 " Hide toolbar.
