@@ -5,7 +5,7 @@
 	set guioptions-=T                 " Hide toolbar.
 	set guioptions=e
   set guioptions-=m
-  set lines=30 columns=100					" Window dimensions.
+  set lines=33 columns=100					" Window dimensions.
   if exists('+fuoptions')						" Fullscreen options for MacVim.
   	set fuoptions=maxvert,maxhorz,background:Normal
   endif
