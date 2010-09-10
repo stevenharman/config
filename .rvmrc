@@ -1,1 +1,5 @@
+# auto-install requested Ruby rather than showing warning.
 rvm_install_on_use_flag=1
+
+# switch to default/system Ruby when leaving a project directory.
+rvm_project_rvmrc_default=1
