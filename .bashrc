@@ -30,3 +30,7 @@ if [ "$OSTYPE" == "msys" ]; then
     start_agent;
   fi
 fi
+
+# This loads RVM into a shell session.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+

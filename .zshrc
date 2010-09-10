@@ -10,5 +10,6 @@ source ~/.zsh/set_options.zsh
 source ~/.zsh/completion.zsh
 source ~/.zsh/aliases.zsh
 
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+# This loads RVM into a shell session.
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
