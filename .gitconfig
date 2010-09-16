@@ -20,17 +20,18 @@
   untracked = cyan
 [merge]
   tool = p4merge
-  keepBackup = false
 [mergetool "p4merge"]
   cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
-  keepTemporaries = false
   trustExitCode = false
+[mergetool]
+  prompt = false
   keepBackup = false
 [diff]
   tool = p4diff
 [difftool "p4diff"]
-  prompt = false
   cmd = p4merge "$LOCAL" "$BASE"
+[difftool]
+  prompt = false
 [core]
   autocrlf = input
   legacyheaders = false
@@ -44,6 +45,7 @@
   st = status
   ch = cherry -v origin
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  mt = mergetool
   mine = log --author=Steven
   spull = !git svn fetch && git svn rebase
   spush = !git svn dcommit
