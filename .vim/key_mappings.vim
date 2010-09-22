@@ -21,17 +21,17 @@
   nmap gW :only<cr>
 
 " Tab mappings.
-  map <leader>tt :tabnew<cr>
-  map <leader>te :tabedit
-  map <leader>tc :tabclose<cr>
-  map <leader>to :tabonly<cr>
-  map <leader>tn :tabnext<cr>
-  map <leader>tp :tabprevious<cr>
-  map <leader>tf :tabfirst<cr>
-  map <leader>tl :tablast<cr>
-  map <leader>tm :tabmove
+  map <Leader>tt :tabnew<cr>
+  map <Leader>te :tabedit
+  map <Leader>tc :tabclose<cr>
+  map <Leader>to :tabonly<cr>
+  map <Leader>tn :tabnext<cr>
+  map <Leader>tp :tabprevious<cr>
+  map <Leader>tf :tabfirst<cr>
+  map <Leader>tl :tablast<cr>
+  map <Leader>tm :tabmove
 " NERDTree
-	map <leader>n :NERDTreeToggle<cr>
+	map <Leader>n :NERDTreeToggle<cr>
 
 " previous/next buffer (for going without tabs)
   nmap g[ :bp<cr>
@@ -43,6 +43,9 @@
   nmap ga :LAckAdd 
   nmap gn :lnext<cr>
   nmap gp :lprev<cr>
+
+" search for the word under the cursor
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 " shortcuts for frequenly used files
 "  nmap gs :e db/schema.rb<cr>
