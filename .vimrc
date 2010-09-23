@@ -15,7 +15,7 @@ set showmode                      " Display the mode you're in.
 set showmatch                     " Show matching parens
 set completeopt=longest,menuone		" Use longest text of all matches, even if only one match
 
-set backspace=indent,eol,start    " Intuitive backspacing.
+set backspace=indent,eol,start    " Intuitive backspacing in insert mode.
 
 set hidden                        " Handle multiple buffers better.
 

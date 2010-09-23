@@ -45,7 +45,9 @@
   nmap gp :lprev<cr>
 
 " search for the word under the cursor
-:nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+  nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+" remove search hilighting
+  nmap <silent> <Leader>h :silent :nohlsearch<CR>
 
 " shortcuts for frequenly used files
 "  nmap gs :e db/schema.rb<cr>
