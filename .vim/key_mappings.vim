@@ -49,6 +49,10 @@
 " remove search hilighting
   nmap <silent> <Leader>h :silent :nohlsearch<CR>
 
+" full blame for Git and Mercurial
+  vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR> 
+  vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+
 " shortcuts for frequenly used files
 "  nmap gs :e db/schema.rb<cr>
 "  nmap gr :e config/routes.rb<cr>
@@ -66,6 +70,9 @@
 " scroll up/down one line at a time
   nmap <Up> 
   nmap <Down> 
+" scroll up/down 3 lines at a time
+  nnoremap <C-y> 3<C-y>
+  nnoremap <C-e> 3<C-e>
 
 " scroll left/right
   nmap <Left> zh

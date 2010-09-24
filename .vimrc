@@ -13,6 +13,7 @@ runtime macros/matchit.vim        " Load the matchit plugin.
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 set showmatch                     " Show matching parens
+"set complete=.,t                  " Only use current file and ctags for complete
 set completeopt=longest,menuone		" Use longest text of all matches, even if only one match
 
 set backspace=indent,eol,start    " Intuitive backspacing in insert mode.
