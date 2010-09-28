@@ -44,8 +44,8 @@
   nmap gn :lnext<cr>
   nmap gp :lprev<cr>
 
-" search for the word under the cursor
-  nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+" search and replace the word under the cursor
+  nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 " remove search hilighting
   nmap <silent> <Leader>h :silent :nohlsearch<CR>
 
