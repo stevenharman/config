@@ -53,4 +53,4 @@
   user = stevenharman
   token = [GITHUB TOKEN HERE]
 [achievement]
-	upload = true
+	upload = false
