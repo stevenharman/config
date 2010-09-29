@@ -34,5 +34,5 @@ fi
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-export PATH="$PATH:~/code/git-achievements"
-alias git="git-achievements"
+#export PATH="$PATH:~/code/git-achievements"
+#alias git="git-achievements"
