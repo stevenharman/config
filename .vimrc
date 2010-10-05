@@ -29,6 +29,8 @@ set smartcase                     " But case-sensitive if expression contains a 
 
 set number                        " Show line numbers.
 set ruler                         " Show cursor position.
+" custom whitespace characters
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
 set autoread                      " Set to auto read when a file is changed from the outside
 
@@ -70,6 +72,9 @@ colorscheme ir_black
 
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+
+let g:localvimrc_ask = 0 " Don't ask before sourcing local vimrc files
+let g:localvimrc_sandbox = 0 " Don't source the found local vimrc files in a sandbox
 
 runtime plugin_config.vim
 runtime key_mappings.vim
