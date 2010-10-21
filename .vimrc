@@ -1,4 +1,4 @@
-" Basic Vim Config
+﻿" Basic Vim Config
 
 set nocompatible                  " Must come first because it changes other options.
 
