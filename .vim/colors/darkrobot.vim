@@ -56,7 +56,8 @@ hi LineNr   guifg=#B8B8B8 guibg=#373737
 hi ModeMsg guifg=#60FF5C gui=none
 hi MoreMsg guifg=#60FF5C gui=none
 hi Question guifg=#60FF5C gui=none
-hi NonText  guifg=#A6A6A6 guibg=#222222
+hi NonText  guifg=#303030
+hi SpecialKey  guifg=#303030
 hi Search	guibg=slategrey guifg=#FFDABB
 hi IncSearch	guifg=slategrey guibg=#FFDFB0
 hi StatusLine	guibg=#000000 guifg=#B8B8B8 gui=none
