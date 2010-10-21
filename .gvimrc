@@ -10,4 +10,4 @@
   	set fuoptions=maxvert,maxhorz,background:Normal
   endif
 	
-  colors twilight2									" Prettier colors than terminal mode.
+  colors darkrobot									" Prettier colors than terminal mode.
