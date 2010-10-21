@@ -49,6 +49,9 @@
 " remove search hilighting
   nmap <silent> <Leader>h :silent :nohlsearch<CR>
 
+" rapidly toggle `set list`
+  nmap <leader>l :set list!<CR>
+
 " full blame for Git and Mercurial
   vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR> 
   vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>

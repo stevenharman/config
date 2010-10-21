@@ -30,7 +30,7 @@ set smartcase                     " But case-sensitive if expression contains a 
 set number                        " Show line numbers.
 set ruler                         " Show cursor position.
 " custom whitespace characters
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set listchars=tab:▸\ ,eol:¬,trail:~,extends:>,precedes:<
 
 set autoread                      " Set to auto read when a file is changed from the outside
 
