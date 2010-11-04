@@ -15,6 +15,8 @@ alias testlog='tail -200 -f log/test.log'
 alias gvim='mvim -p'
 alias rebase='git fetch; git rebase origin/master'
 alias extip='curl icanhazip.com'
+alias gc='git commit -a'
+alias gcm='git commit -am'
 
 function gitdays {
   git log --author=Steven --reverse --since="$@ days ago" --pretty="format:%n%Cgreen%cd%n%n%s%n%b%n---------------------------------------------" 

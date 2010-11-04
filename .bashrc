@@ -2,6 +2,8 @@ alias ..="cd .."
 alias b="cd -"
 alias q="exit"
 alias r="rake"
+alias gc="git commit -a"
+alias gcm="git commit -am"
 
 function gitdays { 
     git log --author=Steven --reverse --since="$@ days ago" --pretty="format:%n%Cgreen%cd%n%n%s%n%b%n---------------------------------------------"
