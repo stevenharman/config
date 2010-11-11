@@ -70,6 +70,13 @@
 " open the source in a browser for distribution or copying as RTF
   nmap gH :OpenHtml<cr>
 
+" Bubble single lines (uses unimpaired.vim)
+  nmap <C-Up> [e
+  nmap <C-Down> ]e
+" Bubble multiple lines
+  vmap <C-Up> [egv
+  vmap <C-Down> ]egv
+
 " scroll up/down one line at a time
   nmap <Up> 
   nmap <Down> 
