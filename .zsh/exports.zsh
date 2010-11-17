@@ -1,4 +1,4 @@
-export PATH=$PATH:/usr/local/bin:/usr/local/mongodb/bin:/usr/local/git/bin:/opt/local/lib/mysql5/bin:/opt/local/lib/postgresql83/bin:/opt/local/bin:/opt/local/sbin:~/Library/bin:/usr/local/lib/jruby-1.3.1/bin
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:~/Library/bin:/usr/local/share/npm/bin:$PATH"
 export CDPATH=:~/code
 export RUBYOPT='rubygems -Itest'
 export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
@@ -8,3 +8,4 @@ export JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Home'
 export TERM=xterm-color
 export CLICOLOR=1
 export PGOPTIONS='-c client_min_messages=WARNING'
+export NODE_PATH="/usr/local/lib/node"
