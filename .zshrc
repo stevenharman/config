@@ -28,6 +28,9 @@ source ~/.zsh/exports.zsh
 # source ~/.zsh/completion.zsh
 source ~/.zsh/aliases.zsh
 
+# get around current directory as "~rvm_rvmrc_cwd" weirdness
+unsetopt auto_name_dirs
+
 # This loads RVM into a shell session.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
