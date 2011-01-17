@@ -27,6 +27,9 @@ set mouse=a                       " Have the mouse enabled all the time.
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 
+set cursorline                    " highlight current line
+hi CursorLine cterm=none ctermbg=black
+
 set number                        " Show line numbers.
 set ruler                         " Show cursor position.
 " custom whitespace characters

@@ -1,6 +1,9 @@
 " get out of insert mode with cmd-i
   imap <D-i> <Esc>
 
+" Seriously, it's not like :W is bound to anything anyway.
+  command! W :w
+
 " redo with U
   nmap U :redo<cr>
 
