@@ -23,6 +23,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 
 bindkey "^[" vi-cmd-mode
+bindkey '^R' history-incremental-search-backward
 
 source ~/.zsh/exports.zsh
 # source ~/.zsh/completion.zsh
