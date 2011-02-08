@@ -12,7 +12,7 @@ This file contains non-font/color settings (stuff like key-mappings, tabs/spaces
 			Window Layouts
 		Options
 			Environment
-				Keyboard Shortcuts
+				Keyboard
 			TextEditor
 
 The Keyboard Shortcuts are based off of the default Resharper 2.5 and IntelliJ IDEA settings. I've added/changed several shortcuts to lower the friction even further.
