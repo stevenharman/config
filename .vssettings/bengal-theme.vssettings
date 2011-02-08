@@ -12,8 +12,10 @@
 						<Items>
 							<Item Name="Plain Text" Foreground="0x00FFFFFF" Background="0x00000000" BoldFont="No"/>
 							<Item Name="Selected Text" Foreground="0x02000000" Background="0x00800000" BoldFont="No"/>
+							<Item Name="Inactive Selected Text" Foreground="0x02000000" Background="0x00A27E5B" BoldFont="No"/>
 							<Item Name="Indicator Margin" Foreground="0x02000000" Background="0x00F0F0F0" BoldFont="No"/>
 							<Item Name="Line Numbers" Foreground="0x00AF912B" Background="0x00000000" BoldFont="No"/>
+							<Item Name="Bookmark" Foreground="0x0100000B" Background="0x00F9D2BF" BoldFont="No"/>
 							<Item Name="Brace Matching (Rectangle)" Foreground="0x02000000" Background="0x00588479" BoldFont="No"/>
 							<Item Name="Code Snippet Dependent Field" Foreground="0x00800080" Background="0x02000000" BoldFont="No"/>
 							<Item Name="outlining.collapsehintadornment" Foreground="0x02000000" Background="0x002F2200" BoldFont="No"/>
@@ -32,6 +34,8 @@
 							<Item Name="Keyword" Foreground="0x003278CC" Background="0x02000000" BoldFont="No"/>
 							<Item Name="Preprocessor Keyword" Foreground="0x003248DA" Background="0x02000000" BoldFont="No"/>
 							<Item Name="ReSharper Current Line Highlight" Foreground="0x02000000" Background="0x00303030" BoldFont="No"/>
+							<Item Name="ReSharper Highlight" Foreground="0x02000000" Background="0x00EB970A" BoldFont="No"/>
+							<Item Name="ReSharper Navigation Highlight" Foreground="0x00FACE87" Background="0x007C5005" BoldFont="No"/>
 							<Item Name="Script Comment" Foreground="0x00808080" Background="0x02000000" BoldFont="No"/>
 							<Item Name="Script Keyword" Foreground="0x003278CC" Background="0x02000000" BoldFont="No"/>
 							<Item Name="Script String" Foreground="0x0050C2A5" Background="0x02000000" BoldFont="No"/>
@@ -41,6 +45,9 @@
 							<Item Name="User Types(Delegates)" Foreground="0x006DC6FF" Background="0x02000000" BoldFont="No"/>
 							<Item Name="User Types(Enums)" Foreground="0x006DC6FF" Background="0x02000000" BoldFont="No"/>
 							<Item Name="User Types(Value types)" Foreground="0x006DC6FF" Background="0x02000000" BoldFont="No"/>
+							<Item Name="vsvim_blockcaret" Foreground="0x00808080" Background="0x02000000" BoldFont="No"/>
+							<Item Name="vsvim_highlightsearch" Foreground="0x02000000" Background="0x0084450D" BoldFont="No"/>
+							<Item Name="vsvim_incrementalsearch" Foreground="0x02000000" Background="0x0000751B" BoldFont="No"/>
 							<Item Name="XAML Attribute" Foreground="0x00FFFFFF" Background="0x02000000" BoldFont="No"/>
 							<Item Name="XAML Attribute Quotes" Foreground="0x00FFFFFF" Background="0x02000000" BoldFont="No"/>
 							<Item Name="XAML Attribute Value" Foreground="0x0050C2A5" Background="0x02000000" BoldFont="No"/>
@@ -62,6 +69,9 @@
 							<Item Name="XML Name" Foreground="0x003278CC" Background="0x02000000" BoldFont="No"/>
 							<Item Name="XML Text" Foreground="0x00FFFFFF" Background="0x02000000" BoldFont="No"/>
 						</Items>
+					</Category>
+					<Category GUID="{C1614BB1-734F-4A31-BD42-5AE6275E16D2}" FontName="Consolas" FontSize="9" CharSet="1" FontIsDefault="No">
+						<Items/>
 					</Category>
 				</Categories>
 			</FontsAndColors>
