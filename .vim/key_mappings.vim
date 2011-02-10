@@ -23,9 +23,12 @@
 " close all other windows (in the current tab)
   nmap gW :only<cr>
 
+" Opens an edit command with the path of the currently edited file filled in
+  map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
 " Tab mappings.
   map <Leader>tt :tabnew<cr>
-  map <Leader>te :tabedit
+  map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
   map <Leader>tc :tabclose<cr>
   map <Leader>to :tabonly<cr>
   map <Leader>tn :tabnext<cr>
