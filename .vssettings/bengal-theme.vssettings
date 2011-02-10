@@ -8,11 +8,33 @@
 			<PropertyValue name="Version">2</PropertyValue>
 			<FontsAndColors Version="2.0">
 				<Categories>
+					<Category GUID="{00CCEE86-3140-4E06-A65A-A92665A40D6F}" FontIsDefault="Yes">
+						<Items>
+							<Item Name="Selected Text" Foreground="0x02000000" Background="0x02000000" BoldFont="No"/>
+						</Items>
+					</Category>
+					<Category GUID="{5C48B2CB-0366-4FBF-9786-0BB37E945687}" FontIsDefault="Yes">
+						<Items>
+							<Item Name="Selected Text" Foreground="0x02000000" Background="0x02000000" BoldFont="No"/>
+						</Items>
+					</Category>
+					<Category GUID="{6BB65C5A-2F31-4BDE-9F48-8A38DC0C63E7}" FontIsDefault="Yes">
+						<Items>
+							<Item Name="Selected Text" Foreground="0x02000000" Background="0x02000000" BoldFont="No"/>
+						</Items>
+					</Category>
+					<Category GUID="{9973EFDF-317D-431C-8BC1-5E88CBFD4F7F}" FontIsDefault="Yes">
+						<Items>
+							<Item Name="Plain Text" Foreground="0x0004FF04" Background="0x002F2200" BoldFont="No"/>
+							<Item Name="Selected Text" Foreground="0x02000000" Background="0x00CE6700" BoldFont="No"/>
+							<Item Name="Inactive Selected Text" Foreground="0x02000000" Background="0x00B79B80" BoldFont="No"/>
+						</Items>
+					</Category>
 					<Category GUID="{A27B4E24-A735-4D1D-B8E7-9716E1E3D8E0}" FontName="Consolas" FontSize="13" CharSet="0" FontIsDefault="No">
 						<Items>
 							<Item Name="Plain Text" Foreground="0x00FFFFFF" Background="0x00000000" BoldFont="No"/>
-							<Item Name="Selected Text" Foreground="0x02000000" Background="0x00800000" BoldFont="No"/>
 							<Item Name="Inactive Selected Text" Foreground="0x02000000" Background="0x00A27E5B" BoldFont="No"/>
+							<Item Name="Selected Text" Foreground="0x02000000" Background="0x00DD0000" BoldFont="No"/>
 							<Item Name="Indicator Margin" Foreground="0x02000000" Background="0x00F0F0F0" BoldFont="No"/>
 							<Item Name="Line Numbers" Foreground="0x00AF912B" Background="0x00000000" BoldFont="No"/>
 							<Item Name="Bookmark" Foreground="0x0100000B" Background="0x00F9D2BF" BoldFont="No"/>
@@ -72,6 +94,13 @@
 					</Category>
 					<Category GUID="{C1614BB1-734F-4A31-BD42-5AE6275E16D2}" FontName="Consolas" FontSize="9" CharSet="1" FontIsDefault="No">
 						<Items/>
+					</Category>
+					<Category GUID="{EE1BE240-4E81-4BEB-8EEA-54322B6B1BF5}" FontIsDefault="Yes">
+						<Items>
+							<Item Name="Plain Text" Foreground="0x0004FF04" Background="0x002F2200" BoldFont="No"/>
+							<Item Name="Selected Text" Foreground="0x02000000" Background="0x00CE6700" BoldFont="No"/>
+							<Item Name="Inactive Selected Text" Foreground="0x02000000" Background="0x00B79B80" BoldFont="No"/>
+						</Items>
 					</Category>
 				</Categories>
 			</FontsAndColors>
