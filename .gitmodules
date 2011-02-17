@@ -25,3 +25,6 @@
 [submodule ".vim/bundle/raimond-delimitMate"]
 	path = .vim/bundle/raimond-delimitMate
 	url = http://github.com/Raimondi/delimitMate.git
+[submodule ".vim/bundle/mileszs-ack"]
+	path = .vim/bundle/mileszs-ack
+	url = https://github.com/mileszs/ack.vim.git
