@@ -43,12 +43,13 @@
   nmap g[ :bp<cr>
   nmap g] :bn<cr>
 
-" ack for project-wide searching
-  nmap g/ :LAck 
-  nmap g* :LAck <C-R><C-W> 
-  nmap ga :LAckAdd 
-  nmap gn :lnext<cr>
-  nmap gp :lprev<cr>
+" ack for project-wide searching (TRAILING WHITESPACE IS INTENTIONAL)
+  nmap g/ :Ack! 
+  nmap g* :Ack! -w <C-R><C-W> 
+  nmap ga :AckAdd! 
+  nmap gn :cnext<cr>
+  nmap gp :cprev<cr>
+  nmap gq :ccl<cr>
 
 " search and replace the word under the cursor
   nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
