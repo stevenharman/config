@@ -27,6 +27,7 @@
   cnoremap %% <C-R>=expand("%:p:h").'/'<cr>
   map <Leader>e :edit %%
   map <Leader>v :view %%
+  map <leader>mv :call RenameFile()<cr>
 
 " Tab mappings.
   map <Leader>tt :tabnew<cr>
