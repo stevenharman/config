@@ -24,11 +24,13 @@
   nmap gW :only<cr>
 
 " Opens an edit command with the path of the currently edited file filled in
-  map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+  cnoremap %% <C-R>=expand("%:p:h").'/'<cr>
+  map <Leader>e :edit %%
+  map <Leader>v :view %%
 
 " Tab mappings.
   map <Leader>tt :tabnew<cr>
-  map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+  map <Leader>te :tabe %%
   map <Leader>tc :tabclose<cr>
   map <Leader>to :tabonly<cr>
   map <Leader>tn :tabnext<cr>
