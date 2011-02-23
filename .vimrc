@@ -28,7 +28,7 @@ set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 
 set cursorline                    " highlight current line
-hi CursorLine cterm=none ctermbg=black
+"hi CursorLine cterm=none ctermbg=black
 
 set number                        " Show line numbers.
 set ruler                         " Show cursor position.
@@ -67,7 +67,12 @@ set laststatus=2                  " Show the status line all the time
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 " terminal-compatible colorscheme
-colorscheme grb4
+" :set t_Co=256 " 256 colors
+if has("gui_running")
+  :color grb256
+else
+  :color grb4
+end
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
@@ -76,9 +81,15 @@ colorscheme grb4
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
-"autopen NERDTree mirror when creating new tabs, focus cursor in new document
-"autocmd TabEnter * NERDTreeMirror
-"autocmd TabEnter * wincmd l
+function! ShowColors()
+  let num = 255
+  while num >= 0
+    exec 'hi col_'.num.' ctermbg='.num.' ctermfg=white'
+    exec 'syn match col_'.num.' "ctermbg='.num.':...." containedIn=ALL'
+    call append(0, 'ctermbg='.num.':....')
+    let num = num - 1
+  endwhile
+endfunction
 
 let g:localvimrc_ask = 0 " Don't ask before sourcing local vimrc files
 let g:localvimrc_sandbox = 0 " Don't source the found local vimrc files in a sandbox

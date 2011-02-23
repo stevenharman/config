@@ -9,5 +9,4 @@
   if exists('+fuoptions')						" Fullscreen options for MacVim.
   	set fuoptions=maxvert,maxhorz,background:Normal
   endif
-	
-  colors darkrobot									" Prettier colors than terminal mode.
+
