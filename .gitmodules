@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/mileszs-ack"]
 	path = .vim/bundle/mileszs-ack
 	url = https://github.com/mileszs/ack.vim.git
+[submodule ".vim/bundle/vim-markdown-preview"]
+	path = .vim/bundle/vim-markdown-preview
+	url = https://github.com/robgleeson/vim-markdown-preview.git
