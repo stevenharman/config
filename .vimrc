@@ -62,6 +62,10 @@ set softtabstop=2                " how many columns to use when you hit 'tab' (g
 set expandtab                    " Use spaces instead of tabs
 set autoindent
 
+" sane split directions
+set splitright
+set splitbelow
+
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
