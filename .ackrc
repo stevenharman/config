@@ -1,7 +1,8 @@
 # == blank lines freak out ack on Windows? ==
 #
 --type-add=ruby=.haml,.rake,.rsel,.builder
---type-add=html=.html.erb,.html.haml
+--type-add=html=.html.erb,.html.haml,.html.tmpl,.spark
+--type-set=spark=.spark
 --type-add=js=.js.erb
 --type-add=css=.sass,.less
 --type-set=less=.less
