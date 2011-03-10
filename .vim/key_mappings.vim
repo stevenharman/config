@@ -12,13 +12,13 @@
   nmap <Leader>W :set nowrap<cr>
 
 " switch windows with g+movement
-  nmap gj j
-  nmap gk k
-  nmap gh h
-  nmap gl l
+  nmap gj <C-W>j
+  nmap gk <C-W>k
+  nmap gh <C-W>h
+  nmap gl <C-W>l
 
 " swap windows
-  nmap gS 
+  nmap gS <C-W><C-R>
 
 " close all other windows (in the current tab)
   nmap gW :only<cr>
@@ -88,11 +88,11 @@
   vmap <C-Down> ]egv
 
 " scroll up/down one line at a time
-  nmap <Up> 
-  nmap <Down> 
+  nmap <Up> <C-Y>
+  nmap <Down> <C-E>
 " scroll up/down 3 lines at a time
-  nnoremap <C-y> 3<C-y>
-  nnoremap <C-e> 3<C-e>
+  nnoremap <C-Y> 3<C-Y>
+  nnoremap <C-E> 3<C-E>
 
 " scroll left/right
   nmap <Left> zh
