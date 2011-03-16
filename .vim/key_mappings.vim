@@ -29,6 +29,10 @@
   map <Leader>v :view %%
   map <leader>mv :call RenameFile()<cr>
 
+" Remap tab key to do autocomletion or indentation depending on the context
+  inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+  inoremap <s-tab> <c-n>
+
 " Tab mappings.
   map <Leader>tt :tabnew<cr>
   map <Leader>te :tabe %%
