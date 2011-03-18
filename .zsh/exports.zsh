@@ -1,7 +1,7 @@
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:~/Library/bin:/usr/local/share/npm/bin:$PATH"
 export CDPATH=:~/code
 export RUBYOPT='rubygems -Itest'
-export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim"
+export EDITOR="vim"
 #export VISUAL="mvim -f"
 export GEM_OPEN_EDITOR="mvim"
 export JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Home'
