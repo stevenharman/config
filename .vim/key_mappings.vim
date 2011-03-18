@@ -53,7 +53,7 @@
 " ack for project-wide searching (TRAILING WHITESPACE IS INTENTIONAL)
   nmap g/ :Ack! 
   nmap g* :Ack! -w <C-R><C-W> 
-  nmap ga :AckAdd! 
+  nmap gA :AckAdd! 
   nmap gn :cnext<cr>
   nmap gp :cprev<cr>
   nmap gq :ccl<cr>
