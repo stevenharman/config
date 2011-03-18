@@ -82,7 +82,9 @@
   nmap gO O<esc>
 
 " open the source in a browser for distribution or copying as RTF
-  nmap gH :OpenHtml<cr>
+  nmap gH :OpenHtml<CR>
+" open Markdown preview
+  nmap gM :Mm<CR>
 
 " Bubble single lines (uses unimpaired.vim)
   nmap <C-Up> [e
