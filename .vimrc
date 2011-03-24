@@ -66,9 +66,15 @@ set autoindent
 set splitright
 set splitbelow
 
+" a more useful statusline
+function! FileEncodingAndBomb()
+  let enc = (&fenc=="" ? &enc : &fenc)
+  let bomb = ((exists("+bomb")) && &bomb) ? ",B" : ""
+  return '['.enc.bomb.']'
+endfunction
+
 set laststatus=2                  " Show the status line all the time
-" Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+set statusline=[%n]\ %<%.99f\ %{FileEncodingAndBomb()}\ %h%w%m%r%y\ %{fugitive#statusline()}%=%-16(\ %l,%c-%v\ %)%P
 
 " terminal-compatible colorscheme
 " :set t_Co=256 " 256 colors
