@@ -124,5 +124,4 @@ endfunction
 let g:localvimrc_ask = 0 " Don't ask before sourcing local vimrc files
 let g:localvimrc_sandbox = 0 " Don't source the found local vimrc files in a sandbox
 
-runtime plugin_config.vim
 runtime key_mappings.vim
