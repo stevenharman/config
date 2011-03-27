@@ -12,7 +12,7 @@
 	url = http://github.com/tsaleh/vim-tcomment.git
 [submodule ".vim/bundle/reinh-vim-makegreen"]
 	path = .vim/bundle/reinh-vim-makegreen
-	url = http://github.com/reinh/vim-makegreen.git
+	url = http://github.com/stevenharman/vim-makegreen.git
 [submodule ".vim/bundle/scrooloose-nerdtree"]
 	path = .vim/bundle/scrooloose-nerdtree
 	url = http://github.com/scrooloose/nerdtree.git
