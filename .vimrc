@@ -76,13 +76,9 @@ endfunction
 set laststatus=2                  " Show the status line all the time
 set statusline=[%n]\ %<%.99f\ %{FileEncodingAndBomb()}\ %h%w%m%r%y\ %{fugitive#statusline()}%=%-16(\ %l,%c-%v\ %)%P
 
-" terminal-compatible colorscheme
-" :set t_Co=256 " 256 colors
-if has("gui_running")
-  :color grb256
-else
-  :color grb4
-end
+" tired of shitty colors in old terminals. 
+:set t_Co=256 " 256 colors
+:color grb256
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
