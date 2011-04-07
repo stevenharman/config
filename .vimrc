@@ -78,7 +78,7 @@ set statusline=[%n]\ %<%.99f\ %{FileEncodingAndBomb()}\ %h%w%m%r%y\ %{fugitive#s
 
 " tired of shitty colors in old terminals. 
 :set t_Co=256 " 256 colors
-:color grb256
+:color molokai
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
