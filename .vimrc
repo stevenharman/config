@@ -74,7 +74,7 @@ function! FileEncodingAndBomb()
 endfunction
 
 set laststatus=2                  " Show the status line all the time
-set statusline=[%n]\ %<%.99f\ %{FileEncodingAndBomb()}\ %h%w%m%r%y\ %{fugitive#statusline()}%=%-16(\ %l,%c-%v\ %)%P
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%=%-16(\ %l,%c-%v\ %)%P
 
 " tired of shitty colors in old terminals. 
 :set t_Co=256 " 256 colors
