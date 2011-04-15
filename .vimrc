@@ -76,9 +76,13 @@ endfunction
 set laststatus=2                  " Show the status line all the time
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%=%-16(\ %l,%c-%v\ %)%P
 
-" tired of shitty colors in old terminals. 
-:set t_Co=256 " 256 colors
-:color molokai
+" let the terminal determine the colors to use
+if has("gui_running") || &t_Co >= 256
+  :color molokai
+else
+  set t_Co=16     " every terminal I use supports at least 16, right?
+  :color ir_dark  " a 16-color safe theme
+endif
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
