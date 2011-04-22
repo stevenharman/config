@@ -133,7 +133,7 @@ function! RunTests(filename)
   " Write the file and run tests for the given filename
   :w
   :silent !echo;echo;echo;echo;echo
-  exec ":!script/tests " . a:filename
+  exec ":!script/test " . a:filename
   " script/tests is a custom script based on https://gist.github.com/888666
 endfunction
 
