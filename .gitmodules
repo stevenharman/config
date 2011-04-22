@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/vim-slim"]
 	path = .vim/bundle/vim-slim
 	url = https://github.com/bbommarito/vim-slim.git
+[submodule ".vim/bundle/othree-html5-syntax"]
+	path = .vim/bundle/othree-html5-syntax
+	url = https://github.com/othree/html5-syntax.vim.git
