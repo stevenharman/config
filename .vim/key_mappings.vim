@@ -24,7 +24,7 @@
   nmap gW :only<cr>
 
 " Opens an edit command with the path of the currently edited file filled in
-  cnoremap %% <C-R>=expand("%:p:h").'/'<cr>
+  cnoremap %% <C-R>=expand("%:h").'/'<cr>
   map <Leader>e :edit %%
   map <Leader>v :view %%
   map <leader>mv :call RenameFile()<cr>
