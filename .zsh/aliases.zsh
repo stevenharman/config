@@ -2,6 +2,7 @@
 alias b='cd -'
 alias cls='clear'
 alias q='exit' 
+alias sr='screen -r'
 alias postgres_start='pg_ctl -D ~/.pgdata -l ~/.pgdata/psql.log start'
 alias postgres_stop='pg_ctl -D ~/.pgdata stop'
 alias restart='touch tmp/restart.txt'
