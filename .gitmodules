@@ -37,3 +37,6 @@
 [submodule ".vim/bundle/tpope-vim-haml"]
 	path = .vim/bundle/tpope-vim-haml
 	url = https://github.com/tpope/vim-haml.git
+[submodule ".vim/bundle/command-t"]
+	path = .vim/bundle/command-t
+	url = https://github.com/wincent/Command-T.git
