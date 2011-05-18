@@ -29,6 +29,22 @@
   map <Leader>v :view %%
   map <leader>mv :call RenameFile()<cr>
 
+" map keys to go to specific files
+  map <leader>gr :topleft :split config/routes.rb<cr> 
+  map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
+  map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
+  map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
+  map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
+  "map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+  map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
+  map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets<cr>
+  map <leader>gg :topleft 100 :split Gemfile<cr>
+  map <leader>gi :CommandTFlush<cr>\|:CommandT integration_spec<cr>
+
+  let g:CommandTCursorStartMap='<leader>f'
+  map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+  map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
+
 " Remap tab key to do autocomletion or indentation depending on the context
   inoremap <tab> <c-r>=InsertTabWrapper()<cr>
   inoremap <s-tab> <c-n>
@@ -103,10 +119,4 @@
 " scroll left/right
   nmap <Left> zh
   nmap <Right> zl
-
-" Fuzzy Finder - \t to launch; \b just for buffers; cmd-enter to open selected file in new tab
-  "nmap <Leader>t :FuzzyFinderTextMate<cr> 
-  "nmap <Leader>b :FuzzyFinderBuffer<cr> 
-  "nmap <Leader>f :ruby finder.rescan!<cr>
-  
 
