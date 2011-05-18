@@ -168,6 +168,14 @@ map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('spec')<cr>
 
+set winwidth=84
+" We have to have a winheight bigger than we want to set winminheight. But if
+" we set winheight to be huge before winminheight, the winminheight set will
+" fail.
+set winheight=5
+set winminheight=5
+set winheight=999
+
 let g:localvimrc_ask = 0 " Don't ask before sourcing local vimrc files
 let g:localvimrc_sandbox = 0 " Don't source the found local vimrc files in a sandbox
 
