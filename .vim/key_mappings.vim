@@ -45,6 +45,9 @@
   map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
   map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
 
+" Reopen the last buffer in the current window
+  nnoremap <leader><leader> <c-^>
+
 " Remap tab key to do autocomletion or indentation depending on the context
   inoremap <tab> <c-r>=InsertTabWrapper()<cr>
   inoremap <s-tab> <c-n>
