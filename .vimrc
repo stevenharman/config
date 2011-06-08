@@ -81,7 +81,7 @@ if has("gui_running") || &t_Co >= 256
   :color molokai
 else
   set t_Co=16     " every terminal I use supports at least 16, right?
-  :color ir_dark  " a 16-color safe theme
+  :color solarized  " a 16-color safe theme
 endif
 
 " Automatic fold settings for specific files. Uncomment to use.
