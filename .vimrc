@@ -133,8 +133,11 @@ function! RunTests(filename)
   " Write the file and run tests for the given filename
   :w
   :silent !echo;echo;echo;echo;echo
-  exec ":!script/test " . a:filename
-  " script/tests is a custom script based on https://gist.github.com/888666
+  if filereadable("script/test")
+    exec ":!script/test " . a:filename
+  else
+    exec ":!bundle exec rspec " . a:filename
+  end
 endfunction
 
 function! SetTestFile()
