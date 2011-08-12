@@ -7,9 +7,6 @@
 [submodule ".vim/bundle/tpope-vim-rails"]
 	path = .vim/bundle/tpope-vim-rails
 	url = http://github.com/tpope/vim-rails.git
-[submodule ".vim/bundle/tsaleh-vim-tcomment"]
-	path = .vim/bundle/tsaleh-vim-tcomment
-	url = http://github.com/tsaleh/vim-tcomment.git
 [submodule ".vim/bundle/scrooloose-nerdtree"]
 	path = .vim/bundle/scrooloose-nerdtree
 	url = http://github.com/scrooloose/nerdtree.git
