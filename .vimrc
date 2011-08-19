@@ -73,8 +73,98 @@ function! FileEncodingAndBomb()
   return '['.enc.bomb.']'
 endfunction
 
+"set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%=%-16(\ %l,%c-%v\ %)%P
+set statusline=[%n]     "current buffer number
+set statusline+=\ %f    "tail of the filename
+
+"display a warning if fileformat isnt unix
+set statusline+=%#warningmsg#
+set statusline+=%{&ff!='unix'?'['.&ff.']':''}
+set statusline+=%*
+
+"display a warning if file encoding isnt utf-8
+set statusline+=%#warningmsg#
+set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
+set statusline+=%*
+
+set statusline+=\ %h      "help file flag
+set statusline+=%w      "preview
+set statusline+=%y      "filetype
+set statusline+=%r      "read only flag
+set statusline+=%m      "modified flag
+"set statusline+=%{rvm#statusline()}
+set statusline+=\ %{fugitive#statusline()}
+
+"display a warning if &et is wrong, or we have mixed-indenting
+set statusline+=%#error#
+set statusline+=%{StatuslineTabWarning()}
+set statusline+=%*
+
+set statusline+=%{StatuslineTrailingSpaceWarning()}
+
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"display a warning if &paste is set
+set statusline+=%#error#
+set statusline+=%{&paste?'[paste]':''}
+set statusline+=%*
+
+set statusline+=%=      "left/right separator
+set statusline+=%{StatuslineCurrentHighlight()}\ \ "current highlight
+set statusline+=%c,     "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+set statusline+=\ %P    "percent through file
 set laststatus=2                  " Show the status line all the time
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%=%-16(\ %l,%c-%v\ %)%P
+
+"recalculate the trailing whitespace warning when idle, and after saving
+autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
+"return '[\s]' if trailing white space is detected
+"return '' otherwise
+function! StatuslineTrailingSpaceWarning()
+  if !exists("b:statusline_trailing_space_warning")
+    if search('\s\+$', 'nw') != 0
+      let b:statusline_trailing_space_warning = '[\s]'
+    else
+      let b:statusline_trailing_space_warning = ''
+    endif
+  endif
+  return b:statusline_trailing_space_warning
+endfunction
+
+"return the syntax highlight group under the cursor ''
+function! StatuslineCurrentHighlight()
+  let name = synIDattr(synID(line('.'),col('.'),1),'name')
+  if name == ''
+    return ''
+  else
+    return '[' . name . ']'
+  endif
+endfunction
+
+"recalculate the tab warning flag when idle and after writing
+autocmd cursorhold,bufwritepost * unlet! b:statusline_tab_warning
+
+"return '[&et]' if &et is set wrong
+"return '[mixed-indenting]' if spaces and tabs are used to indent
+"return an empty string if everything is fine
+function! StatuslineTabWarning()
+  if !exists("b:statusline_tab_warning")
+    let tabs = search('^\t', 'nw') != 0
+    let spaces = search('^ ', 'nw') != 0
+
+    if tabs && spaces
+      let b:statusline_tab_warning =  '[mixed-indenting]'
+    elseif (spaces && !&et) || (tabs && &et)
+      let b:statusline_tab_warning = '[&et]'
+    else
+      let b:statusline_tab_warning = ''
+    endif
+  endif
+  return b:statusline_tab_warning
+endfunction
+
 
 " let the terminal determine the colors to use
 if has("gui_running") || &t_Co >= 256
@@ -84,7 +174,12 @@ else
   :color solarized  " a 16-color safe theme
 endif
 
-" Automatic fold settings for specific files. Uncomment to use.
+set foldmethod=indent
+set foldnestmax=10      "deepest fold is 10 levels
+set foldlevel=1
+set nofoldenable        "dont fold by default
+
+" Automatic fold settings for specific files.
 " autocmd FileType ruby setlocal foldmethod=syntax
 " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
