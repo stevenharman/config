@@ -67,13 +67,6 @@ set splitright
 set splitbelow
 
 " a more useful statusline
-function! FileEncodingAndBomb()
-  let enc = (&fenc=="" ? &enc : &fenc)
-  let bomb = ((exists("+bomb")) && &bomb) ? ",B" : ""
-  return '['.enc.bomb.']'
-endfunction
-
-"set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%=%-16(\ %l,%c-%v\ %)%P
 set statusline=[%n]     "current buffer number
 set statusline+=\ %f    "tail of the filename
 
@@ -100,7 +93,9 @@ set statusline+=%#error#
 set statusline+=%{StatuslineTabWarning()}
 set statusline+=%*
 
+set statusline+=%#error#
 set statusline+=%{StatuslineTrailingSpaceWarning()}
+set statusline+=%*
 
 "set statusline+=%#warningmsg#
 "set statusline+=%{SyntasticStatuslineFlag()}
@@ -163,6 +158,12 @@ function! StatuslineTabWarning()
     endif
   endif
   return b:statusline_tab_warning
+endfunction
+
+function! FileEncodingAndBomb()
+  let enc = (&fenc=="" ? &enc : &fenc)
+  let bomb = ((exists("+bomb")) && &bomb) ? ",B" : ""
+  return '['.enc.bomb.']'
 endfunction
 
 
