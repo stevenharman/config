@@ -19,7 +19,7 @@ Bundle 'bbommarito/vim-slim'
 Bundle 'mileszs/ack.vim'
 Bundle 'othree/html5.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-bundler'
+"Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-haml'
@@ -213,6 +213,7 @@ set foldlevel=1
 set nofoldenable        "dont fold by default
 
 " Automatic fold settings for specific files.
+let ruby_fold=1
 " autocmd FileType ruby setlocal foldmethod=syntax
 " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
