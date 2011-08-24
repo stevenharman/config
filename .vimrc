@@ -24,9 +24,12 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
 " vim-scripts repos
+Bundle 'localvimrc'
+Bundle 'taglist'
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
