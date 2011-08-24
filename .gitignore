@@ -1,7 +1,3 @@
 .DS_Store
 tmp/
-
-.vim/bundle/vim-fugitive/doc/tags
-.vim/bundle/vim-git/doc/tags
-.vim/bundle/vim-taglist/doc/tags
-.vim/bundle/vim-unimpaired/doc/tags
+.vim/bundle

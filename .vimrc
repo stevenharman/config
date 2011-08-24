@@ -29,7 +29,10 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
 " vim-scripts repos
 Bundle 'localvimrc'
-Bundle 'taglist'
+Bundle 'taglist.vim'
+" non github repos
+" vim-less - for LESS.js/dotLESS
+Bundle 'git://gist.github.com/369178.git'
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
