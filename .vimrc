@@ -5,6 +5,29 @@ set nocompatible                  " Must come first because it changes other opt
 silent! call pathogen#runtime_append_all_bundles()
 silent! call pathogen#helptags()
 
+filetype plugin off               " Trun off for Vundler. Turn it back on below.
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle. Required!
+Bundle 'gmarik/vundle'
+
+" original repos on github
+Bundle 'Raimondi/delimitMate'
+Bundle 'bbommarito/vim-slim'
+Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'wincent/Command-T'
+" vim-scripts repos
+
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
