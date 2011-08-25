@@ -30,7 +30,7 @@
   map <leader>mv :call RenameFile()<cr>
 
 " map keys to go to specific files
-  map <leader>gr :topleft :split config/routes.rb<cr> 
+  map <leader>gr :topleft :split config/routes.rb<cr>
   map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
   map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
   map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
@@ -70,9 +70,9 @@
   nmap g] :bn<cr>
 
 " ack for project-wide searching (TRAILING WHITESPACE IS INTENTIONAL)
-  nmap g/ :Ack! 
-  nmap g* :Ack! -w <C-R><C-W> 
-  nmap gA :AckAdd! 
+  nmap g/ :Ack!
+  nmap g* :Ack! -w <C-R><C-W>
+  nmap gA :AckAdd!
   nmap gn :cnext<cr>
   nmap gp :cprev<cr>
   nmap gq :ccl<cr>
@@ -84,9 +84,11 @@
 
 " rapidly toggle `set list`
   nmap <leader>l :set list!<CR>
+" clear up trailing white space
+  nmap <leader>s :%s/\s\+$//<CR>
 
 " full blame for Git and Mercurial
-  vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR> 
+  vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
   vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
 " shortcuts for frequenly used files
