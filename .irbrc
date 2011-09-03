@@ -14,8 +14,6 @@ if defined? Wirble
 end
 Hirb.enable if defined? Hirb
 
-alias q exit
-
 IRB.conf[:PROMPT_MODE] = :SIMPLE
 IRB.conf[:AUTO_INDENT] = true
 
@@ -36,10 +34,5 @@ class Object
   end
 end
 
-######### RAILS ONLY
-
-if $0 == 'irb' && ENV['RAILS_ENV']
-  require 'logger'
-  Object.const_set(:RAILS_DEFAULT_LOGGER, Logger.new(STDOUT))
-end
-
+# log ActiveRecord (Rails 3)
+ActiveRecord::Base.logger = Logger.new(STDOUT) if defined? Rails::Console
