@@ -1,10 +1,18 @@
 require 'rubygems'
 require 'rake'
-require 'wirble'
 require 'win32console' if RUBY_PLATFORM =~ /(mswin|mingw|cygwin)32$/i
+begin
+  require 'wirble'
+  require 'hirb'
+rescue LoadError
+  # no pretty console output :(
+end
 
-Wirble.init
-Wirble.colorize
+if defined? Wirble
+  Wirble.init
+  Wirble.colorize
+end
+Hirb.enable if defined? Hirb
 
 alias q exit
 
@@ -13,7 +21,7 @@ IRB.conf[:AUTO_INDENT] = true
 
 IRB.conf[:IRB_RC] = proc do |conf|
   name = "irb: "
-  name = "rails: " if $0 == 'irb' && ENV['RAILS_ENV'] 
+  name = "rails: " if $0 == 'irb' && ENV['RAILS_ENV']
   leader = " " * name.length
   conf.prompt_i = "#{name}"
   conf.prompt_s = leader + '\-" '
@@ -28,10 +36,9 @@ class Object
   end
 end
 
-
 ######### RAILS ONLY
 
-if $0 == 'irb' && ENV['RAILS_ENV'] 
+if $0 == 'irb' && ENV['RAILS_ENV']
   require 'logger'
   Object.const_set(:RAILS_DEFAULT_LOGGER, Logger.new(STDOUT))
 end
