@@ -2,9 +2,6 @@
 
 set nocompatible                  " Must come first because it changes other options.
 
-silent! call pathogen#runtime_append_all_bundles()
-silent! call pathogen#helptags()
-
 filetype plugin off               " Trun off for Vundler. Turn it back on below.
 
 set rtp+=~/.vim/bundle/vundle/
