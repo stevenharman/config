@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
 " original repos on github
 Bundle 'Raimondi/delimitMate'
 Bundle 'bbommarito/vim-slim'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'mileszs/ack.vim'
 Bundle 'othree/html5.vim'
 Bundle 'scrooloose/nerdtree'
