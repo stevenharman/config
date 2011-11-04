@@ -297,6 +297,7 @@ endfunction
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('spec')<cr>
+map <leader>A :call RunTests('')<cr>
 
 set winwidth=84
 " We have to have a winheight bigger than we want to set winminheight. But if
