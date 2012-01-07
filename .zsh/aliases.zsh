@@ -1,12 +1,12 @@
 # My aliases
 alias b='cd -'
 alias cls='clear'
-alias q='exit' 
 alias sr='screen -r'
 alias pg_start='pg_ctl -D ~/.pgdata -l ~/.pgdata/psql.log start'
 alias pg_stop='pg_ctl -D ~/.pgdata stop -s -m fast'
 alias restart='touch tmp/restart.txt'
 alias ajaxrdoc="rdoc --fmt ajax --exclude '.*generator.*' --exclude '.*test.*' --exclude '.*spec.*'"
+alias spnr='rspec spec_no_rails'
 alias devlog='tail -200 -f log/development.log'
 alias testlog='tail -200 -f log/test.log'
 alias gvim='mvim -p'
