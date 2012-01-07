@@ -13,7 +13,7 @@ alias gvim='mvim -p'
 alias redis_start='redis-server /usr/local/etc/redis.conf'
 
 function gitdays {
-  git log --author=Steven --reverse --since="$@ days ago" --pretty="format:%n%Cgreen%cd%n%n%s%n%b%n---------------------------------------------" 
+  git log --author=Steven --reverse --since="$@ days ago" --pretty="format:%n%Cgreen%cd%n%n%s%n%b%n---------------------------------------------"
 }
 
 # accepts a css file and compacts the delcarations to one line
