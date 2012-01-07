@@ -10,7 +10,7 @@ alias spnr='rspec spec_no_rails'
 alias devlog='tail -200 -f log/development.log'
 alias testlog='tail -200 -f log/test.log'
 alias gvim='mvim -p'
-alias extip='curl icanhazip.com'
+alias redis_start='redis-server /usr/local/etc/redis.conf'
 
 function gitdays {
   git log --author=Steven --reverse --since="$@ days ago" --pretty="format:%n%Cgreen%cd%n%n%s%n%b%n---------------------------------------------" 
