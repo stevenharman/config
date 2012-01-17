@@ -1,6 +1,5 @@
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:~/Library/bin:$PATH"
 export CDPATH=:~/code
-export RUBYOPT='rubygems -Itest'
 export EDITOR="vim"
 #export VISUAL="mvim -f"
 export GEM_OPEN_EDITOR="mvim"
