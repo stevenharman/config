@@ -28,6 +28,8 @@ bindkey '^R' history-incremental-search-backward
 source ~/.zsh/exports.zsh
 # source ~/.zsh/completion.zsh
 source ~/.zsh/aliases.zsh
+# source local exports
+[[ -r ~/.zlocal ]] && source ~/.zlocal
 
 # get around current directory as "~rvm_rvmrc_cwd" weirdness
 unsetopt auto_name_dirs
