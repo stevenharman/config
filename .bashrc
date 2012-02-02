@@ -5,13 +5,13 @@ alias r="rake"
 alias gc="git commit -a"
 alias gcm="git commit -am"
 
-function gitdays { 
+function gitdays {
     git log --author=Steven --reverse --since="$@ days ago" --pretty="format:%n%Cgreen%cd%n%n%s%n%b%n---------------------------------------------"
 }
 
 if [ "$OSTYPE" == "msys" ]; then
   SSH_ENV="$HOME/.ssh/environment"
-  
+
   function start_agent {
     echo "Initializing new SSH agent..."
     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
@@ -20,7 +20,7 @@ if [ "$OSTYPE" == "msys" ]; then
     . "${SSH_ENV}" > /dev/null
     /usr/bin/ssh-add;
   }
-  
+
   # Source SSH settings, if applicable
   if [ -f "${SSH_ENV}" ]; then
     . "${SSH_ENV}" > /dev/null

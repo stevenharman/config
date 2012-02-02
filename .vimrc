@@ -308,6 +308,8 @@ set winheight=5
 set winminheight=5
 set winheight=999
 
+set shell=bash
+
 let g:localvimrc_ask = 0 " Don't ask before sourcing local vimrc files
 let g:localvimrc_sandbox = 0 " Don't source the found local vimrc files in a sandbox
 
