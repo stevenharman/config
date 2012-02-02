@@ -5,8 +5,9 @@
 --type-set=spark=.spark
 --type-set=slim=.slim
 --type-add=js=.js.erb
---type-add=css=.sass,.less
+--type-add=css=.scss,.sass,.less
 --type-set=less=.less
+--type-set=sass=.scss,sass
 --type-set=cucumber=.feature
 #
 --ignore-dir=vendor
