@@ -325,4 +325,8 @@ set shell=bash
 let g:localvimrc_ask = 0 " Don't ask before sourcing local vimrc files
 let g:localvimrc_sandbox = 0 " Don't source the found local vimrc files in a sandbox
 
+" Prevent Vim from clobbering the scrollback buffer. See
+" http://www.shallowsky.com/linux/noaltscreen.html
+set t_ti= t_te=
+
 runtime key_mappings.vim
