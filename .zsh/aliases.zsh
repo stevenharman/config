@@ -4,6 +4,7 @@ alias cls='clear'
 alias sr='screen -r'
 alias restart='touch tmp/restart.txt'
 alias ajaxrdoc="rdoc --fmt ajax --exclude '.*generator.*' --exclude '.*test.*' --exclude '.*spec.*'"
+alias be='bundle exec'
 alias spnr='rspec spec_no_rails'
 alias devlog='tail -200 -f log/development.log'
 alias testlog='tail -200 -f log/test.log'
