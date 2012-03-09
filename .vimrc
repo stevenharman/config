@@ -314,7 +314,7 @@ map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Running tests
+" RUNNING TESTS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! RunTests(filename)
   " Write the file and run tests for the given filename
@@ -366,7 +366,7 @@ map <leader>a :call RunTests('spec')<cr>
 map <leader>A :call RunTests('')<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" localvimrc plugin
+" localvimrc PLUGIN
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:localvimrc_ask = 0 " Don't ask before sourcing local vimrc files
 let g:localvimrc_sandbox = 0 " Don't source the found local vimrc files in a sandbox
