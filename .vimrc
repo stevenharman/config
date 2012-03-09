@@ -1,13 +1,21 @@
-﻿" Basic Vim Config
+﻿" This is Steven Harman's .vimrc file.
+" What you'll find here is a mix of ideas I've stolen from others and my own
+" preference for how it should be done. Good luck!
+" vim:set ts=2 sts=2 sw=2 expandtab:
 
-set nocompatible                  " Must come first because it changes other options.
+" Must come first because it changes other options.
+set nocompatible
 
-filetype plugin off               " Trun off for Vundler. Turn it back on below.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VUNDLE FOR MANAGING PLUGINS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn off for Vundle. Turn it back on below.
+filetype plugin off
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" let Vundle manage Vundle. Required!
+" manage Vundle with Vundle. BOOM!
 Bundle 'gmarik/vundle'
 
 " original repos on github
@@ -35,69 +43,108 @@ Bundle 'taglist.vim'
 " vim-less - for LESS.js/dotLESS
 Bundle 'git://gist.github.com/369178.git'
 
-syntax enable                     " Turn on syntax highlighting.
-filetype plugin indent on         " Turn on file type detection.
-
-runtime macros/matchit.vim        " Load the matchit plugin.
-
-set showcmd                       " Display incomplete commands.
-set showmode                      " Display the mode you're in.
-set showmatch                     " Show matching parens
-"set complete=.,t                  " Only use current file and ctags for complete
-set completeopt=longest,menuone		" Use longest text of all matches, even if only one match
-
-set backspace=indent,eol,start    " Intuitive backspacing in insert mode.
-
-set hidden                        " Handle multiple buffers better.
-
-set wildmenu                      " Enhanced command line completion.
-set wildmode=list:longest         " Complete files like a shell.
-set mouse=a                       " Have the mouse enabled all the time.
-
-set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
-
-set cursorline                    " highlight current line
-"hi CursorLine cterm=none ctermbg=black
-
-set number                        " Show line numbers.
-set ruler                         " Show cursor position.
-" custom whitespace characters
-set listchars=tab:▸\ ,eol:¬,trail:~,extends:>,precedes:<
-
-set autoread                      " Set to auto read when a file is changed from the outside
-
-set incsearch                     " Highlight matches as you type.
-set hlsearch                      " Highlight matches.
-
-set gdefault                      " assume the /g flag on :s substitutions to replace all matches in a line:
-
-set wrap                          " Turn on line wrapping.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BASIC EDITING CONFIGURATION
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" allow unsaved background buffers and remember marks/undo for them
+set hidden
+" remember more commands and search history
+set history=10000
+set expandtab
+" Tabs or spaces? Spaces!
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set autoindent
+set showmatch
+set incsearch
+set hlsearch
+" Case-insensitive searching
+set ignorecase
+" Unless expression contains a capital letter.
+set smartcase
+set mouse=a
+set ruler
+set number
+" highlight current line
+set cursorline
+set title
+set switchbuf=useopen
+set winwidth=79
+" We have to have a winheight bigger than we want to set winminheight. But if
+" we set winheight to be huge before winminheight, the winminheight set will
+" fail.
+set winheight=5
+set winminheight=5
+set winheight=999
+set shell=bash
+" Prevent Vim from clobbering the scrollback buffer. See
+" http://www.shallowsky.com/linux/noaltscreen.html
+set t_ti= t_te=
 set scrolloff=3                   " Show 3 lines of context around the cursor.
-
-set title                         " Set the terminal's title
-
-"let g:syntastic_enable_signs=1    "mark syntax errors with :signs
-
-set visualbell                    " No beeping.
-
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
-set directory=./tmp,$HOME/.vim/tmp/,$TEMP/,.  " Keep swap files in one location
-set tags=./tmp/tags,./tags,tags
-
-" Tabs or spaces? Spaces!
-set tabstop=2                    " Global tab width.
-set shiftwidth=2                 " how many columns are indented with reindent operations
-set softtabstop=2                " how many columns to use when you hit 'tab' (generally keep equal to shiftwidth)
-set expandtab                    " Use spaces instead of tabs
-set autoindent
-
+set backupdir=./tmp,$HOME/.vim/tmp/,$TEMP/,.
+set directory=./tmp,$HOME/.vim/tmp/,$TEMP/,.
+set tags=./tmp/tags,./tags,./.tags,tags,TAGS
+set backspace=indent,eol,start    " Intuitive backspacing in insert mode.
+" custom whitespace characters
+set listchars=tab:▸\ ,eol:¬,trail:~,extends:>,precedes:<
+set showcmd                       " Display incomplete commands.
 " sane split directions
 set splitright
 set splitbelow
+set autoread                      " Set to auto read when a file is changed from the outside
+set visualbell                    " No beeping.
 
-" a more useful statusline
+syntax enable                     " Turn on syntax highlighting.
+
+filetype plugin indent on         " Turn on file type detection.
+set wildmode=list:longest
+" make tab completion for files/buffers act like bash
+set wildmenu
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CUSTOM AUTOCMDS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup vimrcEx
+  " Clear all autocmds in the group
+  autocmd!
+  autocmd FileType text setlocal textwidth=78
+  " Jump to last cursor position unless it's invalid or in an event handler
+  autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal g`\"" |
+        \ endif
+
+  "for ruby, autoindent with two spaces, always expand tabs
+  autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
+  autocmd FileType python set sw=4 sts=4 et
+
+  "autocmd! BufRead,BufNewFile *.sass setfiletype sass
+
+  autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:&gt;
+  autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:&gt;
+
+  " Indent p tags
+  autocmd FileType html,eruby if g:html_indent_tags !~ '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | endif
+augroup END
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COLORS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" let the terminal determine the colors to use
+set background=dark
+if has("gui_running") || &t_Co >= 256
+  :color molokai
+else
+  set t_Co=16     " every terminal I use supports at least 16, right?
+  :color solarized  " a 16-color safe theme
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" STATUS LINE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set statusline=[%n]     "current buffer number
 set statusline+=\ %f    "tail of the filename
 
@@ -142,10 +189,12 @@ set statusline+=%{StatuslineCurrentHighlight()}\ \ "current highlight
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
-set laststatus=2                  " Show the status line all the time
+set laststatus=2        " Show the status line all the time
+"hi CursorLine cterm=none ctermbg=black
 
 "recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
+
 "return '[\s]' if trailing white space is detected
 "return '' otherwise
 function! StatuslineTrailingSpaceWarning()
@@ -198,27 +247,31 @@ function! FileEncodingAndBomb()
 endfunction
 
 
-" let the terminal determine the colors to use
-if has("gui_running") || &t_Co >= 256
-  :color molokai
-else
-  set t_Co=16     " every terminal I use supports at least 16, right?
-  :color solarized  " a 16-color safe theme
-endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY
+" Indent if we're at the beginning of a line. Else, do completion.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
+endfunction
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
 
-set foldmethod=indent
-set foldnestmax=10      "deepest fold is 10 levels
-set foldlevel=1
-set nofoldenable        "dont fold by default
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OPEN FILES IN DIRECTORY OF CURRENT FILE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
 
-" Automatic fold settings for specific files.
-let ruby_fold=1
-" autocmd FileType ruby setlocal foldmethod=syntax
-" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
-
-" For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
-autocmd BufNewFile,BufRead *_spec.rb compiler rspec
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RENAME CURRENT FILE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! RenameFile()
   let old_name = expand('%')
   let new_name = input('New file name: ', expand('%'))
@@ -228,43 +281,55 @@ function! RenameFile()
     redraw!
   endif
 endfunction
+map <leader>n :call RenameFile()<cr>
 
-function! ShowColors()
-  let num = 255
-  while num >= 0
-    exec 'hi col_'.num.' ctermbg='.num.' ctermfg=white'
-    exec 'syn match col_'.num.' "ctermbg='.num.':...." containedIn=ALL'
-    call append(0, 'ctermbg='.num.':....')
-    let num = num - 1
-  endwhile
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PROMOTE VARIABLE TO RSPEC LET
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! PromoteToLet()
+  :normal! dd
+  :normal! P
+  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  :normal ==
 endfunction
+:command! PromoteToLet :call PromoteToLet()
+:map <leader>p :PromoteToLet<cr>
 
-" do autocompletion or indentation depending on the context
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
-    return "\<tab>"
-  else
-    return "\<c-p>"
-  endif
-endfunction
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPS TO JUMP TO SPECIFIC COMMAND-T TARGETS AND FILES
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>gr :topleft :split config/routes.rb<cr>
+map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
+map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
+map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
+map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
+map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
+map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets<cr>
+map <leader>gg :topleft 100 :split Gemfile<cr>
+map <leader>gt :CommandTFlush<cr>\|:CommandTTag<cr>
+map <leader>gi :CommandTFlush<cr>\|:CommandT integration_spec<cr>
+let g:CommandTCursorStartMap='<leader>f'
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Running tests
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" vim-makegreen binds itself to ,t unless something else is bound to its
-" function.
-map <leader>\dontstealmymapsmakegreen :w\|:call MakeGreen('spec')<cr>
-
 function! RunTests(filename)
   " Write the file and run tests for the given filename
   :w
-  :silent !echo;echo;echo;echo;echo
-  if filereadable("script/test")
-    exec ":!script/test " . a:filename
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  if match(a:filename, '\.feature$') != -1
+    exec ":!script/features " . a:filename
   else
-    exec ":!bundle exec rspec " . a:filename
+    if filereadable("script/test")
+      exec ":!script/test " . a:filename
+    elseif filereadable("Gemfile")
+      exec ":!bundle exec rspec --color " . a:filename
+    else
+      exec ":!rspec --color " . a:filename
+    end
   end
 endfunction
 
@@ -281,8 +346,8 @@ function! RunTestFile(...)
   endif
 
   " Run the tests for the previously-marked file.
-  let in_spec_file = match(expand("%"), '_spec.rb$') != -1
-  if in_spec_file
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+  if in_test_file
     call SetTestFile()
   elseif !exists("t:smh_test_file")
     return
@@ -292,7 +357,7 @@ endfunction
 
 function! RunNearestTest()
   let spec_line_number = line('.')
-  call RunTestFile(":" . spec_line_number)
+  call RunTestFile(":" . spec_line_number . " -b")
 endfunction
 
 map <leader>t :call RunTestFile()<cr>
@@ -300,33 +365,11 @@ map <leader>T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('spec')<cr>
 map <leader>A :call RunTests('')<cr>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" localvimrc plugin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PROMOTE VARIABLE TO RSPEC LET
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! PromoteToLet()
-  :normal! dd
-  :normal! P
-  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
-  :normal ==
-endfunction
-:command! PromoteToLet :call PromoteToLet()
-:map <leader>p :PromoteToLet<cr>
-
-set winwidth=84
-" We have to have a winheight bigger than we want to set winminheight. But if
-" we set winheight to be huge before winminheight, the winminheight set will
-" fail.
-set winheight=5
-set winminheight=5
-set winheight=999
-
-set shell=bash
-
 let g:localvimrc_ask = 0 " Don't ask before sourcing local vimrc files
 let g:localvimrc_sandbox = 0 " Don't source the found local vimrc files in a sandbox
 
-" Prevent Vim from clobbering the scrollback buffer. See
-" http://www.shallowsky.com/linux/noaltscreen.html
-set t_ti= t_te=
-
+runtime macros/matchit.vim
 runtime key_mappings.vim

@@ -1,125 +1,99 @@
 " get out of insert mode with cmd-i
-  imap <D-i> <Esc>
+imap <D-i> <Esc>
 
 " Seriously, it's not like :W is bound to anything anyway.
-  command! W :w
+command! W :w
 
 " redo with U
-  nmap U :redo<cr>
+nmap U :redo<cr>
 
 " easy wrap toggling
-  nmap <Leader>w :set wrap<cr>
-  nmap <Leader>W :set nowrap<cr>
+nmap <Leader>w :set wrap<cr>
+nmap <Leader>W :set nowrap<cr>
 
 " switch windows with g+movement
-  nmap gj <C-W>j
-  nmap gk <C-W>k
-  nmap gh <C-W>h
-  nmap gl <C-W>l
+nmap gj <C-W>j
+nmap gk <C-W>k
+nmap gh <C-W>h
+nmap gl <C-W>l
 
 " swap windows
-  nmap gS <C-W><C-R>
+nmap gS <C-W><C-R>
 
 " close all other windows (in the current tab)
-  nmap gW :only<cr>
-
-" Opens an edit command with the path of the currently edited file filled in
-  cnoremap %% <C-R>=expand("%:h").'/'<cr>
-  map <Leader>e :edit %%
-  map <Leader>v :view %%
-  map <leader>mv :call RenameFile()<cr>
-
-" map keys to go to specific files
-  map <leader>gr :topleft :split config/routes.rb<cr>
-  map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-  map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-  map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-  map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-  map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-  map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
-  map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets<cr>
-  map <leader>gg :topleft 100 :split Gemfile<cr>
-  map <leader>gi :CommandTFlush<cr>\|:CommandT integration_spec<cr>
-
-  let g:CommandTCursorStartMap='<leader>f'
-  map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-  map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
+nmap gW :only<cr>
 
 " Reopen the last buffer in the current window
-  nnoremap <leader><leader> <c-^>
-
-" Remap tab key to do autocomletion or indentation depending on the context
-  inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-  inoremap <s-tab> <c-n>
+nnoremap <leader><leader> <c-^>
 
 " Tab mappings.
-  map <Leader>tt :tabnew<cr>
-  map <Leader>te :tabe %%
-  map <Leader>tc :tabclose<cr>
-  map <Leader>to :tabonly<cr>
-  map <Leader>tn :tabnext<cr>
-  map <Leader>tp :tabprevious<cr>
-  map <Leader>tf :tabfirst<cr>
-  map <Leader>tl :tablast<cr>
-  map <Leader>tm :tabmove
+map <Leader>tt :tabnew<cr>
+map <Leader>te :tabe %%
+map <Leader>tc :tabclose<cr>
+map <Leader>to :tabonly<cr>
+map <Leader>tn :tabnext<cr>
+map <Leader>tp :tabprevious<cr>
+map <Leader>tf :tabfirst<cr>
+map <Leader>tl :tablast<cr>
+map <Leader>tm :tabmove
 " NERDTree
-	map <Leader>n :NERDTreeToggle<cr>
+map <Leader>n :NERDTreeToggle<cr>
 
 " previous/next buffer (for going without tabs)
-  nmap g[ :bp<cr>
-  nmap g] :bn<cr>
+nmap g[ :bp<cr>
+nmap g] :bn<cr>
 
 " ack for project-wide searching (TRAILING WHITESPACE IS INTENTIONAL)
-  nmap g/ :Ack!
-  nmap g* :Ack! -w <C-R><C-W>
-  nmap gA :AckAdd!
-  nmap gn :cnext<cr>
-  nmap gp :cprev<cr>
-  nmap gq :ccl<cr>
+nmap g/ :Ack!
+nmap g* :Ack! -w <C-R><C-W>
+nmap gA :AckAdd!
+nmap gn :cnext<cr>
+nmap gp :cprev<cr>
+nmap gq :ccl<cr>
 
 " search and replace the word under the cursor
-  nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
+nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
 " remove search hilighting
-  nmap <silent> <Leader>h :silent :nohlsearch<CR>
+nmap <silent> <Leader>h :silent :nohlsearch<CR>
 
 " rapidly toggle `set list`
-  nmap <leader>l :set list!<CR>
+nmap <leader>l :set list!<CR>
 " clear up trailing white space
-  nmap <leader>s :%s/\s\+$//<CR>
+nmap <leader>s :%s/\s\+$//<CR>
 
 " full blame for Git and Mercurial
-  vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-  vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
 " shortcuts for frequenly used files
 "  nmap gs :e db/schema.rb<cr>
 "  nmap gr :e config/routes.rb<cr>
 
 " align pipe-separated tables for cucumber or textile with g| in visual mode
-	vmap g\| :Align \|<cr>
+vmap g\| :Align \|<cr>
 
 " insert blank lines without going into insert mode
-  nmap go o<esc>
-  nmap gO O<esc>
+nmap go o<esc>
+nmap gO O<esc>
 
 " open the source in a browser for distribution or copying as RTF
-  nmap gH :OpenHtml<CR>
+nmap gH :OpenHtml<CR>
 
 " Bubble single lines (uses unimpaired.vim)
-  nmap <C-Up> [e
-  nmap <C-Down> ]e
+nmap <C-Up> [e
+nmap <C-Down> ]e
 " Bubble multiple lines
-  vmap <C-Up> [egv
-  vmap <C-Down> ]egv
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
 
 " scroll up/down one line at a time
-  nmap <Up> <C-Y>
-  nmap <Down> <C-E>
+nmap <Up> <C-Y>
+nmap <Down> <C-E>
 " scroll up/down 3 lines at a time
-  nnoremap <C-Y> 3<C-Y>
-  nnoremap <C-E> 3<C-E>
+nnoremap <C-Y> 3<C-Y>
+nnoremap <C-E> 3<C-E>
 
 " scroll left/right
-  nmap <Left> zh
-  nmap <Right> zl
+nmap <Left> zh
+nmap <Right> zl
 
