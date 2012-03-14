@@ -82,26 +82,31 @@ set winheight=999
 set shell=bash
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
-set t_ti= t_te=
-set scrolloff=3                   " Show 3 lines of context around the cursor.
-set nobackup                      " Don't make a backup before overwriting a file.
-set nowritebackup                 " And again.
+"set t_ti= t_te=
+" Show 3 lines of context around the cursor.
+set scrolloff=3
+set nobackup
+set nowritebackup
 set backupdir=./tmp,$HOME/.vim/tmp/,$TEMP/,.
 set directory=./tmp,$HOME/.vim/tmp/,$TEMP/,.
 set tags=./tmp/tags,./tags,./.tags,tags,TAGS
-set backspace=indent,eol,start    " Intuitive backspacing in insert mode.
+" Intuitive backspacing in insert mode.
+set backspace=indent,eol,start
 " custom whitespace characters
 set listchars=tab:▸\ ,eol:¬,trail:~,extends:>,precedes:<
-set showcmd                       " Display incomplete commands.
+" Display incomplete commands.
+set showcmd
 " sane split directions
 set splitright
 set splitbelow
-set autoread                      " Set to auto read when a file is changed from the outside
-set visualbell                    " No beeping.
+" Set to auto read when a file is changed from the outside
+set autoread
+" No beeping.
+set visualbell
 
-syntax enable                     " Turn on syntax highlighting.
+syntax enable
 
-filetype plugin indent on         " Turn on file type detection.
+filetype plugin indent on
 set wildmode=list:longest
 " make tab completion for files/buffers act like bash
 set wildmenu
