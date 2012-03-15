@@ -288,7 +288,7 @@ function! RenameFile()
     redraw!
   endif
 endfunction
-map <leader>n :call RenameFile()<cr>
+map <leader>mv :call RenameFile()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PROMOTE VARIABLE TO RSPEC LET
