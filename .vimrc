@@ -327,16 +327,22 @@ function! RunTests(filename)
   " Write the file and run tests for the given filename
   :w
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  if match(a:filename, '\.feature$') != -1
+  if match(a:filename, '_spec.rb') != -1
+    call RunRspecTests(a:filename)
+  elseif match(a:filename, '\.feature$') != -1
     exec ":!script/features " . a:filename
+  elseif match(a:filename, '_test.rb') != -1
+    exec ":!bundle exec ruby -Itest " . a:filename
+  endif
+endfunction
+
+function! RunRspecTests(spec_file)
+  if filereadable("script/test")
+    exec ":!script/test " . a:spec_file
+  elseif filereadable("Gemfile")
+    exec ":!bundle exec rspec --color " . a:spec_file
   else
-    if filereadable("script/test")
-      exec ":!script/test " . a:filename
-    elseif filereadable("Gemfile")
-      exec ":!bundle exec rspec --color " . a:filename
-    else
-      exec ":!rspec --color " . a:filename
-    end
+    exec ":!rspec --color " . a:spec_file
   end
 endfunction
 
@@ -353,7 +359,8 @@ function! RunTestFile(...)
   endif
 
   " Run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
+
   if in_test_file
     call SetTestFile()
   elseif !exists("t:smh_test_file")
