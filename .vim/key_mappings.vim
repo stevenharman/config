@@ -49,7 +49,7 @@ nmap g* :Ack! -w <C-R><C-W>
 nmap gA :AckAdd!
 nmap gn :cnext<cr>
 nmap gp :cprev<cr>
-nmap gq :ccl<cr>
+nmap gc :ccl<cr>
 
 " search and replace the word under the cursor
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
