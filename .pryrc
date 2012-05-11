@@ -12,6 +12,7 @@ Hirb.enable if defined? Hirb
 
 # Load plugins (only those I whitelist)
 Pry.config.should_load_plugins = false
+Pry.config.editor = 'vim'
 #Pry.plugins["doc"].activate!
 
 # Launch Pry with access to the entire Rails stack.
