@@ -130,9 +130,6 @@ augroup vimrcEx
   autocmd FileType python set sw=4 sts=4 et
 
   "autocmd! BufRead,BufNewFile *.sass setfiletype sass
-
-  " Indent p tags
-  autocmd FileType html,eruby if g:html_indent_tags !~ '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | endif
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
