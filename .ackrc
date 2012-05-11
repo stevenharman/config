@@ -4,7 +4,8 @@
 --type-add=html=.erb,.haml,.tmpl,.spark,.slim
 --type-set=spark=.spark
 --type-set=slim=.slim
---type-add=js=.js.erb
+--type-add=js=.coffee,.js.erb
+--type-set=coffee=.coffee
 --type-add=css=.scss,.sass,.less
 --type-set=less=.less
 --type-set=sass=.scss,sass
