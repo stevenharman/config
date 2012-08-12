@@ -55,5 +55,3 @@
 [github]
   user = stevenharman
   token = [GITHUB TOKEN HERE]
-[achievement]
-	upload = false
