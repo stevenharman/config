@@ -24,6 +24,8 @@ source $ZSH/oh-my-zsh.sh
 
 bindkey "^[" vi-cmd-mode
 bindkey '^R' history-incremental-search-backward
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
 
 source ~/.zsh/exports.zsh
 # source ~/.zsh/completion.zsh
