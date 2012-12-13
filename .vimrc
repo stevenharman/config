@@ -40,6 +40,7 @@ Bundle 'wincent/Command-T'
 " vim-scripts repos
 Bundle 'localvimrc'
 Bundle 'taglist.vim'
+Bundle 'VimClojure'
 " non github repos
 " vim-less - for LESS.js/dotLESS
 Bundle 'git://gist.github.com/369178.git'

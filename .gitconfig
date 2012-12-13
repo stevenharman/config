@@ -56,3 +56,5 @@
 [github]
   user = stevenharman
   token = [GITHUB TOKEN HERE]
+[rerere]
+	enabled = true
