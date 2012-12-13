@@ -6,5 +6,5 @@ export GEM_OPEN_EDITOR="vim"
 export JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Home'
 export CLICOLOR=1
 export PGOPTIONS='-c client_min_messages=WARNING'
-export NODE_PATH="/usr/local/lib/node_modules"
+export NODE_PATH="/usr/local/share/npm/bin"
 
