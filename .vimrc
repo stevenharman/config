@@ -44,6 +44,9 @@ Bundle 'taglist.vim'
 " vim-less - for LESS.js/dotLESS
 Bundle 'git://gist.github.com/369178.git'
 
+" use The Silver Searcher instead of ack
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
