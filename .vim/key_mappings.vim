@@ -1,6 +1,3 @@
-" get out of insert mode with cmd-i
-imap <D-i> <Esc>
-
 " Seriously, it's not like :W is bound to anything anyway.
 command! W :w
 
@@ -65,19 +62,12 @@ nmap <leader>s :%s/\s\+$//<CR>
 vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
-" shortcuts for frequenly used files
-"  nmap gs :e db/schema.rb<cr>
-"  nmap gr :e config/routes.rb<cr>
-
 " align pipe-separated tables for cucumber or textile with g| in visual mode
 vmap g\| :Align \|<cr>
 
 " insert blank lines without going into insert mode
 nmap go o<esc>
 nmap gO O<esc>
-
-" open the source in a browser for distribution or copying as RTF
-nmap gH :OpenHtml<CR>
 
 " Bubble single lines (uses unimpaired.vim)
 nmap <C-Up> [e
