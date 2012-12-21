@@ -21,6 +21,7 @@ Bundle 'gmarik/vundle'
 " original repos on github
 Bundle 'Raimondi/delimitMate'
 Bundle 'bbommarito/vim-slim'
+Bundle 'groenewege/vim-less'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mileszs/ack.vim'
 Bundle 'othree/html5.vim'
@@ -42,8 +43,6 @@ Bundle 'localvimrc'
 Bundle 'taglist.vim'
 Bundle 'VimClojure'
 " non github repos
-" vim-less - for LESS.js/dotLESS
-Bundle 'git://gist.github.com/369178.git'
 
 " use The Silver Searcher instead of ack
 let g:ackprg = 'ag --nogroup --nocolor --column'
