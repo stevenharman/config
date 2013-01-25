@@ -5,7 +5,6 @@ alias sr='screen -r'
 alias restart='touch tmp/restart.txt'
 alias ajaxrdoc="rdoc --fmt ajax --exclude '.*generator.*' --exclude '.*test.*' --exclude '.*spec.*'"
 alias be='bundle exec'
-alias spnr='rspec spec_no_rails'
 alias devlog='tail -200 -f log/development.log'
 alias testlog='tail -200 -f log/test.log'
 alias gvim='mvim -p'
@@ -27,8 +26,4 @@ function css_compact {
 # hamlizes whatever is on the clipboard
 function pbhaml {
   pbpaste | html2haml | pbcopy
-}
-
-function md {
-  markdown.pl $@ > /tmp/generated_by_markdown.html; open /tmp/generated_by_markdown.html
 }
