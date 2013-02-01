@@ -36,6 +36,8 @@
   autocrlf = input
   legacyheaders = false
   excludesfile = /Users/steven/.gitignore
+[push]
+	default = simple
 [gui]
   fontdiff = -family Monaco -size 12 -weight normal -slant roman -underline 0 -overstrike 0
 [repack]
