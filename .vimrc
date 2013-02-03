@@ -289,6 +289,16 @@ endfunction
 map <leader>mv :call RenameFile()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" OPEN CURRENT FILE IN MARKED.APP
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! MarkedPreview()
+  :w
+  exec ':silent !open -a Marked.app ' . expand("%")
+  redraw!
+endfunction
+map <leader>md :call MarkedPreview()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PROMOTE VARIABLE TO RSPEC LET
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! PromoteToLet()

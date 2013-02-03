@@ -18,6 +18,10 @@ function gitdays {
   git log --author=Steven --reverse --since="$@ days ago" --pretty="format:%n%Cgreen%cd%n%n%s%n%b%n---------------------------------------------"
 }
 
+function marked {
+  open -a Marked.app $@
+}
+
 # accepts a css file and compacts the delcarations to one line
 function css_compact {
   cat $@ | css2sass | sass -t compact > $@
