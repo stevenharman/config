@@ -39,7 +39,6 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
 " vim-scripts repos
-Bundle 'localvimrc'
 Bundle 'taglist.vim'
 Bundle 'VimClojure'
 " non github repos
@@ -380,12 +379,6 @@ map <leader>A :call RunTests('')<cr>
 "let g:vroom_map_keys = 0
 "map <unique> <Leader>t :VroomRunTestFile<CR>
 "map <unique> <Leader>T :VroomRunNearestTest<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" localvimrc PLUGIN
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:localvimrc_ask = 0 " Don't ask before sourcing local vimrc files
-let g:localvimrc_sandbox = 0 " Don't source the found local vimrc files in a sandbox
 
 runtime macros/matchit.vim
 runtime key_mappings.vim
