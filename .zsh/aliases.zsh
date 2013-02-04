@@ -18,6 +18,7 @@ function gitdays {
   git log --author=Steven --reverse --since="$@ days ago" --pretty="format:%n%Cgreen%cd%n%n%s%n%b%n---------------------------------------------"
 }
 
+# Open a file in Marked.app. Usage: $ marked path/to/file.markdown
 function marked {
   open -a Marked.app $@
 }
