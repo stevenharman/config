@@ -77,12 +77,6 @@ set cursorline
 set title
 set switchbuf=useopen
 set winwidth=79
-" We have to have a winheight bigger than we want to set winminheight. But if
-" we set winheight to be huge before winminheight, the winminheight set will
-" fail.
-set winheight=5
-set winminheight=5
-set winheight=999
 set shell=bash
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
@@ -410,6 +404,12 @@ nmap gj <C-W>j
 nmap gk <C-W>k
 nmap gh <C-W>h
 nmap gl <C-W>l
+
+" resize the window by 5 lines/columns
+nnoremap <S-left> :vertical resize -5<cr>
+nnoremap <S-down> :resize -5<cr>
+nnoremap <S-up> :resize +5<cr>
+nnoremap <S-right> :vertical resize +5<cr>
 
 " swap windows
 nmap gS <C-W><C-R>
