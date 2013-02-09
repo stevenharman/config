@@ -85,9 +85,9 @@ set shell=bash
 set scrolloff=3
 set nobackup
 set nowritebackup
-set backupdir=./tmp,$HOME/.vim/tmp/,$TEMP/,.
-set directory=./tmp,$HOME/.vim/tmp/,$TEMP/,.
-set tags=./tmp/tags,./.tags,./tags,tags,TAGS
+"set backupdir=./tmp,$HOME/.vim/tmp/,$TEMP/,.
+"set directory=./tmp,$HOME/.vim/tmp/,$TEMP/,.
+set tags^=./tmp/tags
 " Intuitive backspacing in insert mode.
 set backspace=indent,eol,start
 " custom whitespace characters
