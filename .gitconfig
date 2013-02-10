@@ -37,7 +37,7 @@
   legacyheaders = false
   excludesfile = /Users/steven/.gitignore
 [push]
-	default = simple
+  default = simple
 [gui]
   fontdiff = -family Monaco -size 12 -weight normal -slant roman -underline 0 -overstrike 0
 [repack]
@@ -59,4 +59,4 @@
   user = stevenharman
   token = [GITHUB TOKEN HERE]
 [rerere]
-	enabled = true
+  enabled = true
