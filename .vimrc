@@ -60,7 +60,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set autoindent
-set foldmethod=syntax
+"set foldmethod=syntax
 set nofoldenable
 set showmatch
 set incsearch
