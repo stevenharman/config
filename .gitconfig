@@ -45,7 +45,7 @@
 [alias]
   ci = commit
   co = checkout
-  st = status
+  st = status -sb
   ch = cherry -v origin
   aa = add --all
   dc = diff --cached
