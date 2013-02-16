@@ -33,7 +33,7 @@
 [difftool]
   prompt = false
 [core]
-  autocrlf = input
+  autocrlf = false
   legacyheaders = false
   excludesfile = /Users/steven/.gitignore
 [push]
