@@ -45,9 +45,6 @@ Bundle 'taglist.vim'
 Bundle 'VimClojure'
 " non github repos
 
-" use The Silver Searcher instead of ack
-let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
