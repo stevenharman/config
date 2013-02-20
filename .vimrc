@@ -1,7 +1,6 @@
 ﻿" This is Steven Harman's .vimrc file.
 " What you'll find here is a mix of ideas I've stolen from others and my own
 " preference for how it should be done. Good luck!
-" vim:set ts=2 sts=2 sw=2 expandtab:
 
 " Must come first because it changes other options.
 set nocompatible
@@ -436,7 +435,7 @@ nmap g[ :bp<cr>
 nmap g] :bn<cr>
 
 " ack for project-wide searching (TRAILING WHITESPACE IS INTENTIONAL)
-nmap g/ :Ack!
+nmap g/ :Ack! 
 nmap g* :Ack! -w <C-R><C-W>
 nmap gA :AckAdd!
 nmap gn :cnext<cr>
