@@ -19,7 +19,7 @@ Bundle 'gmarik/vundle'
 
 " original repos on github
 Bundle 'Raimondi/delimitMate'
-Bundle 'bbommarito/vim-slim'
+Bundle 'slim-template/vim-slim'
 Bundle 'groenewege/vim-less'
 Bundle 'juvenn/mustache.vim'
 Bundle 'kchmck/vim-coffee-script'
