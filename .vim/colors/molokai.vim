@@ -66,7 +66,7 @@ hi Operator        guifg=#F92672
 
 " complete menu
 hi Pmenu           guifg=#66D9EF guibg=#000000
-hi PmenuSel                      guibg=#808080
+hi PmenuSel                      guibg=#293739
 hi PmenuSbar                     guibg=#080808
 hi PmenuThumb      guifg=#66D9EF
 
@@ -166,7 +166,7 @@ if &t_Co > 255
 
    " complete menu
    hi Pmenu           ctermfg=81  ctermbg=16
-   hi PmenuSel                    ctermbg=244
+   hi PmenuSel        ctermfg=134 ctermbg=234
    hi PmenuSbar                   ctermbg=232
    hi PmenuThumb      ctermfg=81
 
