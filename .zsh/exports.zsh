@@ -1,4 +1,5 @@
 export PATH="/usr/local/bin:/usr/local/sbin:$HOME/Library/bin:$PATH"
+export RBXOPT=-X19
 export CDPATH=:~/code
 export EDITOR="vim"
 #export VISUAL="mvim -f"
