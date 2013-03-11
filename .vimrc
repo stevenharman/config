@@ -284,7 +284,10 @@ map <leader>mv :call RenameFile()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! MarkedPreview()
   :w
-  exec ':silent !open -a Marked.app ' . expand("%")
+  let s:markedApp = "/usr/bin/open -a Marked.app"
+  let s:currentFile = expand("%")
+  let s:cmd = "silent ! " . s:markedApp . " " . s:currentFile
+  execute s:cmd
   redraw!
 endfunction
 map <leader>md :call MarkedPreview()<cr>
