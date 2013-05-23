@@ -60,3 +60,5 @@
   token = [GITHUB TOKEN HERE]
 [rerere]
   enabled = true
+[heroku]
+	account = personal
