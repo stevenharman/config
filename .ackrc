@@ -1,16 +1,15 @@
 # == blank lines freak out ack on Windows? ==
 #
---type-add=ruby=.haml,.rake,.rsel,.builder
---type-add=html=.erb,.haml,.tmpl,.spark,.slim,.mustache
---type-set=spark=.spark
---type-set=slim=.slim
---type-set=mustache=.mustache
---type-add=js=.coffee,.js.erb
---type-set=coffee=.coffee
---type-add=css=.scss,.sass,.less
---type-set=less=.less
---type-set=sass=.scss,sass
---type-set=cucumber=.feature
+--type-add=ruby:ext:haml,rake,rsel,builder
+--type-add=html:ext:erb,haml,tmpl,spark,slim,mustache
+--type-set=slim:ext:slim
+--type-set=mustache:ext:mustache
+--type-add=js:ext:coffee,jserb
+--type-set=coffee:ext:coffee
+--type-add=css:ext:scss,sass,less
+--type-set=less:ext:less
+--type-set=sass:ext:scss,sass
+--type-set=cucumber:ext:feature
 #
 --ignore-dir=vendor
 --ignore-dir=log
