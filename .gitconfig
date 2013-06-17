@@ -55,6 +55,7 @@
   mine = log --author=Steven
   spull = !git svn fetch && git svn rebase
   spush = !git svn dcommit
+  tags = !.git/hooks/ctags
 [github]
   user = stevenharman
   token = [GITHUB TOKEN HERE]
