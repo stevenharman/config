@@ -62,3 +62,5 @@
   enabled = true
 [heroku]
 	account = personal
+[init]
+	templatedir = ~/.git_template
