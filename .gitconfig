@@ -62,6 +62,6 @@
 [rerere]
   enabled = true
 [heroku]
-	account = personal
+  account = personal
 [init]
-	templatedir = ~/.git_template
+  templatedir = ~/.git_template
