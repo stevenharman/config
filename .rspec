@@ -1,2 +1,3 @@
--r pry
+--colour
 --drb
+-r pry
