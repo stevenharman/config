@@ -6,6 +6,8 @@ export CDPATH=:~/code
 export EDITOR="vim"
 #export VISUAL="mvim -f"
 export GEM_OPEN_EDITOR="vim"
+export GOPATH="$HOME/code/go"
+export PATH="$PATH:$GOPATH/bin"
 export JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Home'
 export CLICOLOR=1
 export PGOPTIONS='-c client_min_messages=WARNING'
