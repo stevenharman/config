@@ -22,6 +22,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'groenewege/vim-less'
+Bundle 'jnwhiteh/vim-golang'
 Bundle 'juvenn/mustache.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mileszs/ack.vim'
@@ -53,11 +54,11 @@ Bundle 'VimClojure'
 set hidden
 " Remember more commands and search history
 set history=10000
-set expandtab
-" Tabs or spaces? Spaces!
+" Tab defaults
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+set expandtab
 set autoindent
 "set foldmethod=syntax
 set nofoldenable
@@ -124,6 +125,7 @@ augroup vimrcEx
   "for ruby, autoindent with two spaces, always expand tabs
   autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
   autocmd FileType python set sw=4 sts=4 et
+  autocmd FileType go setlocal noexpandtab
 
   "autocmd! BufRead,BufNewFile *.sass setfiletype sass
 augroup END
