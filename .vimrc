@@ -11,7 +11,7 @@ set nocompatible
 " Turn off for Vundle. Turn it back on below.
 filetype plugin off
 
-set rtp+=~/.vim/bundle/vundle/
+set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " manage Vundle with Vundle. BOOM!
@@ -49,9 +49,9 @@ Bundle 'VimClojure'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" allow unsaved background buffers and remember marks/undo for them
+" Allow unsaved background buffers and remember marks/undo for them
 set hidden
-" remember more commands and search history
+" Remember more commands and search history
 set history=10000
 set expandtab
 " Tabs or spaces? Spaces!
@@ -71,7 +71,7 @@ set smartcase
 set mouse=a
 set ruler
 set number
-" highlight current line
+" Highlight current line
 set cursorline
 set title
 set switchbuf=useopen
