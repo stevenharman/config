@@ -351,7 +351,7 @@ function! RunTests(filename)
   if match(a:filename, '\(_spec.rb\|spec$\)') != -1
     call RunRspecTests(a:filename)
   elseif match(a:filename, '\.feature$') != -1
-    exec ":!script/features " . a:filename
+    call RunFeatureTests(a:filename)
   elseif match(a:filename, '_test.rb') != -1
     exec ":!bundle exec ruby -Itest " . a:filename
   endif
@@ -360,10 +360,22 @@ endfunction
 function! RunRspecTests(spec_file)
   if filereadable("script/test")
     exec ":!script/test " . a:spec_file
+  elseif filereadable("bin/rspec")
+    exec ":!bin/rspec --color " . a:spec_file
   elseif filereadable("Gemfile")
     exec ":!bundle exec rspec --color " . a:spec_file
   else
     exec ":!rspec --color " . a:spec_file
+  end
+endfunction
+
+function! RunFeatureTests(spec_file)
+  if match(a:spec_file, 'spec\/features\/') != -1
+    call RunRspecTests(a:spec_file)
+  elseif filereadable("script/features")
+    exec ":!script/features " . a:filename
+  else
+    exec "!:bundle exec cucumber " . a:filename
   end
 endfunction
 
