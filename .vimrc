@@ -451,16 +451,6 @@ nmap gW :only<cr>
 " Reopen the last buffer in the current window
 nnoremap <leader><leader> <c-^>
 
-" Tab mappings.
-map <Leader>tt :tabnew<cr>
-map <Leader>te :tabe %%
-map <Leader>tc :tabclose<cr>
-map <Leader>to :tabonly<cr>
-map <Leader>tn :tabnext<cr>
-map <Leader>tp :tabprevious<cr>
-map <Leader>tf :tabfirst<cr>
-map <Leader>tl :tablast<cr>
-map <Leader>tm :tabmove
 " NERDTree
 map <Leader>n :NERDTreeToggle<cr>
 
