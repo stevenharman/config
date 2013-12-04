@@ -1,3 +1,4 @@
+export BUNDLE_JOBS=3
 export CDPATH=:~/code
 export CLICOLOR=1
 export EDITOR="vim"
