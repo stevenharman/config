@@ -10,5 +10,6 @@ export PATH="/usr/local/bin:/usr/local/sbin:$HOME/Library/bin:$GOPATH/bin:$PATH"
 export PGOPTIONS='-c client_min_messages=WARNING'
 export RBXOPT=-X19
 export RUBY_FREE_MIN=200000
+export RUBY_GC_HEAP_FREE_SLOTS=200000
 export RUBY_GC_MALLOC_LIMIT=90000000
 #export VISUAL="mvim -f"
