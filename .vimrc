@@ -370,7 +370,7 @@ function! RunTestFile(...)
   let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
 
   if in_test_file
-    call SetTestFile()
+    call s:SetTestFile()
   elseif !exists("t:smh_test_file")
     return
   end
@@ -387,9 +387,9 @@ function! s:RunFullTestSuite()
     " We have Cukes, need to use rake to be sure we run EVERYTHING!
     call s:RunRake()
   elseif isdirectory('spec')
-    call RunRspecTests('spec')
+    call s:RunRspecTests('spec')
   elseif isdirectory('test')
-    call RunTestUnitTests(join(split(glob('test/**/*_test.rb'), '\n'), ' '))
+    call s:RunTestUnitTests(join(split(glob('test/**/*_test.rb'), '\n'), ' '))
   endif
 endfunction
 
@@ -427,7 +427,7 @@ endfunction
 
 function! s:RunFeatureTests(spec_file)
   if match(a:spec_file, 'spec\/features\/') != -1
-    call RunRspecTests(a:spec_file)
+    call s:RunRspecTests(a:spec_file)
   else
     exec "!:bundle exec cucumber " . a:spec_file
   end
