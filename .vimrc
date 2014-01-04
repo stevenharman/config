@@ -346,8 +346,9 @@ map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! RunTests(filename)
   " Write the file and run tests for the given filename
-  :w
-  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  if expand("%") != ""
+    :w
+  end
   if a:filename == ''
     call s:RunFullTestSuite()
   elseif match(a:filename, '_spec.rb') != -1
