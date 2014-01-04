@@ -384,26 +384,30 @@ function! RunNearestTest()
 endfunction
 
 function! s:RunFullTestSuite()
-  if isdirectory('features')
-    " We have Cukes, need to use rake to be sure we run EVERYTHING!
-    call s:RunRake()
-  elseif isdirectory('spec')
+  if isdirectory('spec')
     call s:RunRspecTests('spec')
   elseif isdirectory('test')
-    call s:RunTestUnitTests(join(split(glob('test/**/*_test.rb'), '\n'), ' '))
+    call s:RunRake('test')
+  else " Trust the default Rake task to run the whole smash.
+    call s:RunRake()
   endif
 endfunction
 
-function! s:RunRake()
-  let rake_prefix = ''
+function! s:RunRake(...)
+  if a:0
+    let tasks = a:1
+  else
+    let tasks = ''
+  endif
 
+  let rake_prefix = ''
   if filereadable('bin/rake')
     let rake_prefix = 'bin/'
   elseif s:GemfileExists()
     let rake_prefix = 'bundle exec '
   endif
 
-  exec ":!" . rake_prefix . 'rake'
+  exec ":!" . rake_prefix . 'rake ' . tasks
 endfunction
 
 function! s:RunRspecTests(spec_file)
