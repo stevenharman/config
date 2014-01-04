@@ -348,40 +348,15 @@ function! RunTests(filename)
   " Write the file and run tests for the given filename
   :w
   :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-  if match(a:filename, '\(_spec.rb\|spec$\)') != -1
-    call RunRspecTests(a:filename)
+  if a:filename == ''
+    call s:RunFullTestSuite()
+  elseif match(a:filename, '_spec.rb') != -1
+    call s:RunRspecTests(a:filename)
   elseif match(a:filename, '\.feature$') != -1
-    call RunFeatureTests(a:filename)
+    call s:RunFeatureTests(a:filename)
   elseif match(a:filename, '_test.rb') != -1
-    exec ":!bundle exec ruby -Itest " . a:filename
+    call s:RunTestUnitTests(a:filename)
   endif
-endfunction
-
-function! RunRspecTests(spec_file)
-  if filereadable("script/test")
-    exec ":!script/test " . a:spec_file
-  elseif filereadable("bin/rspec")
-    exec ":!bin/rspec --color " . a:spec_file
-  elseif filereadable("Gemfile")
-    exec ":!bundle exec rspec --color " . a:spec_file
-  else
-    exec ":!rspec --color " . a:spec_file
-  end
-endfunction
-
-function! RunFeatureTests(spec_file)
-  if match(a:spec_file, 'spec\/features\/') != -1
-    call RunRspecTests(a:spec_file)
-  elseif filereadable("script/features")
-    exec ":!script/features " . a:filename
-  else
-    exec "!:bundle exec cucumber " . a:filename
-  end
-endfunction
-
-function! SetTestFile()
-  " Set the spec file that tests will be run for.
-  let t:smh_test_file=@%
 endfunction
 
 function! RunTestFile(...)
@@ -407,10 +382,73 @@ function! RunNearestTest()
   call RunTestFile(":" . spec_line_number . " -b")
 endfunction
 
+function! s:RunFullTestSuite()
+  if isdirectory('features')
+    " We have Cukes, need to use rake to be sure we run EVERYTHING!
+    call s:RunRake()
+  elseif isdirectory('spec')
+    call RunRspecTests('spec')
+  elseif isdirectory('test')
+    call RunTestUnitTests(join(split(glob('test/**/*_test.rb'), '\n'), ' '))
+  endif
+endfunction
+
+function! s:RunRake()
+  let rake_prefix = ''
+
+  if filereadable('bin/rake')
+    let rake_prefix = 'bin/'
+  elseif s:GemfileExists()
+    let rake_prefix = 'bundle exec '
+  endif
+
+  exec ":!" . rake_prefix . 'rake'
+endfunction
+
+function! s:RunRspecTests(spec_file)
+  if filereadable("bin/rspec")
+    exec ":!bin/rspec --color " . a:spec_file
+  elseif s:GemfileExists()
+    exec ":!bundle exec rspec --color " . a:spec_file
+  else
+    exec ":!rspec --color " . a:spec_file
+  end
+endfunction
+
+function! s:RunTestUnitTests(test_files)
+  let runner_prefix = ''
+
+  if s:GemfileExists()
+    let runner_prefix = 'bundle exec '
+  end
+
+  exec ":!" . runner_prefix . 'ruby -Itest ' . a:test_files
+endfunction
+
+function! s:RunFeatureTests(spec_file)
+  if match(a:spec_file, 'spec\/features\/') != -1
+    call RunRspecTests(a:spec_file)
+  else
+    exec "!:bundle exec cucumber " . a:spec_file
+  end
+endfunction
+
+function! s:SetTestFile()
+  " Set the spec file that tests will be run for.
+  let t:smh_test_file=@%
+endfunction
+
+function! s:GemfileExists()
+  if filereadable('Gemfile')
+    return 1
+  else
+    return 0
+  endif
+endfunction
+
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
-map <leader>a :call RunTests('spec')<cr>
-map <leader>A :call RunTests('')<cr>
+map <leader>a :call RunTests('')<cr>
 
 "let g:vroom_map_keys = 0
 "map <unique> <Leader>t :VroomRunTestFile<CR>
