@@ -9,7 +9,11 @@ export NODE_PATH="/usr/local/share/npm/bin"
 export PATH="/usr/local/bin:/usr/local/sbin:$HOME/Library/bin:$GOPATH/bin:$NODE_PATH:$PATH"
 export PGOPTIONS='-c client_min_messages=WARNING'
 export RBXOPT=-X19
-export RUBY_FREE_MIN=200000
-export RUBY_GC_HEAP_FREE_SLOTS=200000
-export RUBY_GC_MALLOC_LIMIT=90000000
+export RUBY_GC_MALLOC_LIMIT=100000000
+# Ruby 1.9
+export RUBY_HEAP_MIN_SLOTS=40000
+export RUBY_FREE_MIN=500000
+# Ruby 2.1
+export RUBY_GC_HEAP_INIT_SLOTS=40000
+export RUBY_GC_HEAP_FREE_SLOTS=500000
 #export VISUAL="mvim -f"
