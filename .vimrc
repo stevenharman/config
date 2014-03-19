@@ -427,6 +427,7 @@ function! s:RunTestUnitTests(test_files)
     let runner_prefix = 'bundle exec '
   end
 
+  ":echom runner_prefix . 'ruby -Itest ' . a:test_files
   exec ":!" . runner_prefix . 'ruby -Itest ' . a:test_files
 endfunction
 
