@@ -4,5 +4,3 @@ tags
 *.swp
 *.swo
 .vim/bundle
-.rbenv-version
-.ruby-version
