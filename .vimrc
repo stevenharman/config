@@ -524,9 +524,6 @@ nmap <leader>s :%s/\s\+$//<CR>
 vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
-" align pipe-separated tables for cucumber or textile with g| in visual mode
-vmap g\| :Align \|<cr>
-
 " insert blank lines without going into insert mode
 nmap go o<esc>
 nmap gO O<esc>
