@@ -18,6 +18,8 @@
 --ignore-dir=fixtures
 --ignore-dir=script
 --ignore-dir=system
+--ignore-dir=.sass-cache
+--ignore-dir=.rbx
 #
 --sort-files
 --color
