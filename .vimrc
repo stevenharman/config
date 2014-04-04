@@ -62,6 +62,9 @@ set expandtab
 set autoindent
 "set foldmethod=syntax
 set nofoldenable
+" Insert only one space when joining lines that contain sentence-terminating
+" punctuation like `.`, `?`, and `!`.
+set nojoinspaces
 set showmatch
 set incsearch
 set hlsearch
