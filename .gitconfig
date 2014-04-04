@@ -43,7 +43,7 @@
 [repack]
   usedeltabaseoffset = true
 [alias]
-  ci = commit
+  ci = commit --verbose
   co = checkout
   st = status -sb
   ch = cherry -v origin
