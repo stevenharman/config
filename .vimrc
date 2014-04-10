@@ -477,11 +477,11 @@ nmap U :redo<cr>
 nmap <Leader>w :set wrap<cr>
 nmap <Leader>W :set nowrap<cr>
 
-" switch windows with g+movement
-nmap gj <C-W>j
-nmap gk <C-W>k
-nmap gh <C-W>h
-nmap gl <C-W>l
+" move around splits with ctrl+movement
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
 
 " resize the window by 5 lines/columns
 nnoremap <S-left> :vertical resize -5<cr>
@@ -509,8 +509,8 @@ nmap g] :bn<cr>
 nmap g/ :Ack! 
 nmap g* :Ack! -w <C-R><C-W>
 nmap gA :AckAdd!
-nmap gn :cnext<cr>
-nmap gp :cprev<cr>
+nmap gj :cnext<cr>
+nmap gk :cprev<cr>
 nmap gc :ccl<cr>
 
 " search and replace the word under the cursor
