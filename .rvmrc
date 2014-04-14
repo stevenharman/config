@@ -1,7 +1,0 @@
-# switch to default/system Ruby when leaving a project directory.
-rvm_project_rvmrc_default=1
-
-# use project .rvmrc files when cd'ing into project dir
-rvm_project_rvmrc=1
-# pretty colors
-export rvm_pretty_print_flag=1
