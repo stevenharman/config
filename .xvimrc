@@ -1,2 +1,3 @@
 set ignorecase
 set smartcase
+let g:hybrid_use_Xresources = 1 " for vim-hybrid 
