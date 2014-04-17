@@ -104,6 +104,7 @@ set splitbelow
 set autoread
 " No beeping.
 set visualbell
+set spellfile=$HOME/.vim/spell/en.utf-8.add
 
 syntax enable
 
@@ -151,12 +152,12 @@ endif
 set statusline=[%n]     "current buffer number
 set statusline+=\ %f    "tail of the filename
 
-"display a warning if fileformat isnt unix
+"display a warning if fileformat isn't Unix
 set statusline+=%#warningmsg#
 set statusline+=%{&ff!='unix'?'['.&ff.']':''}
 set statusline+=%*
 
-"display a warning if file encoding isnt utf-8
+"display a warning if file encoding isn't utf-8
 set statusline+=%#warningmsg#
 set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
 set statusline+=%*
