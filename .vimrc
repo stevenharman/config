@@ -29,6 +29,8 @@ Bundle 'mileszs/ack.vim'
 Bundle 'othree/html5.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'slim-template/vim-slim'
+Bundle 't9md/vim-ruby-xmpfilter'
+let g:xmpfilter_cmd = "seeing_is_believing"
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-haml'
@@ -463,6 +465,23 @@ map <leader>a :call RunTests('')<cr>
 "let g:vroom_map_keys = 0
 "map <unique> <Leader>t :VroomRunTestFile<CR>
 "map <unique> <Leader>T :VroomRunNearestTest<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" XMPFilter or Seeing Is Believing
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Insert ' # =>' into end of line or delete ' # =>' if it already exist.
+autocmd FileType ruby nmap <buffer> <F6> <Plug>(seeing_is_believing-mark)
+autocmd FileType ruby xmap <buffer> <F6> <Plug>(seeing_is_believing-mark)
+autocmd FileType ruby imap <buffer> <F6> <Plug>(seeing_is_believing-mark)
+" Clean all marks in the buffer.
+autocmd FileType ruby nmap <buffer> <S-F6> <Plug>(seeing_is_believing-clean)
+autocmd FileType ruby xmap <buffer> <S-F6> <Plug>(seeing_is_believing-clean)
+autocmd FileType ruby imap <buffer> <S-F6> <Plug>(seeing_is_believing-clean)
+" Insert evaluated result with mark.
+autocmd FileType ruby nmap <buffer> <F5> <Plug>(seeing_is_believing-run)
+autocmd FileType ruby xmap <buffer> <F5> <Plug>(seeing_is_believing-run)
+autocmd FileType ruby imap <buffer> <F5> <Plug>(seeing_is_believing-run)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYMAPPINS... THE REST OF THEM
