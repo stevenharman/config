@@ -61,7 +61,5 @@
   token = [GITHUB TOKEN HERE]
 [rerere]
   enabled = true
-[heroku]
-  account = personal
 [init]
   templatedir = ~/.git_template
