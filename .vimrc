@@ -133,7 +133,6 @@ augroup vimrcEx
   autocmd FileType python set sw=4 sts=4 et
   autocmd FileType go setlocal noexpandtab
 
-  "autocmd! BufRead,BufNewFile *.sass setfiletype sass
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
