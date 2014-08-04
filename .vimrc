@@ -112,6 +112,7 @@ syntax enable
 
 filetype plugin indent on
 set wildmode=list:longest
+set wildignore+=tmp
 " make tab completion for files/buffers act like bash
 set wildmenu
 
