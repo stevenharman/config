@@ -23,12 +23,3 @@ function marked {
   open -a Marked.app $@
 }
 
-# accepts a css file and compacts the delcarations to one line
-function css_compact {
-  cat $@ | css2sass | sass -t compact > $@
-}
-
-# hamlizes whatever is on the clipboard
-function pbhaml {
-  pbpaste | html2haml | pbcopy
-}
