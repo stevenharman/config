@@ -18,6 +18,7 @@
 --ignore-dir=fixtures
 --ignore-dir=script
 --ignore-dir=system
+--ignore-dir=_site
 --ignore-dir=.sass-cache
 --ignore-dir=.rbx
 #
