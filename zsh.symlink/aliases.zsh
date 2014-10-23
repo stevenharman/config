@@ -20,6 +20,6 @@ function gitdays {
 
 # Open a file in Marked.app. Usage: $ marked path/to/file.markdown
 function marked {
-  open -a Marked.app $@
+  open -a Marked\ 2.app $@
 }
 

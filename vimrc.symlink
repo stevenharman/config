@@ -300,7 +300,7 @@ map <leader>mv :call RenameFile()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! MarkedPreview()
   :w
-  let s:markedApp = "/usr/bin/open -a Marked.app"
+  let s:markedApp = "/usr/bin/open -a 'Marked 2.app'"
   let s:currentFile = expand("%")
   let s:cmd = "silent ! " . s:markedApp . " " . s:currentFile
   execute s:cmd
