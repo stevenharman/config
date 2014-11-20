@@ -20,7 +20,6 @@ Plugin 'gmarik/Vundle.vim'
 " original repos on github
 Plugin 'Raimondi/delimitMate'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'groenewege/vim-less'
 Plugin 'jnwhiteh/vim-golang'
 Plugin 'juvenn/mustache.vim'
