@@ -2,16 +2,34 @@
 
 ## Setup
 
-The following rake tasks will set up symbolic links in your home directory for each of the included configuration files.
+The following rake tasks will set up symbolic links in your home directory for
+each of the included configuration files.
 
-    rake symlink
+```bash
+rake symlink
+```
 
-or 
+or
 
-    rake symlink:force
+```bash
+rake symlink:force
+```
 
-## Windows
+### Windows
 
-The following rake task will tweak a few of the default configs to better behave on Windows
+The following rake task will tweak a few of the default configs to better
+behave on Windows
 
-    rake windows
+```bash
+rake windows
+```
+
+## Dependencies
+
+At least the following are required, and I'll continue to add more as I
+re-discover them:
+
+- `brew install ack`
+- `brew install ctags`
+- `gem install gem-ctags && gem ctags`
+
