@@ -45,6 +45,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'wincent/Command-T'
+Plugin 'wting/rust.vim'
 " vim-scripts repos
 Plugin 'taglist.vim'
 Plugin 'VimClojure'

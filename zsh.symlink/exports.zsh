@@ -5,7 +5,9 @@ export EDITOR="vim"
 export GEM_OPEN_EDITOR="vim"
 export GOPATH="$HOME/code/go"
 export JAVA_HOME='/System/Library/Frameworks/JavaVM.framework/Home'
-export PATH="/usr/local/bin:/usr/local/sbin:$HOME/Library/bin:$GOPATH/bin:$PATH"
+RUSTPATH="$HOME/.rust"
+export PATH="/usr/local/bin:/usr/local/sbin:$HOME/Library/bin:$RUSTPATH/bin:$GOPATH/bin:$PATH"
+export DYLD_LIBRARY_PATH="$RUSTPATH/lib:$DYLD_LIBRARY_PATH"
 export PGOPTIONS='-c client_min_messages=WARNING'
 export RBXOPT=-X19
 export RUBY_GC_MALLOC_LIMIT=100000000
