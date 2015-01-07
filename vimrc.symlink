@@ -20,6 +20,7 @@ Plugin 'gmarik/Vundle.vim'
 " original repos on github
 Plugin 'Raimondi/delimitMate'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'cespare/vim-toml'
 Plugin 'groenewege/vim-less'
 Plugin 'jnwhiteh/vim-golang'
 Plugin 'juvenn/mustache.vim'
@@ -116,8 +117,12 @@ set spellfile=$HOME/.vim/spell/en.utf-8.add
 autocmd FileType gitcommit,markdown setlocal spell
 autocmd FileType gitcommit,markdown set complete+=kspell
 
+" Enable highlighting for syntax
 syntax enable
-
+" Enable file type detection.
+" Use the default filetype settings, so that mail gets 'tw' set to 72,
+" 'cindent' is on in C files, etc.
+" Also load indent files, to automatically do language-dependent indenting.
 filetype plugin indent on
 set wildmode=list:longest
 set wildignore+=tmp,bower_components,dist,node_modules
@@ -371,6 +376,8 @@ function! RunTests(filename)
     call s:RunFeatureTests(a:filename)
   elseif match(a:filename, '_test.rb') != -1
     call s:RunTestUnitTests(a:filename)
+  elseif match(a:filename, '\.rs$') != -1
+    call s:RunCargoTests(a:filename)
   endif
 endfunction
 
@@ -382,7 +389,7 @@ function! RunTestFile(...)
   endif
 
   " Run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\|.rs\)$') != -1
 
   if in_test_file
     call s:SetTestFile()
@@ -432,6 +439,10 @@ function! s:RunRspecTests(spec_file)
   else
     exec ":!rspec --color " . a:spec_file
   end
+endfunction
+
+function! s:RunCargoTests(test_file)
+  exec ":!cargo test "
 endfunction
 
 function! s:RunTestUnitTests(test_files)
