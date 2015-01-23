@@ -35,6 +35,7 @@ Plugin 't9md/vim-ruby-xmpfilter'
 let g:xmpfilter_cmd = "seeing_is_believing"
 " Use gem-ctags to generate CTags for all gems in the Bundle
 Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-haml'
@@ -430,21 +431,21 @@ function! s:RunRake(...)
     let rake_prefix = 'bundle exec '
   endif
 
-  exec ":!" . rake_prefix . 'rake ' . tasks
+  exec ":Dispatch " . rake_prefix . 'rake ' . tasks
 endfunction
 
 function! s:RunRspecTests(spec_file)
   if filereadable("bin/rspec")
-    exec ":!bin/rspec --color " . a:spec_file
+    exec ":Dispatch rspec --color " . a:spec_file
   elseif s:GemfileExists()
-    exec ":!bundle exec rspec --color " . a:spec_file
+    exec ":Dispatch bundle exec rspec --color " . a:spec_file
   else
-    exec ":!rspec --color " . a:spec_file
+    exec ":Dispatch rspec --color " . a:spec_file
   end
 endfunction
 
 function! s:RunCargoTests(test_file)
-  exec ":!cargo test "
+  exec ":Dispatch cargo test "
 endfunction
 
 function! s:RunTestUnitTests(test_files)
@@ -455,14 +456,14 @@ function! s:RunTestUnitTests(test_files)
   end
 
   ":echom runner_prefix . 'ruby -Itest ' . a:test_files
-  exec ":!" . runner_prefix . 'ruby -Itest ' . a:test_files
+  exec ":Dispatch " . runner_prefix . 'ruby -Itest ' . a:test_files
 endfunction
 
 function! s:RunFeatureTests(spec_file)
   if match(a:spec_file, 'spec\/features\/') != -1
     call s:RunRspecTests(a:spec_file)
   else
-    exec "!:bundle exec cucumber " . a:spec_file
+    exec ":Dispatch bundle exec cucumber " . a:spec_file
   end
 endfunction
 
