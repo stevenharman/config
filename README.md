@@ -12,7 +12,8 @@ rake symlink
 or
 
 ```bash
-rake symlink:force
+# Force overwriting everything
+OVERWRITE_DOTFILES=true rake symlink
 ```
 
 ### Windows
