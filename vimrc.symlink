@@ -15,7 +15,7 @@ set runtimepath+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 " manage Vundle with Vundle. BOOM!
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " original repos on github
 Plugin 'Raimondi/delimitMate'
