@@ -19,14 +19,15 @@ export ZSH_THEME="smh"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=()
+plugins=(zsh-navigation-tools)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
 bindkey "^[" vi-cmd-mode
-bindkey '^R' history-incremental-search-backward
+# Use n-history from zsh-navigation-tools for history search
+#bindkey '^R' history-incremental-search-backward
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 
