@@ -105,7 +105,7 @@ set tags^=./tmp/tags
 " Intuitive backspacing in insert mode.
 set backspace=indent,eol,start
 " custom whitespace characters
-set listchars=tab:▸\ ,eol:¬,trail:☹,extends:>,precedes:<
+set listchars=tab:▸\ ,eol:¬,trail:⦿,extends:>,precedes:<
 " Display incomplete commands.
 set showcmd
 " sane split directions
