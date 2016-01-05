@@ -64,3 +64,5 @@
 [init]
   templatedir = ~/.git_template
 
+[stash]
+	showPatch = true
