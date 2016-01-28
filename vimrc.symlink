@@ -522,9 +522,9 @@ nmap <Leader>w :set wrap<cr>
 nmap <Leader>W :set nowrap<cr>
 
 " move around splits with ctrl+movement
+nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
-nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
 " resize the window by 5 lines/columns
@@ -566,10 +566,6 @@ nmap <silent> <Leader>h :silent :nohlsearch<CR>
 nmap <leader>l :set list!<CR>
 " clear up trailing white space
 nmap <leader>s :%s/\s\+$//<CR>
-
-" full blame for Git and Mercurial
-vmap <Leader>g :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-vmap <Leader>h :<C-U>!hg blame -fu <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
 " insert blank lines without going into insert mode
 nmap go o<esc>
