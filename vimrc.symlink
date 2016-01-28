@@ -518,8 +518,8 @@ command! W :w
 nmap U :redo<cr>
 
 " easy wrap toggling
-nmap <Leader>w :set wrap<cr>
-nmap <Leader>W :set nowrap<cr>
+nmap <leader>w :set wrap<cr>
+nmap <leader>W :set nowrap<cr>
 
 " move around splits with ctrl+movement
 nnoremap <C-h> <C-W>h
@@ -543,7 +543,7 @@ nmap gW :only<cr>
 nnoremap <leader><leader> <c-^>
 
 " NERDTree
-map <Leader>n :NERDTreeToggle<cr>
+map <leader>n :NERDTreeToggle<cr>
 
 " previous/next buffer (for going without tabs)
 nmap g[ :bp<cr>
@@ -558,9 +558,9 @@ nmap gk :cprev<cr>
 nmap gc :ccl<cr>
 
 " search and replace the word under the cursor
-nnoremap <Leader>r :%s/\<<C-r><C-w>\>/
+nnoremap <leader>r :%s/\<<C-r><C-w>\>/
 " remove search hilighting
-nmap <silent> <Leader>h :silent :nohlsearch<CR>
+nmap <silent> <leader>h :silent :nohlsearch<CR>
 
 " rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
