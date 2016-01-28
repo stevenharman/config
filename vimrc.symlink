@@ -24,6 +24,7 @@ Plugin 'cespare/vim-toml'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'groenewege/vim-less'
 Plugin 'heartsentwined/vim-emblem'
+Plugin 'janko-m/vim-test'
 Plugin 'jnwhiteh/vim-golang'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'kchmck/vim-coffee-script'
@@ -352,144 +353,28 @@ endfunction
 let g:CommandTCursorStartMap='<leader>f'
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gg :topleft :split Gemfile<cr>
-map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
 map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
 map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
+map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
+map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
 map <leader>gj :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
+map <leader>gs :CommandTFlush<cr>\|:CommandT app/assets/stylesheets<cr>
+map <leader>gS :CommandTFlush<cr>\|:CommandT spec<cr>
 map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
 map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
-map <leader>gs :CommandTFlush<cr>\|:CommandT app/assets/stylesheets<cr>
 map <leader>gt :CommandTFlush<cr>\|:CommandTTag<cr>
-map <leader>gi :CommandTFlush<cr>\|:CommandT integration_spec<cr>
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RunTests(filename)
-  " Write the file and run tests for the given filename
-  if expand("%") != ""
-    :w
-  end
-  if a:filename == ''
-    call s:RunFullTestSuite()
-  elseif match(a:filename, '_spec.rb') != -1
-    call s:RunRspecTests(a:filename)
-  elseif match(a:filename, '\.feature$') != -1
-    call s:RunFeatureTests(a:filename)
-  elseif match(a:filename, '_test.rb') != -1
-    call s:RunTestUnitTests(a:filename)
-  elseif match(a:filename, '\.rs$') != -1
-    call s:RunCargoTests(a:filename)
-  endif
-endfunction
-
-function! RunTestFile(...)
-  if a:0
-    let command_suffix = a:1
-  else
-    let command_suffix = ""
-  endif
-
-  " Run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\|.rs\)$') != -1
-
-  if in_test_file
-    call s:SetTestFile()
-  elseif !exists("t:smh_test_file")
-    return
-  end
-  call RunTests(t:smh_test_file . command_suffix)
-endfunction
-
-function! RunNearestTest()
-  let spec_line_number = line('.')
-  call RunTestFile(":" . spec_line_number . " -b")
-endfunction
-
-function! s:RunFullTestSuite()
-  if isdirectory('spec')
-    call s:RunRspecTests('spec')
-  elseif isdirectory('test')
-    call s:RunRake('test')
-  else " Trust the default Rake task to run the whole smash.
-    call s:RunRake()
-  endif
-endfunction
-
-function! s:RunRake(...)
-  if a:0
-    let tasks = a:1
-  else
-    let tasks = ''
-  endif
-
-  let rake_prefix = ''
-  if filereadable('bin/rake')
-    let rake_prefix = 'bin/'
-  elseif s:GemfileExists()
-    let rake_prefix = 'bundle exec '
-  endif
-
-  exec ":!" . rake_prefix . 'rake ' . tasks
-endfunction
-
-function! s:RunRspecTests(spec_file)
-  if filereadable("bin/rspec")
-    exec ":!bin/rspec --color " . a:spec_file
-  elseif s:GemfileExists()
-    exec ":!bundle exec rspec --color " . a:spec_file
-  else
-    exec ":!rspec --color " . a:spec_file
-  end
-endfunction
-
-function! s:RunCargoTests(test_file)
-  exec ":!cargo test "
-endfunction
-
-function! s:RunTestUnitTests(test_files)
-  let runner_prefix = ''
-
-  if s:GemfileExists()
-    let runner_prefix = 'bundle exec '
-  end
-
-  ":echom runner_prefix . 'ruby -Itest ' . a:test_files
-  exec ":!" . runner_prefix . 'ruby -Itest ' . a:test_files
-endfunction
-
-function! s:RunFeatureTests(spec_file)
-  if match(a:spec_file, 'spec\/features\/') != -1
-    call s:RunRspecTests(a:spec_file)
-  else
-    exec ":!bundle exec cucumber " . a:spec_file
-  end
-endfunction
-
-function! s:SetTestFile()
-  " Set the spec file that tests will be run for.
-  let t:smh_test_file=@%
-endfunction
-
-function! s:GemfileExists()
-  if filereadable('Gemfile')
-    return 1
-  else
-    return 0
-  endif
-endfunction
-
-map <leader>t :call RunTestFile()<cr>
-map <leader>T :call RunNearestTest()<cr>
-map <leader>a :call RunTests('')<cr>
-
-"let g:vroom_map_keys = 0
-"map <unique> <Leader>t :VroomRunTestFile<CR>
-"map <unique> <Leader>T :VroomRunNearestTest<CR>
-
+let test#strategy = "basic"
+nmap <silent> <leader>t :TestFile<cr>
+nmap <silent> <leader>T :TestNearest<cr>
+nmap <silent> <leader>a :TestSuite<cr>
+nmap <silent> <leader>l :TestLast<cr>
+nmap <silent> <leader>g :TestVisit<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " XMPFilter or Seeing Is Believing
