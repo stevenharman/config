@@ -58,11 +58,9 @@
   tags = !.git/hooks/ctags
 [github]
   user = stevenharman
-  token = [GITHUB TOKEN HERE]
 [rerere]
   enabled = true
 [init]
   templatedir = ~/.git_template
-
 [stash]
-	showPatch = true
+  showPatch = true
