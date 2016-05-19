@@ -37,9 +37,6 @@ source ~/.zsh/aliases.zsh
 # source local exports
 [[ -r ~/.zlocal ]] && source ~/.zlocal
 
-# get around current directory as "~rvm_rvmrc_cwd" weirdness
-unsetopt auto_name_dirs
-
 if [[ -e $HOME/.iterm2_shell_integration.zsh ]]; then
   source $HOME/.iterm2_shell_integration.zsh
 fi
