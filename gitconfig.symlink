@@ -56,8 +56,6 @@
   spull = !git svn fetch && git svn rebase
   spush = !git svn dcommit
   tags = !.git/hooks/ctags
-[github]
-  user = stevenharman
 [rerere]
   enabled = true
 [init]
