@@ -3,5 +3,6 @@ tmp/
 tags
 *.swp
 *.swo
+bundle.symlink/cache
 vim.symlink/bundle
 vim.symlink/spell/*.spl
