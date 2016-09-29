@@ -24,7 +24,7 @@ Plugin 'janko-m/vim-test'
 Plugin 'kchmck/vim-coffee-script'
 " use The Silver Searcher instead of ack
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep --smart-case'
+  let g:ackprg = 'ag --vimgrep --smart-case --hidden'
 endif
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
