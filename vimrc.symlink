@@ -23,7 +23,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'janko-m/vim-test'
 Plugin 'kchmck/vim-coffee-script'
 " use The Silver Searcher instead of ack
-let g:ackprg = 'ag --vimgrep'
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep --smart-case'
+endif
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 't9md/vim-ruby-xmpfilter'
