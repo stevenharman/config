@@ -174,12 +174,11 @@ set statusline+=%#warningmsg#
 set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
 set statusline+=%*
 
-set statusline+=\ %h      "help file flag
+set statusline+=\ %h    "help file flag
 set statusline+=%w      "preview
 set statusline+=%y      "filetype
 set statusline+=%r      "read only flag
 set statusline+=%m      "modified flag
-"set statusline+=%{rvm#statusline()}
 set statusline+=\ %{fugitive#statusline()}
 
 "display a warning if &et is wrong, or we have mixed-indenting
@@ -187,6 +186,7 @@ set statusline+=%#error#
 set statusline+=%{StatuslineTabWarning()}
 set statusline+=%*
 
+"display a warning if we have trailing white space
 set statusline+=%#error#
 set statusline+=%{StatuslineTrailingSpaceWarning()}
 set statusline+=%*
