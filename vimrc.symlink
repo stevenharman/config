@@ -20,7 +20,6 @@ Plugin 'VundleVim/Vundle.vim'
 " original repos on github
 Plugin 'airblade/vim-gitgutter'
 Plugin 'janko-m/vim-test'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'mileszs/ack.vim'
 " use The Silver Searcher instead of ack
 if executable('ag')
