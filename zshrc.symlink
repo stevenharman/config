@@ -40,3 +40,5 @@ source ~/.zsh/aliases.zsh
 if [[ -e $HOME/.iterm2_shell_integration.zsh ]]; then
   source $HOME/.iterm2_shell_integration.zsh
 fi
+
+export PATH="$HOME/.yarn/bin:$PATH"
