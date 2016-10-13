@@ -424,8 +424,8 @@ map <leader>n :NERDTreeToggle<cr>
 nmap g[ :bp<cr>
 nmap g] :bn<cr>
 
-" ack for project-wide searching (TRAILING WHITESPACE IS INTENTIONAL)
-nmap g/ :Ack! 
+" ack for project-wide searching
+nmap g/ :Ack!<space>
 nmap g* :Ack! -w <C-R><C-W>
 nmap gA :AckAdd!
 nmap gj :cnext<cr>
