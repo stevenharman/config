@@ -18,15 +18,15 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " original repos on github
-Plugin 'Raimondi/delimitMate'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'janko-m/vim-test'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'mileszs/ack.vim'
 " use The Silver Searcher instead of ack
 if executable('ag')
   let g:ackprg = 'ag --vimgrep --smart-case --hidden'
 endif
-Plugin 'mileszs/ack.vim'
+Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdtree'
 Plugin 't9md/vim-ruby-xmpfilter'
 let g:xmpfilter_cmd = "seeing_is_believing"
