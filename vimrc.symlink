@@ -78,8 +78,9 @@ set smartcase
 set mouse=a
 set ruler
 set number
-" Highlight current line
-set cursorline
+" Highlight current line and column
+autocmd WinLeave * set nocursorline nocursorcolumn
+autocmd WinEnter * set cursorline cursorcolumn
 set title
 set switchbuf=useopen
 set winwidth=79
@@ -434,7 +435,7 @@ nmap gc :ccl<cr>
 
 " search and replace the word under the cursor
 nnoremap <leader>r :%s/\<<C-r><C-w>\>/
-" remove search hilighting
+" remove search highlighting
 nmap <silent> <leader>h :silent :nohlsearch<CR>
 
 " rapidly toggle `set list`
