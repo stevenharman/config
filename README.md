@@ -30,7 +30,7 @@ rake windows
 At least the following are required, and I'll continue to add more as I
 re-discover them:
 
-- `brew install ack`
+- `brew install the_silver_searcher`
 - `brew install ctags`
 - `gem install gem-ctags && gem ctags`
 
