@@ -1,15 +1,17 @@
 
-ZSH_THEME_GIT_PROMPT_PREFIX="|%{$fg[green]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="|%{$fg[cyan]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}!"
 ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 function smh_rbenv_prompt_info {
-  echo "%{$fg[magenta]%}$(current_ruby)%{$reset_color%}"
+  local current_ruby=$(rbenv version-name)
+  echo "%{$fg[magenta]%}$current_ruby%{$reset_color%}"
 }
 
-function current_ruby() {
-  echo "$(rbenv version-name)"
+function smh_nodenv_prompt_info {
+  local current_node=$(nodenv version-name)
+  echo "%{$fg[green]%}$current_node%{$reset_color%}"
 }
 
 function prompt_char {
@@ -20,7 +22,7 @@ function prompt_char {
 local smiley="%(?,%{$fg[green]%}◎%{$reset_color%},%{$fg[red]%}◉%{$reset_color%})"
 
 PROMPT='
-%{$fg[yellow]%}%m%{$reset_color%}: %{$fg_bold[blue]%}%~%{$reset_color%} [$(smh_rbenv_prompt_info)$(git_prompt_info)]
+%{$fg[yellow]%}%m%{$reset_color%}: %{$fg_bold[blue]%}%~%{$reset_color%} [$(smh_rbenv_prompt_info)|$(smh_nodenv_prompt_info)$(git_prompt_info)]
 %_${smiley} $(prompt_char) '
 
 RPROMPT='%{$fg[green]%}[%*]%{$reset_color%}'
