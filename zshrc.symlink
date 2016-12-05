@@ -3,6 +3,10 @@ if command -v rbenv &>/dev/null; then
   . <(rbenv init -)
 fi
 
+if command -v nodenv &>/dev/null; then
+  . <(nodenv init -)
+fi
+
 export ZSH_CUSTOM=$HOME/.zsh/custom
 
 # Path to your oh-my-zsh configuration.
