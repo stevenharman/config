@@ -23,7 +23,7 @@ export ZSH_THEME="smh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(zsh-navigation-tools)
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH"/oh-my-zsh.sh
 
 # Customize to your needs...
 
@@ -39,8 +39,8 @@ source ~/.zsh/aliases.zsh
 # source local exports
 [[ -r ~/.zlocal ]] && source ~/.zlocal
 
-if [[ -e $HOME/.iterm2_shell_integration.zsh ]]; then
-  source $HOME/.iterm2_shell_integration.zsh
+if [[ -e "$HOME"/.iterm2_shell_integration.zsh ]]; then
+  source "$HOME"/.iterm2_shell_integration.zsh
 fi
 
 export PATH="$HOME/.yarn/bin:$PATH"
