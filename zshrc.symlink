@@ -1,5 +1,7 @@
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if command -v rbenv &>/dev/null; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  . <(rbenv init -)
+fi
 
 export ZSH_CUSTOM=$HOME/.zsh/custom
 
