@@ -18,7 +18,7 @@ export ZSH_THEME="smh"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(zsh-navigation-tools)
+plugins=(bundler gem yarn zsh-navigation-tools)
 
 source "$ZSH"/oh-my-zsh.sh
 
@@ -31,7 +31,7 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 
 source ~/.zsh/exports.zsh
-# source ~/.zsh/completion.zsh
+source ~/.zsh/completion.zsh
 source ~/.zsh/aliases.zsh
 # source local exports
 [[ -r ~/.zlocal ]] && source ~/.zlocal
