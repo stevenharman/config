@@ -5,7 +5,7 @@ zstyle ':completion:*' menu select
 
 # insert all expansions for expand completer
 zstyle ':completion:*:expand:*' keep-prefix true tag-order all-expansions
- 
+
 # formatting and messages
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*:descriptions' format "- %{${fg[yellow]}%}%d%{${reset_color}%} -"
@@ -26,7 +26,7 @@ zstyle ':completion:*:scp:*' tag-order files 'hosts:-domain:domain'
 zstyle ':completion:*:scp:*' group-order files all-files users hosts-domain hosts-host hosts-ipaddr
 zstyle ':completion:*:ssh:*' tag-order 'hosts:-domain:domain'
 zstyle ':completion:*:ssh:*' group-order hosts-domain hosts-host users hosts-ipaddr
- 
+
 ### highlight parameters with uncommon names
 zstyle ':completion:*:parameters' list-colors "=[^a-zA-Z]*=$color[red]"
 
