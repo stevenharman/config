@@ -1,12 +1,3 @@
-if command -v rbenv &>/dev/null; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  . <(rbenv init -)
-fi
-
-if command -v nodenv &>/dev/null; then
-  . <(nodenv init -)
-fi
-
 export ZSH_CUSTOM=$HOME/.zsh/custom
 
 # Path to your oh-my-zsh configuration.
@@ -49,4 +40,15 @@ if [[ -e "$HOME"/.iterm2_shell_integration.zsh ]]; then
   source "$HOME"/.iterm2_shell_integration.zsh
 fi
 
-export PATH="$HOME/.yarn/bin:$PATH"
+if command -v nodenv &>/dev/null; then
+  . <(nodenv init -)
+
+  if command -v yarn &> /dev/null; then
+    export PATH="$(yarn global bin):$PATH"
+  fi
+fi
+
+if command -v rbenv &>/dev/null; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  . <(rbenv init -)
+fi

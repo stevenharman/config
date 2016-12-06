@@ -5,4 +5,6 @@ function gitdays {
     git log --author=Steven --reverse --since="$@ days ago" --pretty="format:%n%Cgreen%cd%n%n%s%n%b%n---------------------------------------------"
 }
 
-export PATH="$HOME/.yarn/bin:$PATH"
+if command -v yarn &> /dev/null; then
+  export PATH="$(yarn global bin):$PATH"
+fi
