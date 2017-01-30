@@ -422,10 +422,6 @@ nnoremap <leader><leader> <c-^>
 " NERDTree
 map <leader>n :NERDTreeToggle<cr>
 
-" previous/next buffer (for going without tabs)
-nmap g[ :bp<cr>
-nmap g] :bn<cr>
-
 " ack for project-wide searching
 nmap g/ :Ack!<space>
 nmap g* :Ack! -w <C-R><C-W>
