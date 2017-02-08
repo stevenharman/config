@@ -145,6 +145,8 @@ augroup vimrcEx
   autocmd FileType python set sw=4 sts=4 et
   autocmd FileType go setlocal noexpandtab
 
+  " When editing Vim config, automagically reload!
+  autocmd! BufWritePost {.vimrc,.gvimrc} source %
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
