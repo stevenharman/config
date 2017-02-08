@@ -155,6 +155,7 @@ augroup END
 " let the terminal determine the colors to use
 set background=dark
 if has("gui_running") || &t_Co >= 256
+  let g:rehash256=1
   :color molokai
 else
   set t_Co=16     " every terminal I use supports at least 16, right?
