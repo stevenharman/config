@@ -424,6 +424,7 @@ nnoremap <leader><leader> <c-^>
 
 " NERDTree
 map <leader>n :NERDTreeToggle<cr>
+map gs :NERDTreeFind<cr>
 
 " ack for project-wide searching
 nmap g/ :Ack!<space>
