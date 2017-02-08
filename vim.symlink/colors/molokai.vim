@@ -67,7 +67,7 @@ hi Operator        guifg=#F92672
 
 " complete menu
 hi Pmenu           guifg=#66D9EF guibg=#000000
-hi PmenuSel                      guibg=#808080
+hi PmenuSel                      guibg=#293739
 hi PmenuSbar                     guibg=#080808
 hi PmenuThumb      guifg=#66D9EF
 
@@ -75,14 +75,14 @@ hi PreCondit       guifg=#A6E22E               gui=bold
 hi PreProc         guifg=#A6E22E
 hi Question        guifg=#66D9EF
 hi Repeat          guifg=#F92672               gui=bold
-hi Search          guifg=#000000 guibg=#FFE792
+hi Search          guifg=#000000 guibg=#FFE792 gui=underline
 " marks
 hi SignColumn      guifg=#A6E22E guibg=#232526
 hi SpecialChar     guifg=#F92672               gui=bold
 hi SpecialComment  guifg=#7E8E91               gui=bold
 hi Special         guifg=#66D9EF guibg=bg      gui=italic
 if has("spell")
-    hi SpellBad    guisp=#FF0000 gui=undercurl
+    hi SpellBad    guisp=#FF0000 gui=undercurl cterm=undercurl ctermbg=233
     hi SpellCap    guisp=#7070F0 gui=undercurl
     hi SpellLocal  guisp=#70F0F0 gui=undercurl
     hi SpellRare   guisp=#FFFFFF gui=undercurl
@@ -192,7 +192,7 @@ if &t_Co > 255
    hi PreProc         ctermfg=118
    hi Question        ctermfg=81
    hi Repeat          ctermfg=161               cterm=bold
-   hi Search          ctermfg=0   ctermbg=222   cterm=NONE
+   hi Search          ctermfg=0   ctermbg=222   cterm=underline
 
    " marks column
    hi SignColumn      ctermfg=118 ctermbg=235
