@@ -161,7 +161,7 @@ if &t_Co > 255
    hi DiffText                    ctermbg=102 cterm=bold
 
    hi Directory       ctermfg=118               cterm=bold
-   hi Error           ctermfg=219 ctermbg=89
+   hi Error           ctermfg=233 ctermbg=196
    hi ErrorMsg        ctermfg=199 ctermbg=16    cterm=bold
    hi Exception       ctermfg=118               cterm=bold
    hi Float           ctermfg=135
@@ -192,7 +192,7 @@ if &t_Co > 255
    hi PreProc         ctermfg=118
    hi Question        ctermfg=81
    hi Repeat          ctermfg=161               cterm=bold
-   hi Search          ctermfg=0   ctermbg=222   cterm=underline
+   hi Search          ctermfg=253 ctermbg=67    cterm=underline
 
    " marks column
    hi SignColumn      ctermfg=118 ctermbg=235
@@ -247,7 +247,7 @@ if &t_Co > 255
        hi DiffDelete      ctermfg=125 ctermbg=233
 
        hi Directory       ctermfg=154               cterm=bold
-       hi Error           ctermfg=222 ctermbg=233
+       "hi Error           ctermfg=222 ctermbg=233
        hi Exception       ctermfg=154               cterm=bold
        hi Float           ctermfg=141
        hi Function        ctermfg=154
