@@ -10,6 +10,7 @@
 --type-set=less:ext:less
 --type-set=sass:ext:scss,sass
 --type-set=cucumber:ext:feature
+--type-set=markdown:ext:md,mkd,markdown
 #
 --ignore-dir=.rbx
 --ignore-dir=.sass-cache
