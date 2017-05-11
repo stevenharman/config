@@ -19,7 +19,10 @@
   changed = green
   untracked = cyan
 [merge]
-  tool = p4merge
+  tool = Kaleidoscope
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustexitcode = true
 [mergetool "p4merge"]
   cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
   trustExitCode = false
@@ -27,7 +30,9 @@
   prompt = false
   keepBackup = false
 [diff]
-  tool = p4diff
+  tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool "p4diff"]
   cmd = p4merge "$LOCAL" "$BASE"
 [difftool]
