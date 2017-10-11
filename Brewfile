@@ -10,7 +10,7 @@ brew 'wget'
 brew 'git'
 brew 'heroku'
 brew 'hub'
-brew 'macvim'
+brew 'macvim', args: ["with-override-system-vim"]
 
 brew 'openssl'
 brew 'nodenv'
@@ -22,3 +22,5 @@ brew 'node'
 brew 'graphicsmagick'
 brew 'imagemagick'
 brew 'jq'
+
+brew 'postgresql'
