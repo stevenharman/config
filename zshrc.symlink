@@ -52,3 +52,18 @@ if command -v rbenv &>/dev/null; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   . <(rbenv init -)
 fi
+
+# zsh-navigation-tools configuration, overrides ~/.config/znt
+znt_list_border=1
+
+# When using new (>5.2) Zsh version that supports 256 colors in zcurses
+#znt_list_themes=( "white/17/0" "10/17/1" "white/24/1" "white/22/0" "white/22/1" "white/25/0" "white/25/1"
+#                  "white/59/0" "white/59/1" "white/60/0" "white/60/1" "white/61/0" "white/61/1" "black/65/0"
+#                  "black/244/0" )
+
+# When 1, pressing enter when in search mode will not only leave the mode, but
+# also do selection and leave n-history
+znt_list_instant_select=0
+
+# Search keywords, iterated with F2 or Ctrl-X or Ctrl-/
+znt_history_keywords=( "heroku" "WEB_CONCURRENCY" "bin/rails" )
