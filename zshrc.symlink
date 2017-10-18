@@ -1,9 +1,7 @@
+# oh-my-zsh configuration
 export ZSH_CUSTOM=$HOME/.zsh/custom
-
-# Path to your oh-my-zsh configuration.
+# Path to oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
-
-# Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="smh"
 
@@ -22,37 +20,6 @@ plugins=(bundler gem yarn zsh-navigation-tools)
 
 source "$ZSH"/oh-my-zsh.sh
 
-# Customize to your needs...
-
-bindkey "^[" vi-cmd-mode
-# Use n-history from zsh-navigation-tools for history search
-#bindkey '^R' history-incremental-search-backward
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-
-source ~/.zsh/exports.zsh
-source ~/.zsh/completion.zsh
-source ~/.zsh/aliases.zsh
-# source local exports
-[[ -r ~/.zlocal ]] && source ~/.zlocal
-
-if [[ -e "$HOME"/.iterm2_shell_integration.zsh ]]; then
-  source "$HOME"/.iterm2_shell_integration.zsh
-fi
-
-if command -v nodenv &>/dev/null; then
-  . <(nodenv init -)
-
-  if command -v yarn &> /dev/null; then
-    export PATH="$(yarn global bin):$PATH"
-  fi
-fi
-
-if command -v rbenv &>/dev/null; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  . <(rbenv init -)
-fi
-
 # zsh-navigation-tools configuration, overrides ~/.config/znt
 znt_list_border=1
 
@@ -67,3 +34,10 @@ znt_list_instant_select=0
 
 # Search keywords, iterated with F2 or Ctrl-X or Ctrl-/
 znt_history_keywords=( "heroku" "WEB_CONCURRENCY" "bin/rails" )
+
+
+bindkey "^[" vi-cmd-mode
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+
+# source ~/.zsh/completion.zsh
