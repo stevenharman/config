@@ -37,7 +37,7 @@ fi
 ## Editor registration for git, etc...
 export CDPATH=:~/code
 export CLICOLOR=1
-export EDITOR="$VISUAL"
+export EDITOR="vim"
 export GEM_OPEN_EDITOR="vim"
 export LC_CTYPE="en_US.UTF-8"
 export PGOPTIONS='-c client_min_messages=WARNING'

@@ -1,18 +1,19 @@
 require 'pathname'
 
+LINKABLES = %w(.ackrc .agignore .bashrc .bundle .gemrc .git_template .gitconfig .gitignore_global .gvimrc .hgrc .irbrc .profile .pryrc .railsrc .rspec .screenrc .vim .vimrc .zprofile .zsh .zshenv .zshrc).freeze
+
 desc 'Hook dotfiles into system-standard positions.'
 task :install do
   skip_all = false
   overwrite_all = ENV['OVERWRITE_DOTFILES'] || false
   backup_all = false
 
-  Pathname.glob('**/*{.symlink}').each do |linkable|
+  LINKABLES.each do |linkable|
     skip = false
     overwrite = false
     backup = false
 
-    file = linkable.sub_ext('')
-    target = Pathname(ENV.fetch('HOME')).join(".#{file}")
+    target = Pathname(ENV.fetch('HOME')).join(linkable)
 
     if target.exist? || target.symlink?
       unless skip_all || overwrite_all || backup_all
@@ -36,10 +37,8 @@ task :install do
 end
 
 task :uninstall do
-  Pathname.glob('**/*{.symlink}').each do |linkable|
-
-    file = linkable.sub_ext('')
-    target = Pathname(ENV.fetch('HOME')).join(".#{file}")
+  LINKABLES.each do |linkable|
+    target = Pathname(ENV.fetch('HOME')).join(linkable)
 
     # Remove all symlinks created during installation
     if target.symlink?

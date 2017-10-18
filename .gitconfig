@@ -40,7 +40,7 @@
 [core]
   autocrlf = false
   legacyheaders = false
-  excludesfile = /Users/steven/.gitignore
+  excludesfile = /Users/steven/.gitignore_global
 [push]
   default = simple
 [gui]

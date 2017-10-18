@@ -26,6 +26,8 @@ Plugin 'mileszs/ack.vim'
 if executable('ag')
   let g:ackprg = 'ag --vimgrep --smart-case --hidden'
 endif
+" Plugin 'junegunn/fzf'
+" Plugin 'junegunn/fzf.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdtree'
 Plugin 't9md/vim-ruby-xmpfilter'

@@ -1,8 +1,8 @@
 .DS_Store
-tmp/
-tags
 *.swp
 *.swo
-bundle.symlink/cache
-vim.symlink/bundle
-vim.symlink/spell/*.spl
+/tmp/
+/tags
+/.bundle/cache
+/.vim/bundle
+/.vim/spell/*.spl
