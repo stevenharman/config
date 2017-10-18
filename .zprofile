@@ -1,1 +1,1 @@
-profile.symlink
+.profile
