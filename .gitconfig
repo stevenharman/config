@@ -54,6 +54,7 @@
   ch = cherry -v origin
   aa = add --all
   dc = diff --cached
+  fa = fetch --all --prune
   l = log --graph --pretty=format:'%Cred%h%Creset - %Cgreen(%ar) %C(bold blue)<%aN>% %C(yellow)%d%Creset %s' --abbrev-commit --date=relative
   la = !git l --all
   mt = mergetool
