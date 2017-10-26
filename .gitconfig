@@ -48,19 +48,17 @@
 [repack]
   usedeltabaseoffset = true
 [alias]
+  aa = add --all
+  ch = cherry -v origin
   ci = commit --verbose
   co = checkout
-  st = status -sb
-  ch = cherry -v origin
-  aa = add --all
   dc = diff --cached
   fa = fetch --all --prune
   l = log --graph --pretty=format:'%Cred%h%Creset - %Cgreen(%ar) %C(bold blue)<%aN>% %C(yellow)%d%Creset %s' --abbrev-commit --date=relative
   la = !git l --all
-  mt = mergetool
   mine = log --author=Steven
-  spull = !git svn fetch && git svn rebase
-  spush = !git svn dcommit
+  mt = mergetool
+  st = status -sb
   tags = !.git/hooks/ctags
 [rerere]
   enabled = true
