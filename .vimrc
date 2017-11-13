@@ -151,6 +151,10 @@ augroup vimrcEx
   autocmd! BufWritePost {.vimrc,.gvimrc} source %
 augroup END
 
+augroup filetypedetect
+  au! BufRead,BufNewFile *.inky set filetype=eruby.html
+augroup END
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COLORS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
