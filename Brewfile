@@ -24,3 +24,5 @@ brew 'imagemagick'
 brew 'jq'
 
 brew 'postgresql'
+
+brew 'tldr'
