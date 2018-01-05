@@ -33,6 +33,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 't9md/vim-ruby-xmpfilter'
 let g:xmpfilter_cmd = "seeing_is_believing"
 Plugin 'sheerun/vim-polyglot'
+let g:ruby_indent_assignment_style = 'variable'
 " Use gem-ctags to generate CTags for all gems in the Bundle
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-endwise'
