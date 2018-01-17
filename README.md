@@ -6,14 +6,14 @@ The following rake tasks will set up symbolic links in your home directory for
 each of the included configuration files.
 
 ```bash
-rake symlink
+rake install
 ```
 
 or
 
 ```bash
 # Force overwriting everything
-OVERWRITE_DOTFILES=true rake symlink
+OVERWRITE_DOTFILES=true rake install
 ```
 
 ### Windows
