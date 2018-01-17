@@ -1,8 +1,8 @@
 require 'win32console' if RUBY_PLATFORM =~ /(mswin|mingw|cygwin)32$/i
 
 begin
-  require 'hirb'
-  Hirb.enable if defined? Hirb
+  require 'awesome_print'
+  AwesomePrint.pry!
 rescue LoadError
   # no pretty console output :(
 end
