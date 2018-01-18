@@ -1,0 +1,7 @@
+AwesomePrint.defaults = {
+  indent: 2,
+  raw: true,
+  ruby19_syntax: true
+}
+
+# vi: ft=ruby
