@@ -1,6 +1,6 @@
 AwesomePrint.defaults = {
   indent: -2,
-  raw: true,
+  raw: false,
   ruby19_syntax: true
 }
 
