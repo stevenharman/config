@@ -35,7 +35,10 @@ let g:xmpfilter_cmd = "seeing_is_believing"
 Plugin 'sheerun/vim-polyglot'
 let g:ruby_indent_assignment_style = 'variable'
 " Use gem-ctags to generate CTags for all gems in the Bundle
+Plugin 'skywind3000/asyncrun.vim'
 Plugin 'tpope/vim-bundler'
+" Dispatch: To determine what compiler and errorformat to use for testruns/Quickfix
+Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
@@ -150,6 +153,10 @@ augroup vimrcEx
 
   " When editing Vim config, automagically reload!
   autocmd! BufWritePost {.vimrc,.gvimrc} source %
+augroup END
+
+augroup vimrc
+  autocmd User AsyncRunStart call asyncrun#quickfix_toggle(8, 1)
 augroup END
 
 augroup filetypedetect
@@ -294,7 +301,6 @@ inoremap <s-tab> <c-n>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
-map <leader>v :view %%
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
@@ -371,12 +377,18 @@ map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let test#strategy = "basic"
+let test#strategy = 'asyncrun'
+" Can use different strategies for different types of runs
+"  {
+"  \ 'nearest': 'asyncrun',
+"  \ 'file':    'asyncrun',
+"  \ 'suite':   'basic',
+"  \}
 nmap <silent> <leader>t :TestFile<cr>
 nmap <silent> <leader>T :TestNearest<cr>
 nmap <silent> <leader>a :TestSuite<cr>
 nmap <silent> <leader>l :TestLast<cr>
-nmap <silent> <leader>g :TestVisit<cr>
+nmap <silent> <leader>v :TestVisit<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " XMPFilter or Seeing Is Believing
@@ -439,7 +451,7 @@ nmap g* :Ack! -w <C-R><C-W>
 nmap gA :AckAdd!
 nmap gj :cnext<cr>
 nmap gk :cprev<cr>
-nmap gc :ccl<cr>
+nmap gc :call asyncrun#quickfix_toggle(8)<cr>
 
 " search and replace the word under the cursor
 nnoremap <leader>r :%s/\<<C-r><C-w>\>/
