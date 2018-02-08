@@ -398,7 +398,7 @@ let test#strategy = 'asyncrun'
 nmap <silent> <leader>t :TestFile<cr>
 nmap <silent> <leader>T :TestNearest<cr>
 nmap <silent> <leader>a :TestSuite<cr>
-nmap <silent> <leader>l :TestLast<cr>
+nmap <silent> <leader>L :TestLast<cr>
 nmap <silent> <leader>v :TestVisit<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
