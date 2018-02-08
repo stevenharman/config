@@ -35,9 +35,20 @@ znt_list_instant_select=0
 # Search keywords, iterated with F2 or Ctrl-X or Ctrl-/
 znt_history_keywords=( "heroku" "WEB_CONCURRENCY" "bin/rails" )
 
-
 bindkey "^[" vi-cmd-mode
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 
-# source ~/.zsh/completion.zsh
+# Customization of tab-completion
+source ~/.zsh/completion.zsh
+# heroku autocomplete setup
+CLI_ENGINE_AC_ZSH_SETUP_PATH=$HOME/Library/Caches/heroku/completions/zsh_setup
+
+if [[ -f $CLI_ENGINE_AC_ZSH_SETUP_PATH ]]; then
+  source $CLI_ENGINE_AC_ZSH_SETUP_PATH
+else
+  CLEAR_LINE='\r\033[K'
+  NO_COLOR='\033[0m'
+  YELLOW='\033[0;33m'
+  printf "${CLEAR_LINE}⚠️${YELLOW}   .zshrc: Missing Heroku CLI Completions. See: https://devcenter.heroku.com/articles/heroku-cli-autocomplete.${NO_COLOR}\n"
+fi
