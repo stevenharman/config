@@ -356,6 +356,17 @@ endfunction
 :map <leader>p :PromoteToLet<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RESTART RAILS SERVER (when vim-rails detectes Rails)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+function! RestartRails()
+  if RailsDetect()
+    execute "AsyncRun touch <root>/tmp/restart.txt"
+  endif
+endfunction
+map <leader>R :call RestartRails()<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPS TO JUMP TO SPECIFIC COMMAND-T TARGETS AND FILES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:CommandTCursorStartMap='<leader>f'
