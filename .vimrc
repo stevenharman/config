@@ -303,12 +303,27 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAKE ALL PARENT DIRECTORIES FOR A FILE
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! MkNonExDirP(file)
+  if a:file!~#'\v^\w+\:\/' " don't write files like ftp://*
+    let new_dir = fnamemodify(a:file, ':h')
+    if !isdirectory(new_dir)
+      call mkdir(new_dir, 'p')
+      redraw!
+    endif
+  endif
+endfunction
+map <leader>mk :call MkNonExDirP(expand('%'))<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! RenameFile()
   let old_name = expand('%')
-  let new_name = input('New file name: ', expand('%'))
+  let new_name = input('New file name: ', expand('%'), 'file')
   if new_name != '' && new_name != old_name
+    call MkNonExDirP(new_name)
     exec ':saveas ' . new_name
     exec ':silent !rm ' . old_name
     redraw!
