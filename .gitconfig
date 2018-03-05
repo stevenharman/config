@@ -41,6 +41,8 @@
   autocrlf = false
   legacyheaders = false
   excludesfile = /Users/steven/.gitignore_global
+[fetch]
+  prune = true
 [push]
   default = simple
 [gui]
