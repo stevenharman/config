@@ -1,13 +1,13 @@
 # Initialize "xenv" language managers, if they're installed
-if command -v nodenv &>/dev/null; then
+if command -v nodenv &> /dev/null; then
   . <(nodenv init -)
 
   if command -v yarn &> /dev/null; then
-    export PATH="$(yarn global bin):$PATH"
+    export PATH="$PATH:$(yarn global bin)"
   fi
 fi
 
-if command -v rbenv &>/dev/null; then
+if command -v rbenv &> /dev/null; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   . <(rbenv init -)
 fi
