@@ -11,6 +11,9 @@ set nocompatible
 " Turn off for Vundle. Turn it back on below.
 filetype plugin off
 
+" use fzf for fuzzy-finding (assumes brew install fzf installation!)
+set runtimepath+=/usr/local/opt/fzf
+
 set runtimepath+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
@@ -22,12 +25,13 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'janko-m/vim-test'
 Plugin 'mileszs/ack.vim'
-" use The Silver Searcher instead of ack
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep --smart-case --hidden'
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep --smart-case --hidden --glob "!.git/*"'
+" 'rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 endif
-" Plugin 'junegunn/fzf'
-" Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+let g:fzf_buffers_jump = 1
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdtree'
 Plugin 't9md/vim-ruby-xmpfilter'
@@ -50,7 +54,6 @@ Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'wincent/command-t'
 " vim-scripts repos
 Plugin 'taglist.vim'
 " non github repos
@@ -382,23 +385,27 @@ endfunction
 map <leader>R :call RestartRails()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MAPS TO JUMP TO SPECIFIC COMMAND-T TARGETS AND FILES
+" MAPS TO JUMP TO SPECIFIC FZF TARGETS AND FILES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:CommandTCursorStartMap='<leader>f'
+" add a :Find command using ripgrep
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gg :topleft :split Gemfile<cr>
-map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-map <leader>gj :CommandTFlush<cr>\|:CommandT app/assets/javascripts<cr>
-map <leader>gs :CommandTFlush<cr>\|:CommandT app/assets/stylesheets<cr>
-map <leader>gS :CommandTFlush<cr>\|:CommandT spec<cr>
-map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
-map <leader>gt :CommandTFlush<cr>\|:CommandTTag<cr>
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+map <leader>gc :Files app/controllers<cr>
+map <leader>gh :Files app/helpers<cr>
+map <leader>gm :Files app/models<cr>
+map <leader>gv :Files app/views<cr>
+map <leader>gj :Files app/javascript<cr>
+map <leader>gs :Files app/assets/stylesheets<cr>
+map <leader>gS :Files spec<cr>
+map <leader>gl :Files lib<cr>
+map <leader>gp :Files public<cr>
+" Tags in the project
+nnoremap <leader>gt :Tags<cr>
+" Tags in the current buffer
+nnoremap <leader>gT :BTags<cr>
+nnoremap <leader>f :Files<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS

@@ -1,9 +1,10 @@
 tap 'caskroom/cask'
 
 brew 'ack'
+brew 'fzf'
 brew 'ctags'
 brew 'pv'
-brew 'the_silver_searcher'
+brew 'ripgrep'
 brew 'tree'
 brew 'wget'
 
