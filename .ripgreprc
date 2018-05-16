@@ -1,0 +1,6 @@
+--type-add=css:*.sass
+--type-add=html:*.{erb,haml,slim}
+--type-add=ruby:*.{rake,erb}
+--type-add=web:*.{htm,html,erb,haml,slim,css,sass,scss,js,jsx,vue,coffee}
+
+--smart-case

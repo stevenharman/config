@@ -35,12 +35,13 @@ fi
 [[ -r ~/.zlocal ]] && source ~/.zlocal
 
 ## Editor registration for git, etc...
-export CDPATH=:~/code
+export CDPATH=:"$HOME"/code
 export CLICOLOR=1
 export EDITOR="vim"
 export GEM_OPEN_EDITOR="vim"
 export LC_CTYPE="en_US.UTF-8"
 export PGOPTIONS='-c client_min_messages=WARNING'
+export RIPGREP_CONFIG_PATH="$HOME"/.ripgreprc
 
 # My aliases
 alias b='cd -'
