@@ -41,11 +41,12 @@ setopt HIST_IGNORE_SPACE
 
 # Customization of tab-completion
 source ~/.zsh/completion.zsh
-# heroku autocomplete setup
-CLI_ENGINE_AC_ZSH_SETUP_PATH=$HOME/Library/Caches/heroku/completions/zsh_setup
 
-if [[ -f $CLI_ENGINE_AC_ZSH_SETUP_PATH ]]; then
-  source $CLI_ENGINE_AC_ZSH_SETUP_PATH
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH="$HOME"/Library/Caches/heroku/autocomplete/zsh_setup
+
+if [[ -f $HEROKU_AC_ZSH_SETUP_PATH ]]; then
+  source "$HEROKU_AC_ZSH_SETUP_PATH"
 else
   CLEAR_LINE='\r\033[K'
   NO_COLOR='\033[0m'

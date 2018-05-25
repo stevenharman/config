@@ -2,10 +2,10 @@
 alias ..="cd .."
 
 # heroku autocomplete setup
-CLI_ENGINE_AC_BASH_SETUP_PATH=$HOME/Library/Caches/heroku/completions/bash_setup
+HEROKU_AC_BASH_SETUP_PATH="$HOME"/Library/Caches/heroku/autocomplete/bash_setup
 
-if [[ -f $CLI_ENGINE_AC_BASH_SETUP_PATH ]]; then
-  source $CLI_ENGINE_AC_BASH_SETUP_PATH
+if [[ -f $HEROKU_AC_BASH_SETUP_PATH ]]; then
+  source "$HEROKU_AC_BASH_SETUP_PATH"
 else
   CLEAR_LINE='\r\033[K'
   NO_COLOR='\033[0m'
