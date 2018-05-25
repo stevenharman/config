@@ -32,6 +32,7 @@ endif
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 let g:fzf_buffers_jump = 1
+let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdtree'
 Plugin 't9md/vim-ruby-xmpfilter'
@@ -392,6 +393,7 @@ command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-h
 
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gg :topleft :split Gemfile<cr>
+map <leader>ga :Files app<cr>
 map <leader>gc :Files app/controllers<cr>
 map <leader>gh :Files app/helpers<cr>
 map <leader>gm :Files app/models<cr>
