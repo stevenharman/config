@@ -154,6 +154,7 @@ augroup vimrcEx
   autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
   autocmd FileType python set sw=4 sts=4 et
   autocmd FileType go setlocal noexpandtab
+  autocmd FileType vue call RagtagInit()
 
   " When editing Vim config, automagically reload!
   autocmd! BufWritePost {.vimrc,.gvimrc} source %
