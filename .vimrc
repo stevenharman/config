@@ -413,13 +413,11 @@ nnoremap <leader>f :Files<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let test#strategy = 'asyncrun'
-" Can use different strategies for different types of runs
-"  {
-"  \ 'nearest': 'asyncrun',
-"  \ 'file':    'asyncrun',
-"  \ 'suite':   'basic',
-"  \}
+let test#strategy = {
+  \ 'nearest': 'basic',
+  \ 'file':    'asyncrun',
+  \ 'suite':   'asyncrun',
+\}
 nmap <silent> <leader>t :TestFile<cr>
 nmap <silent> <leader>T :TestNearest<cr>
 nmap <silent> <leader>a :TestSuite<cr>
