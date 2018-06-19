@@ -53,3 +53,7 @@ else
   YELLOW='\033[0;33m'
   printf "${CLEAR_LINE}⚠️${YELLOW}   .zshrc: Missing Heroku CLI Completions. See: https://devcenter.heroku.com/articles/heroku-cli-autocomplete.${NO_COLOR}\n"
 fi
+
+if [[ -f "$HOME/.fzf.zsh" ]]; then
+  source "$HOME/.fzf.zsh"
+fi

@@ -1,6 +1,6 @@
 require 'pathname'
 
-LINKABLES = %w(.ackrc .agignore .aprc .bashrc Brewfile .bundle .gemrc .git_template .gitconfig .gitignore_global .gvimrc .hgrc .irbrc .profile .pryrc .railsrc .ripgreprc .rbenv/default-gems .rspec .screenrc .ssh/common_config .vim .vimrc .zprofile .zsh .zshenv .zshrc).freeze
+LINKABLES = %w(.ackrc .agignore .aprc .bashrc Brewfile .bundle .fzf.bash .fzf.zsh .gemrc .git_template .gitconfig .gitignore_global .gvimrc .hgrc .irbrc .profile .pryrc .railsrc .ripgreprc .rbenv/default-gems .rspec .screenrc .ssh/common_config .vim .vimrc .zprofile .zsh .zshenv .zshrc).freeze
 
 desc 'Hook dotfiles into system-standard positions.'
 task :install do

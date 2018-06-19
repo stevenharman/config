@@ -12,3 +12,7 @@ else
   YELLOW='\033[0;33m'
   printf "${CLEAR_LINE}⚠️${YELLOW}   .bashrc: Missing Heroku CLI Completions. See: https://devcenter.heroku.com/articles/heroku-cli-autocomplete.${NO_COLOR}\n"
 fi
+
+if [[ -f "$HOME/.fzf.bash" ]]; then
+  source "$HOME/.fzf.bash"
+fi
