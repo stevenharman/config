@@ -1,3 +1,6 @@
+# Shortcut the somewhat expensive `brew --prefix`
+export HOMEBREW_PREFIX="/usr/local"
+
 # Initialize "xenv" language managers, if they're installed
 if command -v nodenv &> /dev/null; then
   . <(nodenv init -)
