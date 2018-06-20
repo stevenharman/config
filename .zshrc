@@ -5,6 +5,11 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="smh"
 
+# Source fzf before zhs-navigation-tools b/c we want znt's keybindings for ^R
+if [[ -f "$HOME/.fzf.zsh" ]]; then
+  source "$HOME/.fzf.zsh"
+fi
+
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
 
@@ -52,8 +57,4 @@ else
   NO_COLOR='\033[0m'
   YELLOW='\033[0;33m'
   printf "${CLEAR_LINE}⚠️${YELLOW}   .zshrc: Missing Heroku CLI Completions. See: https://devcenter.heroku.com/articles/heroku-cli-autocomplete.${NO_COLOR}\n"
-fi
-
-if [[ -f "$HOME/.fzf.zsh" ]]; then
-  source "$HOME/.fzf.zsh"
 fi
