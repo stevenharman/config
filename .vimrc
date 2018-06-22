@@ -56,7 +56,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 " vim-scripts repos
-Plugin 'taglist.vim'
+Plugin 'emnh/taglist.vim' " The vim-scripts/taglist.vim seems no longer maintained; trying a fork with updated version (4.6)
 " non github repos
 
 call vundle#end()
