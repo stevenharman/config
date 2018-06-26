@@ -389,6 +389,9 @@ map <leader>R :call RestartRails()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPS TO JUMP TO SPECIFIC FZF TARGETS AND FILES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let s:javascript_dir = isdirectory('app/javascript') ? 'app/javascript' : 'app/assets/javascripts'
+let s:styles_dir = isdirectory('app/javascript/stylesheets') ? 'app/javascript/stylesheets' : 'app/assets/stylesheets'
+
 " add a :Find command using ripgrep
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
@@ -399,8 +402,8 @@ map <leader>gc :Files app/controllers<cr>
 map <leader>gh :Files app/helpers<cr>
 map <leader>gm :Files app/models<cr>
 map <leader>gv :Files app/views<cr>
-map <leader>gj :Files app/javascript<cr>
-map <leader>gs :Files app/assets/stylesheets<cr>
+execute 'map <leader>gj :Files ' . s:javascript_dir . '<cr>'
+execute 'map <leader>gs :Files ' . s:styles_dir . '<cr>'
 map <leader>gS :Files spec<cr>
 map <leader>gl :Files lib<cr>
 map <leader>gp :Files public<cr>
