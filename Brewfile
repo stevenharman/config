@@ -9,7 +9,6 @@ brew 'tree'
 brew 'wget'
 
 brew 'git'
-brew 'heroku'
 brew 'hub'
 brew 'macvim', args: ["with-override-system-vim"]
 
