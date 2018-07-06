@@ -123,7 +123,7 @@ set visualbell
 " Spell checking, including automagically for git & markdown
 set spellfile=$HOME/.vim/spell/en.utf-8.add
 autocmd FileType gitcommit,markdown setlocal spell
-autocmd FileType gitcommit,markdown set complete+=kspell
+autocmd FileType gitcommit,markdown setlocal complete+=kspell
 
 " Enable highlighting for syntax
 syntax enable
@@ -151,8 +151,9 @@ augroup vimrcEx
         \ endif
 
   "for ruby, autoindent with two spaces, always expand tabs
-  autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set ai sw=2 sts=2 et
-  autocmd FileType python set sw=4 sts=4 et
+  autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set autoindent sw=2 sts=2 expandtab
+  autocmd FileType ruby,eruby setlocal complete-=i
+  autocmd FileType python set sw=4 sts=4 expandtab
   autocmd FileType go setlocal noexpandtab
   autocmd FileType vue call RagtagInit()
 
