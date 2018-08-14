@@ -56,8 +56,8 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'w0rp/ale'
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
+let g:ale_list_window_size = 5 " default = 10
+let g:ale_lint_delay = 300 " default = 200ms
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:ale_fixers = {
