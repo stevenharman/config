@@ -55,6 +55,15 @@ Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'w0rp/ale'
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+let g:ale_fixers = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'ruby': ['rubocop']
+      \}
 " vim-scripts repos
 Plugin 'emnh/taglist.vim' " The vim-scripts/taglist.vim seems no longer maintained; trying a fork with updated version (4.6)
 " non github repos
@@ -176,6 +185,8 @@ augroup END
 set background=dark
 if has("gui_running") || &t_Co >= 256
   let g:rehash256=1
+  highlight clear ALEErrorSign
+  highlight clear ALEWarningSign
   :color molokai
 else
   set t_Co=16     " every terminal I use supports at least 16, right?
@@ -215,9 +226,9 @@ set statusline+=%#error#
 set statusline+=%{StatuslineTrailingSpaceWarning()}
 set statusline+=%*
 
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=\ %{LinterStatus()}
+set statusline+=%*
 
 "display a warning if &paste is set
 set statusline+=%#error#
@@ -258,6 +269,19 @@ function! StatuslineCurrentHighlight()
   endif
 endfunction
 
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '[%dW %dE]',
+    \   all_non_errors,
+    \   all_errors
+    \)
+endfunction
+
 "recalculate the tab warning flag when idle and after writing
 autocmd cursorhold,bufwritepost * unlet! b:statusline_tab_warning
 
@@ -285,7 +309,6 @@ function! FileEncodingAndBomb()
   let bomb = ((exists("+bomb")) && &bomb) ? ",B" : ""
   return '['.enc.bomb.']'
 endfunction
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
@@ -478,6 +501,9 @@ nmap gW :only<cr>
 
 " Reopen the last buffer in the current window
 nnoremap <leader><leader> <c-^>
+
+" Fix style, lint, etc... via ALE Fixers
+nmap <leader>F :ALEFix<cr>
 
 " NERDTree
 map <leader>n :NERDTreeToggle<cr>
