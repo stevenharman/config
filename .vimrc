@@ -39,7 +39,6 @@ Plugin 't9md/vim-ruby-xmpfilter'
 let g:xmpfilter_cmd = "seeing_is_believing"
 Plugin 'sheerun/vim-polyglot'
 let g:ruby_indent_assignment_style = 'variable'
-" Use gem-ctags to generate CTags for all gems in the Bundle
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'tpope/vim-bundler'
 " Dispatch: To determine what compiler and errorformat to use for testruns/Quickfix
@@ -50,7 +49,8 @@ Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-ragtag'
 Plugin 'tpope/vim-rails'
-let g:rails_ctags_arguments = '--languages=-javascript --exclude=tmp'
+" Use gem-ctags to generate CTags for all gems in the Bundle
+let g:rails_ctags_arguments = '--exclude=tmp'
 Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
@@ -114,7 +114,7 @@ set nobackup
 set nowritebackup
 "set backupdir=./tmp,$HOME/.vim/tmp/,$TEMP/,.
 "set directory=./tmp,$HOME/.vim/tmp/,$TEMP/,.
-set tags^=./tmp/tags
+set tags^=./.git/tags
 " Intuitive backspacing in insert mode.
 set backspace=indent,eol,start
 " custom whitespace characters
