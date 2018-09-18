@@ -402,7 +402,6 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RESTART RAILS SERVER (when vim-rails detectes Rails)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 function! RestartRails()
   if RailsDetect()
     execute "AsyncRun touch <root>/tmp/restart.txt"
@@ -502,9 +501,6 @@ nmap gW :only<cr>
 " Reopen the last buffer in the current window
 nnoremap <leader><leader> <c-^>
 
-" Fix style, lint, etc... via ALE Fixers
-nmap <leader>F :ALEFix<cr>
-
 " NERDTree
 map <leader>n :NERDTreeToggle<cr>
 map gs :NERDTreeFind<cr>
@@ -521,6 +517,11 @@ nmap gc :call asyncrun#quickfix_toggle(8)<cr>
 nnoremap <leader>r :%s/\<<C-r><C-w>\>/
 " remove search highlighting
 nmap <silent> <leader>h :silent :nohlsearch<CR>
+
+" Re-draw syntax highlighting
+nmap <silent> <leader>H :syntax sync fromstart<CR>
+" Fix style, lint, etc... via ALE Fixers
+nmap <leader>F :ALEFix<cr>
 
 " rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
