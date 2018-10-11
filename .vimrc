@@ -447,6 +447,8 @@ let test#strategy = {
 nmap <silent> <leader>t :TestFile<cr>
 nmap <silent> <leader>T :TestNearest<cr>
 nmap <silent> <leader>a :TestSuite<cr>
+nmap <silent> <leader>A :TestSuite -strategy=basic<cr>
+nmap <silent> <leader>N :TestSuite --next-failure<cr>
 nmap <silent> <leader>L :TestLast<cr>
 nmap <silent> <leader>v :TestVisit<cr>
 
