@@ -65,7 +65,7 @@ let g:ale_fixers = {
       \ 'ruby': ['rubocop']
       \}
 " vim-scripts repos
-Plugin 'emnh/taglist.vim' " The vim-scripts/taglist.vim seems no longer maintained; trying a fork with updated version (4.6)
+Plugin 'emnh/taglist.vim' " The vim-scripts/taglist.vim seems no longer maintained; trying a fork with updated version (4.6) See: https://github.com/vim-scripts/taglist.vim/pull/7#issuecomment-26350720
 " non github repos
 
 call vundle#end()
