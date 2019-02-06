@@ -40,7 +40,7 @@
 [core]
   autocrlf = false
   legacyheaders = false
-  excludesfile = /Users/steven/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [fetch]
   prune = true
 [push]
