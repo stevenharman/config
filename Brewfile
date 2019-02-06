@@ -18,6 +18,7 @@ brew 'node-build'
 brew 'rbenv'
 brew 'ruby-build'
 brew 'node'
+brew 'yarn', args: ["without-node"]
 
 brew 'graphicsmagick'
 brew 'imagemagick'
@@ -25,4 +26,5 @@ brew 'jq'
 
 brew 'postgresql'
 
+brew 'shellcheck'
 brew 'tldr'
