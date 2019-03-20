@@ -60,9 +60,12 @@ let g:ale_list_window_size = 5 " default = 10
 let g:ale_lint_delay = 300 " default = 200ms
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
+let g:ale_linters = {
+      \ 'ruby': ['standardrb']
+      \}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'ruby': ['rubocop']
+      \ 'ruby': ['standardrb']
       \}
 " vim-scripts repos
 Plugin 'emnh/taglist.vim' " The vim-scripts/taglist.vim seems no longer maintained; trying a fork with updated version (4.6) See: https://github.com/vim-scripts/taglist.vim/pull/7#issuecomment-26350720
