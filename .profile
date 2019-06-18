@@ -61,12 +61,11 @@ alias pg_start='pg_ctl -D ~/.pgdata -l ~/.pgdata/psql.log start'
 alias pg_stop='pg_ctl -D ~/.pgdata stop -s -m fast'
 alias redis_start='redis-server /usr/local/etc/redis.conf'
 
-function gitdays {
+gitdays() {
   git log --author=Steven --reverse --since="$@ days ago" --pretty="format:%n%Cgreen%cd%n%n%s%n%b%n---------------------------------------------"
 }
 
 # Open a file in Marked.app. Usage: $ marked path/to/file.markdown
-function marked {
+marked() {
   open -a Marked\ 2.app $@
 }
-

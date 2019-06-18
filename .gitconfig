@@ -61,7 +61,14 @@
   mine = log --author=Steven
   mt = mergetool
   st = status -sb
-  tags = !.git/hooks/ctags
+  ctags = !.git/hooks/ctags
+  lasttag = describe --abbrev=0 --tags origin
+  # List merge commits for everything on master, since the last tag.
+  ready = "!git log $(git lasttag)..master --first-parent"
+  # List files that have changed since the last tag.
+  readyfiles = "!git diff --name-status $(git lasttag)..master"
+  # Open GitHub compare view for master, since last tag.
+  compare = "!hub compare $(git lasttag)...master"
 [rerere]
   enabled = true
 [init]
