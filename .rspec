@@ -1,2 +1,2 @@
 --colour
--r pry
+<%= begin; require 'pry'; rescue LoadError; end; '-r pry' if defined?(Pry) %>
