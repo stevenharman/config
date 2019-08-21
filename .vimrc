@@ -41,8 +41,7 @@ Plugin 'sheerun/vim-polyglot'
 let g:ruby_indent_assignment_style = 'variable'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'tpope/vim-bundler'
-" Dispatch: To determine what compiler and errorformat to use for testruns/Quickfix
-Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-dispatch' " To determine what compiler and errorformat to use for testruns/Quickfix
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
@@ -58,6 +57,9 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'w0rp/ale'
 let g:ale_list_window_size = 5 " default = 10
 let g:ale_lint_delay = 300 " default = 200ms
+" MacVim/GUI setting in .gvimrc
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:ale_linters = {
@@ -188,8 +190,6 @@ augroup END
 set background=dark
 if has("gui_running") || &t_Co >= 256
   let g:rehash256=1
-  highlight clear ALEErrorSign
-  highlight clear ALEWarningSign
   :color molokai
 else
   set t_Co=16     " every terminal I use supports at least 16, right?
