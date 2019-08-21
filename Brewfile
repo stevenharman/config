@@ -5,6 +5,7 @@ brew 'fzf'
 brew 'ctags'
 brew 'pv'
 brew 'ripgrep'
+brew 'shellcheck'
 brew 'tree'
 brew 'wget'
 
