@@ -68,7 +68,7 @@
   # List files that have changed since the last tag.
   readyfiles = "!git diff --name-status $(git lasttag)..master"
   # Open GitHub compare view for master, since last tag.
-  compare = "!hub compare $(git lasttag)...master"
+  compare = "!hub compare $(git lasttag)...$(git show-ref master -s | head -1)"
 [rerere]
   enabled = true
 [init]
