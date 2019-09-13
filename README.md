@@ -1,21 +1,25 @@
 # My config files
 
-## Setup
+## ⚙️ Setup
 
-The following rake tasks will set up symbolic links in your home directory for each of the included configuration files.
+Installation is as easy as `ln -s`.
+Seriously, that's about all that's going on here.
+Each of these dotfiles is symlinked into your home (`~`) directory.
+From there, the OS takes over.
 
 ```bash
 rake install
 ```
 
-or
+If there's an existing file/symlink, you'll be prompted to _skip_, _overwrite_, or _backup_ before proceeding.
+If you know you want to overwrite everything and not be prompted,
 
 ```bash
 # Force overwriting everything
 OVERWRITE_DOTFILES=true rake install
 ```
 
-### Windows
+### 🚧 Windows
 
 The following rake task will tweak a few of the default configs to better behave on Windows.
 I don't use Windows these days, so no guarantees.
@@ -25,11 +29,11 @@ If it breaks, feel free to keep both pieces.
 rake install:windows
 ```
 
-## Dependencies
+## 🧩 Dependencies
 
 External dependencies (e.g., `ctags`, `fzf`, etc…) are managed via [Homebrew](https://brew.sh).
 To install the (currently known) dependencies,
 
-```shell
-$ brew bundle
+```bash
+brew bundle
 ```
