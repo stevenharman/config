@@ -28,6 +28,8 @@ let g:neodark#background = '#202020' " default: ''
 " original repos on github
 Plugin 'airblade/vim-gitgutter'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'fatih/vim-go'
+let g:go_fmt_command = "goimports"
 Plugin 'janko-m/vim-test'
 Plugin 'mileszs/ack.vim'
 if executable('rg')
@@ -72,6 +74,7 @@ let g:ale_linters = {
       \}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'go': ['gofmt', 'goimports'],
       \ 'ruby': ['standardrb']
       \}
 " vim-scripts repos
@@ -144,13 +147,15 @@ set spellfile=$HOME/.vim/spell/en.utf-8.add
 autocmd FileType gitcommit,markdown setlocal spell
 autocmd FileType gitcommit,markdown setlocal complete+=kspell
 
-" Enable highlighting for syntax
-syntax enable
 " Enable file type detection.
 " Use the default filetype settings, so that mail gets 'tw' set to 72,
 " 'cindent' is on in C files, etc.
 " Also load indent files, to automatically do language-dependent indenting.
 filetype plugin indent on
+
+" Enable highlighting for syntax
+syntax enable
+
 set wildmode=list:longest
 set wildignore+=tmp,bower_components,dist,node_modules
 " make tab completion for files/buffers act like bash
@@ -170,9 +175,9 @@ augroup vimrcEx
         \ endif
 
   "for ruby, autoindent with two spaces, always expand tabs
-  autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber set autoindent sw=2 sts=2 expandtab
+  autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber setlocal autoindent sw=2 sts=2 expandtab
   autocmd FileType ruby,eruby setlocal complete-=i
-  autocmd FileType python set sw=4 sts=4 expandtab
+  autocmd FileType python setlocal sw=4 sts=4 expandtab
   autocmd FileType go setlocal noexpandtab
   autocmd FileType vue call RagtagInit()
 
