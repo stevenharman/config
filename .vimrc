@@ -127,7 +127,7 @@ set nobackup
 set nowritebackup
 "set backupdir=./tmp,$HOME/.vim/tmp/,$TEMP/,.
 "set directory=./tmp,$HOME/.vim/tmp/,$TEMP/,.
-set tags^=./.git/tags
+set tags^=./.git/tags;
 " Intuitive backspacing in insert mode.
 set backspace=indent,eol,start
 " custom whitespace characters
