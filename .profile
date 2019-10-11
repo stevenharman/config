@@ -2,19 +2,20 @@
 export HOMEBREW_PREFIX="/usr/local"
 
 # Initialize "xenv" language managers, if they're installed
-if command -v rbenv &> /dev/null; then
+if command -v rbenv > /dev/null 2>&1; then
   export PATH="$HOME/go/bin:$PATH"
 fi
 
-if command -v nodenv &> /dev/null; then
+if command -v nodenv > /dev/null 2>&1; then
   . <(nodenv init -)
 
-  if command -v yarn &> /dev/null; then
-    export PATH="$PATH:$(yarn global bin)"
+  if command -v yarn > /dev/null 2>&1; then
+    yarn_bin="$(yarn global bin)"
+    export PATH="$PATH:$yarn_bin"
   fi
 fi
 
-if command -v rbenv &> /dev/null; then
+if command -v rbenv > /dev/null 2>&1; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   . <(rbenv init -)
 fi
@@ -66,10 +67,10 @@ alias pg_stop='pg_ctl -D ~/.pgdata stop -s -m fast'
 alias redis_start='redis-server /usr/local/etc/redis.conf'
 
 gitdays() {
-  git log --author=Steven --reverse --since="$@ days ago" --pretty="format:%n%Cgreen%cd%n%n%s%n%b%n---------------------------------------------"
+  git log --author=Steven --reverse --since="$* days ago" --pretty="format:%n%Cgreen%cd%n%n%s%n%b%n---------------------------------------------"
 }
 
 # Open a file in Marked.app. Usage: $ marked path/to/file.markdown
 marked() {
-  open -a Marked\ 2.app $@
+  open -a Marked\ 2.app "$@"
 }
