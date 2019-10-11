@@ -44,7 +44,9 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # source local config
-[[ -r ~/.zlocal ]] && source ~/.zlocal
+if [[ -r "$HOME"/.profile.local ]]; then
+  source "$HOME"/.profile.local
+fi
 
 # Editor registration for git, etc...
 export CDPATH=:"$HOME"/code
