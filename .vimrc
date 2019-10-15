@@ -330,13 +330,19 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! InsertTabWrapper()
   let col = col('.') - 1
-  if !col || getline('.')[col - 1] !~ '\k'
+  if !col
     return "\<tab>"
-  else
+  endif
+
+  let char = getline('.')[col - 1]
+  if char =~ '\k'
+    " There's an identifier before the cursor, so complete the identifier.
     return "\<c-p>"
+  else
+    return "\<tab>"
   endif
 endfunction
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
