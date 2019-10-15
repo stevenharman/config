@@ -62,21 +62,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'w0rp/ale'
-let g:ale_list_window_size = 5 " default = 10
-let g:ale_lint_delay = 300 " default = 200ms
-" MacVim/GUI setting in .gvimrc
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
-let g:ale_linters = {
-      \ 'ruby': ['standardrb']
-      \}
-let g:ale_fixers = {
-      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'go': ['gofmt', 'goimports'],
-      \ 'ruby': ['standardrb']
-      \}
 " vim-scripts repos
 Plugin 'emnh/taglist.vim' " The vim-scripts/taglist.vim seems no longer maintained; trying a fork with updated version (4.6) See: https://github.com/vim-scripts/taglist.vim/pull/7#issuecomment-26350720
 " non github repos
@@ -497,6 +482,30 @@ autocmd FileType ruby nmap <buffer> <F5> <Plug>(seeing_is_believing-run)
 autocmd FileType ruby xmap <buffer> <F5> <Plug>(seeing_is_believing-run)
 autocmd FileType ruby imap <buffer> <F5> <Plug>(seeing_is_believing-run)
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIM-ALE Config
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ale_list_window_size = 5 " default = 10
+let g:ale_lint_delay = 300 " default = 200ms
+" MacVim/GUI setting in .gvimrc
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+let g:ale_linters = {
+      \ 'go': ['gofmt', 'golint', 'gopls', 'govet'],
+      \ 'ruby': ['standardrb']
+      \}
+let g:ale_fixers = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'go': ['gofmt', 'goimports'],
+      \ 'ruby': ['standardrb']
+      \}
+
+" Fix style, lint, etc... via ALE Fixers
+nmap <leader>F :ALEFix<cr>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYMAPPINS... THE REST OF THEM
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -551,8 +560,6 @@ nmap <silent> <leader>h :silent :nohlsearch<CR>
 
 " Re-draw syntax highlighting
 nmap <silent> <leader>H :syntax sync fromstart<CR>
-" Fix style, lint, etc... via ALE Fixers
-nmap <leader>F :ALEFix<cr>
 
 " rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
