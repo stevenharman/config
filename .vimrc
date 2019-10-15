@@ -505,6 +505,9 @@ let g:ale_fixers = {
 
 " Fix style, lint, etc... via ALE Fixers
 nmap <leader>F :ALEFix<cr>
+nnoremap gJ :ALENextWrap<cr>
+nnoremap gK :ALEPreviousWrap<cr>
+nnoremap g1 :ALEFirst<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYMAPPINS... THE REST OF THEM
