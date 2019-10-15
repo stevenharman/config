@@ -11,62 +11,59 @@ set nocompatible
 " Turn off for Vundle. Turn it back on below.
 filetype plugin off
 
-" use fzf for fuzzy-finding (assumes brew install fzf installation!)
-set runtimepath+=/usr/local/opt/fzf
-
-set runtimepath+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-
-" manage Vundle with Vundle. BOOM!
-Plugin 'VundleVim/Vundle.vim'
-
+" Be sure vim-plug is installed:
+" $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+call plug#begin('~/.vim/plugged')
 " Setup colorscheme
-Plugin 'KeitaNakamura/neodark.vim'
+Plug 'KeitaNakamura/neodark.vim'
 let g:neodark#use_custom_terminal_theme = 0 " default: 0
 let g:neodark#background = '#202020' " default: '' which is #1F2F38
 
 " original repos on github
-Plugin 'airblade/vim-gitgutter'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'fatih/vim-go'
+Plug 'airblade/vim-gitgutter'
+Plug 'dense-analysis/ale'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_fmt_command = "goimports"
-Plugin 'janko-m/vim-test'
-Plugin 'mileszs/ack.vim'
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+Plug 'janko-m/vim-test'
+Plug 'mileszs/ack.vim'
 if executable('rg')
   let g:ackprg = 'rg --vimgrep --smart-case --hidden --glob "!.git/*"'
 " 'rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 endif
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Clone fzf to ~/.fzf and run the install script; ignores Brew-installed fzf
+Plug 'junegunn/fzf.vim'
 let g:fzf_buffers_jump = 1
 let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/nerdtree'
-Plugin 't9md/vim-ruby-xmpfilter'
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 't9md/vim-ruby-xmpfilter'
 let g:xmpfilter_cmd = "seeing_is_believing"
-Plugin 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 let g:ruby_indent_assignment_style = 'variable'
-Plugin 'skywind3000/asyncrun.vim'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-dispatch' " To determine what compiler and errorformat to use for testruns/Quickfix
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-projectionist'
-Plugin 'tpope/vim-ragtag'
-Plugin 'tpope/vim-rails'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-dispatch' " To determine what compiler and errorformat to use for testruns/Quickfix
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-rails'
 " Use gem-ctags to generate CTags for all gems in the Bundle
 let g:rails_ctags_arguments = '--exclude=tmp'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'w0rp/ale'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 " vim-scripts repos
-Plugin 'emnh/taglist.vim' " The vim-scripts/taglist.vim seems no longer maintained; trying a fork with updated version (4.6) See: https://github.com/vim-scripts/taglist.vim/pull/7#issuecomment-26350720
+Plug 'emnh/taglist.vim' " The vim-scripts/taglist.vim seems no longer maintained; trying a fork with updated version (4.6) See: https://github.com/vim-scripts/taglist.vim/pull/7#issuecomment-26350720
 " non github repos
 
-call vundle#end()
+call plug#end() " plug#end() Automatically executes `filetype plugin indent on` and `syntax enable`
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
@@ -131,15 +128,6 @@ set visualbell
 set spellfile=$HOME/.vim/spell/en.utf-8.add
 autocmd FileType gitcommit,markdown setlocal spell
 autocmd FileType gitcommit,markdown setlocal complete+=kspell
-
-" Enable file type detection.
-" Use the default filetype settings, so that mail gets 'tw' set to 72,
-" 'cindent' is on in C files, etc.
-" Also load indent files, to automatically do language-dependent indenting.
-filetype plugin indent on
-
-" Enable highlighting for syntax
-syntax enable
 
 set wildmode=list:longest
 set wildignore+=tmp,bower_components,dist,node_modules

@@ -4,5 +4,6 @@
 /tmp/
 /tags
 /.bundle/cache
-/.vim/bundle
+/.vim/autoload
+/.vim/plugged
 /.vim/spell/*.spl
