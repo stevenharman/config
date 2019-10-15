@@ -23,7 +23,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Setup colorscheme
 Plugin 'KeitaNakamura/neodark.vim'
 let g:neodark#use_custom_terminal_theme = 0 " default: 0
-let g:neodark#background = '#202020' " default: ''
+let g:neodark#background = '#202020' " default: '' which is #1F2F38
 
 " original repos on github
 Plugin 'airblade/vim-gitgutter'
