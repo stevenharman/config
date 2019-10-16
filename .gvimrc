@@ -11,9 +11,11 @@ if exists('+fuoptions')						" Fullscreen options for MacVim.
   set fuoptions=maxvert,maxhorz,background:Normal
 endif
 
-
 " ALE Color Settings
 highlight link ALEErrorSign Error
 highlight link ALEWarningSign Todo
 let g:ale_sign_error = '!'
 let g:ale_sign_warning = '?'
+
+" Trigger ALE completion w/ CTRL-SPACE
+inoremap <silent> <C-SPACE> <C-\><C-O>:ALEComplete<CR>

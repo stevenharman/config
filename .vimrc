@@ -313,27 +313,6 @@ function! FileEncodingAndBomb()
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MULTIPURPOSE TAB KEY
-" Indent if we're at the beginning of a line. Else, do completion.
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! InsertTabWrapper()
-  let col = col('.') - 1
-  if !col
-    return "\<tab>"
-  endif
-
-  let char = getline('.')[col - 1]
-  if char =~ '\k'
-    " There's an identifier before the cursor, so complete the identifier.
-    return "\<c-p>"
-  else
-    return "\<tab>"
-  endif
-endfunction
-inoremap <expr> <tab> InsertTabWrapper()
-inoremap <s-tab> <c-n>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -489,7 +468,7 @@ let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:ale_linters = {
       \ 'go': ['gofmt', 'golint', 'gopls', 'govet'],
-      \ 'ruby': ['standardrb']
+      \ 'ruby': ['solargraph', 'standardrb']
       \}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -502,6 +481,38 @@ nmap <leader>F :ALEFix<cr>
 nnoremap gJ :ALENextWrap<cr>
 nnoremap gK :ALEPreviousWrap<cr>
 nnoremap g1 :ALEFirst<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MULTIPURPOSE TAB KEY
+" Indent if we're at the beginning of a line. Else, do completion.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! InsertTabWrapper()
+  if pumvisible()
+    " we're already in completion mode, select the next item down the list
+    return "\<C-n>"
+  endif
+
+  let col = col('.') - 1
+  if !col
+    " at the beignning of the line, do a normal tab
+    return "\<tab>"
+  endif
+
+  let char = getline('.')[col - 1]
+  if char =~ '\k'
+    " There's an identifier before the cursor, so complete the identifier.
+    " NOTE: We coud triger AlE's completion here with the following:
+    "    return "\<C-\>\<C-O>\:ALEComplete\<CR>"
+    return "\<c-p>"
+  else
+    return "\<tab>"
+  endif
+endfunction
+
+inoremap <silent><expr> <TAB> InsertTabWrapper()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Trigger ALE completion w/ CTRL-SPACE (@ needed for terminal Vim)
+inoremap <silent> <C-@> <C-\><C-O>:ALEComplete<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYMAPPINS... THE REST OF THEM
