@@ -464,6 +464,7 @@ let g:ale_lint_delay = 300 " default = 200ms
 " MacVim/GUI setting in .gvimrc
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
+let g:ale_set_highlights = 0
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:ale_linters = {

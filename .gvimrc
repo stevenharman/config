@@ -13,7 +13,7 @@ endif
 
 " ALE Color Settings
 highlight link ALEErrorSign Error
-highlight link ALEWarningSign Todo
+highlight link ALEWarningSign Question
 let g:ale_sign_error = '!'
 let g:ale_sign_warning = '?'
 
