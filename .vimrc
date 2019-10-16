@@ -477,10 +477,12 @@ let g:ale_fixers = {
       \}
 
 " Fix style, lint, etc... via ALE Fixers
-nmap <leader>F :ALEFix<cr>
-nnoremap gJ :ALENextWrap<cr>
-nnoremap gK :ALEPreviousWrap<cr>
-nnoremap g1 :ALEFirst<cr>
+nmap <leader>F <Plug>(ale_fix)
+nmap gJ <Plug>(ale_next_wrap)
+nmap gK <Plug>(ale_previous_wrap)
+nmap g1 <Plug>(ale_first)
+nmap gd <Plug>(ale_go_to_definition)
+nmap gr <Plug>(ale_find_references)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
@@ -512,7 +514,7 @@ endfunction
 inoremap <silent><expr> <TAB> InsertTabWrapper()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 " Trigger ALE completion w/ CTRL-SPACE (@ needed for terminal Vim)
-inoremap <silent> <C-@> <C-\><C-O>:ALEComplete<CR>
+imap <silent> <C-@> <Plug>(ale_complete)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYMAPPINS... THE REST OF THEM

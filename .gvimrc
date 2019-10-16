@@ -18,4 +18,4 @@ let g:ale_sign_error = '!'
 let g:ale_sign_warning = '?'
 
 " Trigger ALE completion w/ CTRL-SPACE
-inoremap <silent> <C-SPACE> <C-\><C-O>:ALEComplete<CR>
+imap <silent> <C-SPACE> <Plug>(ale_complete)
