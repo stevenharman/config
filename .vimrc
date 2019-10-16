@@ -469,7 +469,7 @@ let g:ale_set_highlights = 0
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 let g:ale_linters = {
-      \ 'go': ['gofmt', 'golint', 'gopls', 'govet'],
+      \ 'go': ['gofmt', 'golint', 'gopls', 'go vet'],
       \ 'ruby': ['solargraph', 'standardrb']
       \}
 let g:ale_fixers = {
