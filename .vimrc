@@ -21,6 +21,7 @@ let g:neodark#background = '#202020' " default: '' which is #1F2F38
 
 " original repos on github
 Plug 'airblade/vim-gitgutter'
+let g:ale_set_balloons = 1
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
