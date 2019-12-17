@@ -11,7 +11,7 @@ brew 'wget'
 
 brew 'git'
 brew 'hub'
-brew 'macvim', args: ["with-override-system-vim"]
+brew 'macvim'
 
 brew 'openssl'
 brew 'nodenv'
