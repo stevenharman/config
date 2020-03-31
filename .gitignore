@@ -4,6 +4,7 @@
 /tmp/
 /tags
 /.bundle/cache
+/.vim/.netrwhist
 /.vim/autoload
 /.vim/plugged
 /.vim/spell/*.spl
