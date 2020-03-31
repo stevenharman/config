@@ -19,7 +19,7 @@ brew 'node-build'
 brew 'rbenv'
 brew 'ruby-build'
 brew 'node'
-brew 'yarn', args: ["without-node"]
+brew 'yarn'
 
 brew 'graphicsmagick'
 brew 'imagemagick'
