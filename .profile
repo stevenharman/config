@@ -2,7 +2,7 @@
 export HOMEBREW_PREFIX="/usr/local"
 
 # Initialize "xenv" language managers, if they're installed
-if command -v rbenv > /dev/null 2>&1; then
+if command -v go > /dev/null 2>&1; then
   export PATH="$HOME/go/bin:$PATH"
 fi
 
