@@ -26,6 +26,7 @@ brew 'imagemagick'
 brew 'jq'
 
 brew 'postgresql'
+brew 'redis'
 
 brew 'shellcheck'
 brew 'tldr'
