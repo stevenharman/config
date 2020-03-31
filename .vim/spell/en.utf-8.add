@@ -57,3 +57,4 @@ dynos
 config
 Dyno
 Rollbar
+Homebrew
