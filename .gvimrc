@@ -14,8 +14,8 @@ endif
 " ALE Color Settings
 highlight link ALEErrorSign Error
 highlight link ALEWarningSign Question
-let g:ale_sign_error = '!'
-let g:ale_sign_warning = '?'
+let g:ale_sign_error = '×'
+let g:ale_sign_warning = '!'
 
 " Trigger ALE completion w/ CTRL-SPACE
 imap <silent> <C-SPACE> <Plug>(ale_complete)
