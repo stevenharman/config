@@ -1,5 +1,5 @@
-# Shortcut the somewhat expensive `brew --prefix`
-export HOMEBREW_PREFIX="/usr/local"
+# Export HOMEBREW_* settings
+eval "$(brew shellenv)"
 
 # Initialize "xenv" language managers, if they're installed
 if command -v go > /dev/null 2>&1; then
@@ -7,7 +7,7 @@ if command -v go > /dev/null 2>&1; then
 fi
 
 if command -v nodenv > /dev/null 2>&1; then
-  . <(nodenv init -)
+  eval "$(nodenv init -)"
 
   if command -v yarn > /dev/null 2>&1; then
     yarn_bin="$(yarn global bin)"
@@ -16,8 +16,7 @@ if command -v nodenv > /dev/null 2>&1; then
 fi
 
 if command -v rbenv > /dev/null 2>&1; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  . <(rbenv init -)
+  eval "$(rbenv init -)"
 fi
 
 # More PATH configuration
