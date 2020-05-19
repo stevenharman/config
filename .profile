@@ -1,9 +1,35 @@
+path_append() {
+  new_path=$1
+
+  if [ -d "$new_path" ] && [[ ":$PATH:" != *":$new_path:"* ]]; then
+    PATH="${PATH:+"$PATH:"}$new_path"
+  fi
+}
+
+path_prepend() {
+  new_path=$1
+
+  if [ -d "$new_path" ]; then
+    PATH=${PATH//":$new_path:"/:} #delete all instances in the middle
+    PATH=${PATH/%":$new_path"/} #delete any instance at the end
+    PATH=${PATH/#"$new_path:"/} #delete any instance at the beginning
+    PATH="$new_path${PATH:+":$PATH"}" #prepend $new_path or if $PATH is empty set to $new_path
+  fi
+}
+
 # Export HOMEBREW_* settings
 eval "$(brew shellenv)"
 
+# On some systems, e.g., macOS 10.15, /usr/local/bin is already at the front of
+# PATH by way of `/etc/paths`. On other systemsit might not be there. `brew
+# shellenv` will add it and `/usr/local/sbin` to the front of PATH. Meaning we
+# might have dupes, making PATH searhcing slower. To normalize all of this,
+# we'll prepend them here, and remove any dupes already there.
+path_prepend /usr/local/bin
+
 # Initialize "xenv" language managers, if they're installed
 if command -v go > /dev/null 2>&1; then
-  export PATH="$HOME/go/bin:$PATH"
+  path_prepend "$HOME/go/bin"
 fi
 
 if command -v nodenv > /dev/null 2>&1; then
@@ -11,7 +37,7 @@ if command -v nodenv > /dev/null 2>&1; then
 
   if command -v yarn > /dev/null 2>&1; then
     yarn_bin="$(yarn global bin)"
-    export PATH="$PATH:$yarn_bin"
+    path_append "$yarn_bin"
   fi
 fi
 
