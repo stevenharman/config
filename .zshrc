@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="smh"
 
-# Source fzf before zhs-navigation-tools b/c we want znt's keybindings for ^R
+# Source fzf before zsh-navigation-tools b/c we want znt's keybindings for ^R
 if [[ -f "$HOME/.fzf.zsh" ]]; then
   source "$HOME/.fzf.zsh"
 fi
