@@ -498,8 +498,8 @@ function! InsertTabWrapper()
 
   let col = col('.') - 1
   if !col
-    " at the beignning of the line, do a normal tab
-    return "\<tab>"
+    " at the beginning of the line, do a normal tab
+    return "\<TAB>"
   endif
 
   let char = getline('.')[col - 1]
@@ -507,14 +507,14 @@ function! InsertTabWrapper()
     " There's an identifier before the cursor, so complete the identifier.
     " NOTE: We coud triger AlE's completion here with the following:
     "    return "\<C-\>\<C-O>\:ALEComplete\<CR>"
-    return "\<c-p>"
+    return "\<C-p>"
   else
-    return "\<tab>"
+    return "\<TAB>"
   endif
 endfunction
 
 inoremap <silent><expr> <TAB> InsertTabWrapper()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 " Trigger ALE completion w/ CTRL-SPACE (@ needed for terminal Vim)
 imap <silent> <C-@> <Plug>(ale_complete)
 
