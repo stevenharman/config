@@ -89,8 +89,8 @@ alias be='bundle exec'
 alias gvim='mvim -p'
 alias mysql_start='mysql.server start'
 alias mysql_stop='mysql.server stop'
-alias pg_start='pg_ctl -D ~/.pgdata -l ~/.pgdata/psql.log start'
-alias pg_stop='pg_ctl -D ~/.pgdata stop -s -m fast'
+alias pg_start='pg_ctl -D /usr/local/var/postgres start'
+alias pg_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias redis_start='redis-server /usr/local/etc/redis.conf'
 
 gitdays() {
