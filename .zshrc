@@ -2,7 +2,7 @@
 export ZSH_CUSTOM=$HOME/.zsh/custom
 # Path to oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
-# Look in ~/.oh-my-zsh/themes/
+# Look in ~/.zsh/custom/themes/
 export ZSH_THEME="smh"
 
 # Source fzf before zsh-navigation-tools b/c we want znt's keybindings for ^R
