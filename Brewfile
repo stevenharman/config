@@ -19,7 +19,7 @@ brew "coreutils" # Necessary to build native exensions in newer macOS's. 🤷
 brew "node-build"
 brew "rbenv"
 brew "rbenv-bundler-ruby-version"
-brew "rbenv-ctag"
+brew "rbenv-ctags"
 brew "rbenv-default-gems"
 brew "ruby-build"
 brew "node"
