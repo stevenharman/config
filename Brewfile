@@ -18,6 +18,7 @@ brew "nodenv"
 brew "coreutils" # Necessary to build native exensions in newer macOS's. 🤷
 brew "node-build"
 brew "rbenv"
+brew "rbenv-ctag"
 brew "ruby-build"
 brew "node"
 brew "yarn"

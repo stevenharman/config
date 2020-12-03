@@ -1,6 +1,6 @@
+gem-ctags
 amazing_print
 bundler
-gem-ctags
 pry
 pry-byebug
 pry-doc
