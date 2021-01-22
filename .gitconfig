@@ -21,7 +21,13 @@
 [core]
   autocrlf = false
   legacyheaders = false
+  pager = delta
   excludesfile = ~/.gitignore_global
+[delta]
+  features = line-numbers decorations
+  syntax-theme = Monokai Extended
+[interactive]
+  diffFilter = delta --color-only
 [diff]
   colorMoved = default
   tool = Kaleidoscope

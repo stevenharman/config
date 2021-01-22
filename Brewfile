@@ -1,8 +1,10 @@
 tap "homebrew/cask"
+tap "universal-ctags/universal-ctags"
 
 brew "ack"
+brew "bat"
 brew "fzf"
-brew "ctags"
+brew "universal-ctags", args: ["HEAD"]
 brew "pv"
 brew "ripgrep"
 brew "shellcheck"
@@ -10,6 +12,7 @@ brew "tree"
 brew "wget"
 
 brew "git"
+brew "git-delta"
 brew "hub"
 brew "macvim"
 
