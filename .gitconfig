@@ -18,6 +18,19 @@
   added = yellow
   changed = green
   untracked = cyan
+[core]
+  autocrlf = false
+  legacyheaders = false
+  excludesfile = ~/.gitignore_global
+[diff]
+  colorMoved = default
+  tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool "p4diff"]
+  cmd = p4merge "$LOCAL" "$BASE"
+[difftool]
+  prompt = false
 [merge]
   tool = Kaleidoscope
 [mergetool "Kaleidoscope"]
@@ -29,18 +42,6 @@
 [mergetool]
   prompt = false
   keepBackup = false
-[diff]
-  tool = Kaleidoscope
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[difftool "p4diff"]
-  cmd = p4merge "$LOCAL" "$BASE"
-[difftool]
-  prompt = false
-[core]
-  autocrlf = false
-  legacyheaders = false
-  excludesfile = ~/.gitignore_global
 [fetch]
   prune = true
 [push]
