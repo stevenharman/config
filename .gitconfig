@@ -80,6 +80,6 @@
   enabled = true
 [init]
   defaultBranch = main
-  templatedir = ~/.git_template
+  templateDir = ~/.git_template
 [stash]
   showPatch = true
