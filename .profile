@@ -82,6 +82,9 @@ export LC_CTYPE="en_US.UTF-8"
 export PGOPTIONS='-c client_min_messages=WARNING'
 export RIPGREP_CONFIG_PATH="$HOME"/.ripgreprc
 
+# Configure Krypton for Git Commit Signing
+export GPG_TTY=$(tty)
+
 # My aliases
 alias b='cd -'
 alias restart='touch tmp/restart.txt'
