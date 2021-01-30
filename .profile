@@ -84,6 +84,7 @@ export RIPGREP_CONFIG_PATH="$HOME"/.ripgreprc
 
 # Configure Krypton for Git Commit Signing
 export GPG_TTY=$(tty)
+export KR_SKIP_SSH_CONFIG=1
 
 # My aliases
 alias b='cd -'
