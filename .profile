@@ -87,8 +87,6 @@ export GPG_TTY=$(tty)
 export KR_SKIP_SSH_CONFIG=1
 
 # My aliases
-alias b='cd -'
-alias restart='touch tmp/restart.txt'
 alias be='bundle exec'
 alias gvim='mvim -p'
 alias mysql_start='mysql.server start'
