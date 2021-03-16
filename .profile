@@ -29,7 +29,7 @@ path_prepend /usr/local/bin
 
 # Initialize "xenv" language managers, if they're installed
 if command -v go > /dev/null 2>&1; then
-  path_prepend "$HOME/go/bin"
+  path_prepend "$(go env GOPATH)/bin"
 fi
 
 if command -v nodenv > /dev/null 2>&1; then
