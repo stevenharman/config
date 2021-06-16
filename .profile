@@ -21,10 +21,10 @@ path_prepend() {
 eval "$(brew shellenv)"
 
 # On some systems, e.g., macOS 10.15, /usr/local/bin is already at the front of
-# PATH by way of `/etc/paths`. On other systemsit might not be there. `brew
-# shellenv` will add it and `/usr/local/sbin` to the front of PATH. Meaning we
-# might have dupes, making PATH searhcing slower. To normalize all of this,
-# we'll prepend them here, and remove any dupes already there.
+# PATH by way of `/etc/paths`. On other systems it might not be there. `brew shellenv`
+# will add it and `/usr/local/sbin` to the front of PATH. Meaning we might have
+# dupes, making PATH searhcing slower. To normalize all of this, we'll prepend
+# them here, and remove any dupes already there.
 path_prepend /usr/local/bin
 
 # Initialize "xenv" language managers, if they're installed
@@ -46,6 +46,8 @@ if command -v rbenv > /dev/null 2>&1; then
 fi
 
 # More PATH configuration
+
+path_append "$HOME"/bin
 
 # Shell-specific settings
 if [[ "$SHELL" == *zsh ]]; then
