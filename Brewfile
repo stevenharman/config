@@ -1,4 +1,5 @@
 cask_args appdir: "/Applications"
+tap "heroku/brew"
 tap "homebrew/cask"
 tap "kryptco/tap"
 tap "universal-ctags/universal-ctags"
@@ -15,6 +16,7 @@ brew "wget"
 
 brew "git"
 brew "git-delta"
+brew "heroku"
 brew "hub"
 brew "kr" # https://krypt.co/kr
 brew "macvim"
