@@ -17,8 +17,15 @@ path_prepend() {
   fi
 }
 
+brew_dir="" # On Intel machines Homebrew installs to /usr/local/bin, which is already on the PATH
+if [ "$(arch)" = "arm64" ]; then
+  # On Apple Silicone machines Homebrew installs to /opt/homebrew, which isn't on the PATH.
+  brew_dir="/opt/homebrew/bin/"
+fi
+brew_cmd="${brew_dir}brew"
+
 # Export HOMEBREW_* settings
-eval "$(brew shellenv)"
+eval "$($brew_cmd shellenv)"
 
 # On some systems, e.g., macOS 10.15, /usr/local/bin is already at the front of
 # PATH by way of `/etc/paths`. On other systems it might not be there. `brew shellenv`
