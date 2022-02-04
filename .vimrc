@@ -157,8 +157,6 @@ augroup vimrcEx
   autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,cucumber setlocal autoindent sw=2 sts=2 expandtab
   autocmd FileType ruby,eruby setlocal complete-=i
   autocmd FileType python setlocal sw=4 sts=4 expandtab
-  autocmd FileType go setlocal noexpandtab
-  autocmd FileType vue call RagtagInit()
 
   " When editing Vim config, automagically reload!
   autocmd! BufWritePost {.vimrc,.gvimrc} source %
@@ -473,14 +471,9 @@ highlight clear ALEWarningSign
 let g:ale_set_highlights = 0
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
-let g:ale_linters = {
-      \ 'go': ['gofmt', 'golint', 'gopls', 'go vet'],
-      \ 'ruby': ['solargraph', 'standardrb']
-      \}
+" let g:ale_linters = { }
 let g:ale_fixers = {
-      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'go': ['gofmt', 'goimports'],
-      \ 'ruby': ['standardrb']
+      \ '*': ['remove_trailing_lines', 'trim_whitespace']
       \}
 
 " Fix style, lint, etc... via ALE Fixers
