@@ -1,3 +1,6 @@
 .DS_Store
 *.swp
 *.swo
+
+# Ignore generated CTags for cached dependencies
+/vendor/cache/**/tags
