@@ -14,10 +14,10 @@ brew "shellcheck"
 brew "tree"
 brew "wget"
 
+brew "gh"
 brew "git"
 brew "git-delta"
 brew "heroku"
-brew "hub"
 brew "kr" # https://krypt.co/kr
 brew "macvim"
 
