@@ -611,3 +611,9 @@ nmap <Right> zl
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 runtime macros/matchit.vim
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" REPOSITORY-SPECIFIC VIM CONFIGURATION
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if filereadable(".git/localvimrc")
+  source .git/localvimrc
+endif
