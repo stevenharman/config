@@ -319,7 +319,7 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN FILES IN DIRECTORY OF CURRENT FILE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
+cnoremap %% <C-R>=expand('%:h').'/'<CR>
 map <leader>e :edit %%
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -334,7 +334,7 @@ function! MkNonExDirP(file)
     endif
   endif
 endfunction
-map <leader>mk :call MkNonExDirP(expand('%'))<cr>
+map <leader>mk :call MkNonExDirP(expand('%'))<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
@@ -349,7 +349,7 @@ function! RenameFile()
     redraw!
   endif
 endfunction
-map <leader>mv :call RenameFile()<cr>
+map <leader>mv :call RenameFile()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPEN CURRENT FILE IN MARKED.APP
@@ -362,7 +362,7 @@ function! MarkedPreview()
   execute s:cmd
   redraw!
 endfunction
-map <leader>md :call MarkedPreview()<cr>
+map <leader>md :call MarkedPreview()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SEARCH FOR THE WORD UNDER THE CURSOR USING Dash.app
@@ -388,7 +388,7 @@ function! PromoteToLet()
   :normal ==
 endfunction
 :command! PromoteToLet :call PromoteToLet()
-:map <leader>p :PromoteToLet<cr>
+:map <leader>p :PromoteToLet<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RESTART RAILS SERVER (when vim-rails detectes Rails)
@@ -398,7 +398,7 @@ function! RestartRails()
     execute "AsyncRun touch <root>/tmp/restart.txt"
   endif
 endfunction
-map <leader>R :call RestartRails()<cr>
+map <leader>R :call RestartRails()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPS TO JUMP TO SPECIFIC FZF TARGETS AND FILES
@@ -409,23 +409,23 @@ let s:styles_dir = isdirectory('app/javascript/stylesheets') ? 'app/javascript/s
 " add a :Find command using ripgrep
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
-map <leader>gr :topleft :split config/routes.rb<cr>
-map <leader>gg :topleft :split Gemfile<cr>
-map <leader>ga :Files app<cr>
-map <leader>gc :Files app/controllers<cr>
-map <leader>gh :Files app/helpers<cr>
-map <leader>gm :Files app/models<cr>
-map <leader>gv :Files app/views<cr>
-execute 'map <leader>gj :Files ' . s:javascript_dir . '<cr>'
-execute 'map <leader>gs :Files ' . s:styles_dir . '<cr>'
-map <leader>gS :Files spec<cr>
-map <leader>gl :Files lib<cr>
-map <leader>gp :Files public<cr>
+map <leader>gr :topleft :split config/routes.rb<CR>
+map <leader>gg :topleft :split Gemfile<CR>
+map <leader>ga :Files app<CR>
+map <leader>gc :Files app/controllers<CR>
+map <leader>gh :Files app/helpers<CR>
+map <leader>gm :Files app/models<CR>
+map <leader>gv :Files app/views<CR>
+execute 'map <leader>gj :Files ' . s:javascript_dir . '<CR>'
+execute 'map <leader>gs :Files ' . s:styles_dir . '<CR>'
+map <leader>gS :Files spec<CR>
+map <leader>gl :Files lib<CR>
+map <leader>gp :Files public<CR>
 " Tags in the project
-nnoremap <leader>gt :Tags<cr>
+nnoremap <leader>gt :Tags<CR>
 " Tags in the current buffer
-nnoremap <leader>gT :BTags<cr>
-nnoremap <leader>f :Files<cr>
+nnoremap <leader>gT :BTags<CR>
+nnoremap <leader>f :Files<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS
@@ -435,13 +435,13 @@ let test#strategy = {
   \ 'file':    'asyncrun',
   \ 'suite':   'asyncrun',
 \}
-nmap <silent> <leader>t :TestFile<cr>
+nmap <silent> <leader>t :TestFile<CR>
 nmap <silent> <leader>T :TestNearest<cr>
-nmap <silent> <leader>a :TestSuite<cr>
-nmap <silent> <leader>A :TestSuite -strategy=basic<cr>
-nmap <silent> <leader>N :TestSuite --next-failure<cr>
-nmap <silent> <leader>L :TestLast<cr>
-nmap <silent> <leader>v :TestVisit<cr>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>A :TestSuite -strategy=basic<CR>
+nmap <silent> <leader>N :TestSuite --next-failure<CR>
+nmap <silent> <leader>L :TestLast<CR>
+nmap <silent> <leader>v :TestVisit<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " XMPFilter or Seeing Is Believing
@@ -524,11 +524,11 @@ imap <silent> <C-@> <Plug>(ale_complete)
 command! W :w
 
 " redo with U
-nmap U :redo<cr>
+nmap U :redo<CR>
 
 " easy wrap toggling
-nmap <leader>w :set wrap<cr>
-nmap <leader>W :set nowrap<cr>
+nmap <leader>w :set wrap<CR>
+nmap <leader>W :set nowrap<CR>
 
 " move around splits with ctrl+movement
 nnoremap <C-h> <C-W>h
@@ -537,31 +537,31 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 
 " resize the window by 5 lines/columns
-nnoremap <S-left> :vertical resize -5<cr>
-nnoremap <S-down> :resize -5<cr>
-nnoremap <S-up> :resize +5<cr>
-nnoremap <S-right> :vertical resize +5<cr>
+nnoremap <S-left> :vertical resize -5<CR>
+nnoremap <S-down> :resize -5<CR>
+nnoremap <S-up> :resize +5<CR>
+nnoremap <S-right> :vertical resize +5<CR>
 
 " swap windows
 nmap gS <C-W><C-R>
 
 " close all other windows (in the current tab)
-nmap gW :only<cr>
+nmap gW :only<CR>
 
 " Reopen the last buffer in the current window
 nnoremap <leader><leader> <c-^>
 
 " NERDTree
-map <leader>n :NERDTreeToggle<cr>
-map gs :NERDTreeFind<cr>
+map <leader>n :NERDTreeToggle<CR>
+map gs :NERDTreeFind<CR>
 
 " ack for project-wide searching
 nmap g/ :Ack!<space>
 nmap g* :Ack! -w <C-R><C-W>
 nmap gA :AckAdd!
-nmap gj :cnext<cr>
-nmap gk :cprev<cr>
-nmap gc :call asyncrun#quickfix_toggle(8)<cr>
+nmap gj :cnext<CR>
+nmap gk :cprev<CR>
+nmap gc :call asyncrun#quickfix_toggle(8)<CR>
 
 " search and replace the word under the cursor
 nnoremap <leader>r :%s/\<<C-r><C-w>\>/
