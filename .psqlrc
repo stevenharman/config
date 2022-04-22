@@ -1,0 +1,15 @@
+-- Don't display the "helpful" message on startup.
+\set QUIET 1
+\pset null 👻 
+
+-- Use expanded table formatting automatically
+\x auto
+\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTCONTROL ignoredups
+\set COMP_KEYWORD_CASE upper
+\set ON_ERROR_ROLLBACK interactive
+
+-- Show how long each query takes to execute
+\timing
+
+\unset QUIET

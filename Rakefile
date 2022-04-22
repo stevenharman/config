@@ -1,6 +1,6 @@
 require "pathname"
 
-LINKABLES = %w[.ackrc .agignore .aprc .bashrc Brewfile .bundle .fzf.bash .fzf.zsh .gemrc .git_template .gitconfig .gitignore_global .gvimrc .hgrc .irbrc .profile .pryrc .railsrc .ripgreprc .rbenv/default-gems .rspec .screenrc .ssh/common_config .vim .vimrc .zprofile .zsh .zshenv .zshrc].freeze
+LINKABLES = %w[.ackrc .agignore .aprc .bashrc Brewfile .bundle .fzf.bash .fzf.zsh .gemrc .git_template .gitconfig .gitignore_global .gvimrc .hgrc .irbrc .profile .pryrc .psqlrc .railsrc .ripgreprc .rbenv/default-gems .rspec .screenrc .ssh/common_config .vim .vimrc .zprofile .zsh .zshenv .zshrc].freeze
 
 desc "Symlink dotfiles into system-standard locations."
 task :install do
@@ -18,7 +18,7 @@ task :install do
     if target.exist? || target.symlink?
       unless skip_all || overwrite_all || backup_all
         puts "File already exists: #{target}, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all"
-        case STDIN.gets.chomp
+        case $stdin.gets.chomp
         when "o" then overwrite = true
         when "b" then backup = true
         when "O" then overwrite_all = true
