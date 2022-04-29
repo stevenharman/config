@@ -51,6 +51,7 @@ let g:xmpfilter_cmd = "seeing_is_believing"
 Plug 'sheerun/vim-polyglot'
 let g:ruby_indent_assignment_style = 'variable'
 Plug 'skywind3000/asyncrun.vim'
+let g:asyncrun_local = 1 " https://github.com/skywind3000/asyncrun.vim/issues/16#issuecomment-256586419
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-dispatch' " To determine what compiler and errorformat to use for testruns/Quickfix
 Plug 'tpope/vim-endwise'
