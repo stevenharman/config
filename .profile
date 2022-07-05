@@ -17,12 +17,12 @@ path_prepend() {
   fi
 }
 
-brew_dir="" # On Intel machines Homebrew installs to /usr/local/bin, which is already on the PATH
+brew_dir="/usr/local" # On Intel machines Homebrew installs to /usr/local, which is already on the PATH
 if [ "$(arch)" = "arm64" ]; then
   # On Apple Silicone machines Homebrew installs to /opt/homebrew, which isn't on the PATH.
-  brew_dir="/opt/homebrew/bin/"
+  brew_dir="/opt/homebrew"
 fi
-brew_cmd="${brew_dir}brew"
+brew_cmd="${brew_dir}/bin/brew"
 
 # Export HOMEBREW_* settings
 eval "$($brew_cmd shellenv)"
@@ -100,9 +100,9 @@ alias be='bundle exec'
 alias gvim='mvim -p'
 alias mysql_start='mysql.server start'
 alias mysql_stop='mysql.server stop'
-alias pg_start='pg_ctl -D /usr/local/var/postgres start'
-alias pg_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
-alias redis_start='redis-server /usr/local/etc/redis.conf'
+alias pg_start='pg_ctl -D ${HOMEBREW_PREFIX}/var/postgres start'
+alias pg_stop='pg_ctl -D ${HOMEBREW_PREFIX}/var/postgres stop -s -m fast'
+alias redis_start='redis-server ${HOMEBREW_PREFIX}/etc/redis.conf'
 
 gitdays() {
   git log --author=Steven --reverse --since="$* days ago" --pretty="format:%n%Cgreen%cd%n%n%s%n%b%n---------------------------------------------"
