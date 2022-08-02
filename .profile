@@ -19,7 +19,7 @@ path_prepend() {
 
 brew_dir="/usr/local" # On Intel machines Homebrew installs to /usr/local, which is already on the PATH
 if [ "$(arch)" = "arm64" ]; then
-  # On Apple Silicone machines Homebrew installs to /opt/homebrew, which isn't on the PATH.
+  # On Apple Silicon machines Homebrew installs to /opt/homebrew, which isn't on the PATH.
   brew_dir="/opt/homebrew"
 fi
 brew_cmd="${brew_dir}/bin/brew"
