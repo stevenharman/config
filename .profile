@@ -104,6 +104,11 @@ alias pg_start='pg_ctl -D ${HOMEBREW_PREFIX}/var/postgres start'
 alias pg_stop='pg_ctl -D ${HOMEBREW_PREFIX}/var/postgres stop -s -m fast'
 alias redis_start='redis-server ${HOMEBREW_PREFIX}/etc/redis.conf'
 
+ghpr() {
+  # Shamelessly stolen from https://twitter.com/elijahmanor/status/1559525388417503233
+  GH_FORCE_TTY=100% gh pr list | fzf --ansi --preview 'GH_FORCE_TTY=100% gh pr view {1}' --preview-window down --header-lines 3 | awk '{print $1}' | xargs gh pr checkout
+}
+
 gitdays() {
   git log --author=Steven --reverse --since="$* days ago" --pretty="format:%n%Cgreen%cd%n%n%s%n%b%n---------------------------------------------"
 }
