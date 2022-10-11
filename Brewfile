@@ -37,7 +37,7 @@ brew "graphicsmagick"
 brew "imagemagick"
 brew "jq"
 
-brew "postgresql"
+brew "postgresql@14"
 brew "redis"
 
 brew "shellcheck"

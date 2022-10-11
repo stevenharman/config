@@ -100,6 +100,8 @@ alias be='bundle exec'
 alias gvim='mvim -p'
 alias mysql_start='mysql.server start'
 alias mysql_stop='mysql.server stop'
+# These Postgres aliases assume we're using a shared data dir, rather than versioned data dirs
+# See output of `brew info postgresql` for more.
 alias pg_start='pg_ctl -D ${HOMEBREW_PREFIX}/var/postgres start'
 alias pg_stop='pg_ctl -D ${HOMEBREW_PREFIX}/var/postgres stop -s -m fast'
 alias redis_start='redis-server ${HOMEBREW_PREFIX}/etc/redis.conf'
