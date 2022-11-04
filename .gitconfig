@@ -1,6 +1,17 @@
 [user]
   name = Steven Harman
   email = steven@harmanly.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOPMo6SIjMxmWIKV6G/mc/APTsEp6mDv0w/fF7ghXqPX
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+  allowedSignersFile = ~/.ssh/allowed_signers
+[commit]
+  gpgSign = true
+[init]
+  defaultBranch = main
+  templateDir = ~/.git_template
 [color]
   branch = auto
   diff = auto
@@ -78,14 +89,7 @@
   compare = "!hub compare $(git lasttag)...$(git show-ref master -s | head -1)"
 [rerere]
   enabled = true
-[init]
-  defaultBranch = main
-  templateDir = ~/.git_template
 [stash]
   showPatch = true
-[gpg]
-	program = krgpg
-[commit]
-	gpgSign = true
 [tag]
-	forceSignAnnotated = true
+  forceSignAnnotated = true
