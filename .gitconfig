@@ -39,23 +39,23 @@
   syntax-theme = Monokai Extended
 [interactive]
   diffFilter = delta --color-only
-[diff]
-  colorMoved = default
-  tool = Kaleidoscope
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool "p4diff"]
   cmd = p4merge "$LOCAL" "$BASE"
+[diff]
+  colorMoved = default
+  tool = Kaleidoscope
 [difftool]
   prompt = false
-[merge]
-  tool = Kaleidoscope
 [mergetool "Kaleidoscope"]
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustexitcode = true
+  trustExitCode = true
 [mergetool "p4merge"]
   cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
   trustExitCode = false
+[merge]
+  tool = Kaleidoscope
 [mergetool]
   prompt = false
   keepBackup = false
