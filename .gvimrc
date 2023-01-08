@@ -1,13 +1,14 @@
 " Vim graphical configuration.
 set macligatures
 set guifont=Fira\ Code:h14,Inconsolata:h18,Monaco:h18,Consolas:h12,Lucida_Console:h9
-set antialias                     " MacVim: smooth fonts.
-set encoding=utf-8                " Use UTF-8 everywhere.
-set guioptions-=T                 " Hide toolbar.
-set guioptions=e
-set guioptions-=m
-"  set lines=33 columns=100					" Window dimensions.
-if exists('+fuoptions')						" Fullscreen options for MacVim.
+set antialias " MacVim: smooth fonts
+set encoding=utf-8 " Use UTF-8 everywhere
+set guioptions-=m " Hide menubar
+set guioptions-=T " Hide toolbar
+set guioptions+=e " Use GUI tabs
+set guioptions+=k " Something for smooth window resizing in MacVim?
+"  set lines=33 columns=100 " Window dimensions.
+if exists('+fuoptions')	" Fullscreen options for MacVim.
   set fuoptions=maxvert,maxhorz,background:Normal
 endif
 
