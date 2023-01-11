@@ -77,6 +77,11 @@ fi
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules}/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+# Source 1Password CLI config
+if [[ -e "$HOME"/.config/op/plugins.sh ]]; then
+  source "$HOME"/.config/op/plugins.sh
+fi
+
 # source local config
 if [[ -r "$HOME"/.profile.local ]]; then
   source "$HOME"/.profile.local
