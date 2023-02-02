@@ -5,5 +5,4 @@
 --skip-coffee
 --skip-sprockets
 --skip-spring
---webpack
 --database=postgresql
