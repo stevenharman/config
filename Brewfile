@@ -9,7 +9,6 @@ brew "fzf"
 brew "universal-ctags", args: ["HEAD"]
 brew "pv"
 brew "ripgrep"
-brew "shellcheck"
 brew "tree"
 brew "wget"
 
