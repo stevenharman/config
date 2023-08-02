@@ -80,13 +80,6 @@
   mt = mergetool
   st = status -sb
   ctags = !.git/hooks/ctags
-  lasttag = describe --abbrev=0 --tags origin
-  # List merge commits for everything on master, since the last tag.
-  ready = "!git log $(git lasttag)..master --first-parent"
-  # List files that have changed since the last tag.
-  readyfiles = "!git diff --name-status $(git lasttag)..master"
-  # Open GitHub compare view for master, since last tag.
-  compare = "!hub compare $(git lasttag)...$(git show-ref master -s | head -1)"
 [rerere]
   enabled = true
 [stash]
