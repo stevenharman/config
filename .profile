@@ -95,6 +95,8 @@ export GEM_OPEN_EDITOR="vim"
 export LC_CTYPE="en_US.UTF-8"
 export PGOPTIONS='-c client_min_messages=WARNING'
 export RIPGREP_CONFIG_PATH="$HOME"/.ripgreprc
+THOR_MERGE="$(git config --get mergetool.Kaleidoscope.cmd)"
+export THOR_MERGE
 
 # My aliases
 alias be='bundle exec'
