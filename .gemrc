@@ -7,4 +7,4 @@
 :verbose: true
 :concurrent_downloads: 8
 benchmark: false
-gem: "--no-document"
+gem: "--document=yri"
