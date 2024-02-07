@@ -34,6 +34,10 @@ eval "$($brew_cmd shellenv)"
 # them here, and remove any dupes already there.
 path_prepend /usr/local/bin
 
+if command -v cargo > /dev/null 2>&1; then
+  path_prepend "$HOME/.cargo/bin"
+fi
+
 # Initialize "xenv" language managers, if they're installed
 if command -v go > /dev/null 2>&1; then
   path_prepend "$(go env GOPATH)/bin"
