@@ -396,7 +396,7 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! RestartRails()
   if RailsDetect()
-    execute "AsyncRun touch <root>/tmp/restart.txt"
+    execute "AsyncRun -cwd=<root> touch tmp/restart.txt"
   endif
 endfunction
 map <leader>R :call RestartRails()<CR>
