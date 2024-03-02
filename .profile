@@ -112,6 +112,7 @@ alias mysql_stop='mysql.server stop'
 alias pg_start='pg_ctl -D ${HOMEBREW_PREFIX}/var/postgres start'
 alias pg_stop='pg_ctl -D ${HOMEBREW_PREFIX}/var/postgres stop -s -m fast'
 alias redis_start='redis-server ${HOMEBREW_PREFIX}/etc/redis.conf'
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 ghpr() {
   # Shamelessly stolen from https://twitter.com/elijahmanor/status/1559525388417503233
