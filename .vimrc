@@ -505,7 +505,7 @@ function! InsertTabWrapper()
   let char = getline('.')[col - 1]
   if char =~ '\k'
     " There's an identifier before the cursor, so complete the identifier.
-    " NOTE: We coud triger AlE's completion here with the following:
+    " NOTE: We could triger AlE's completion here with the following:
     "    return "\<C-\>\<C-O>\:ALEComplete\<CR>"
     return "\<C-p>"
   else
@@ -515,8 +515,8 @@ endfunction
 
 inoremap <silent><expr> <TAB> InsertTabWrapper()
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-" Trigger ALE completion w/ CTRL-SPACE (@ needed for terminal Vim)
-imap <silent> <C-@> <Plug>(ale_complete)
+" Trigger ALE completion w/ CTRL-SPACE
+imap <C-Space> <Plug>(ale_complete)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEYMAPPINS... THE REST OF THEM
