@@ -484,7 +484,10 @@ nmap gJ <Plug>(ale_next_wrap)
 nmap gK <Plug>(ale_previous_wrap)
 nmap g1 <Plug>(ale_first)
 nmap gd <Plug>(ale_go_to_definition)
-nmap gr <Plug>(ale_find_references)
+nmap gr <Plug>(smh_ale_find_references)
+
+" Define our own Plug mapping which opens refernces in QuickFix window
+nnoremap <silent> <Plug>(smh_ale_find_references) :ALEFindReferences -quickfix<Return>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
