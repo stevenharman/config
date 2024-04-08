@@ -22,7 +22,7 @@ function prompt_char {
 local smiley="%(?,%{$fg[green]%}◎%{$reset_color%},%{$fg[red]%}◉%{$reset_color%})"
 
 PROMPT='
-%{$fg[yellow]%}%m%{$reset_color%}: %{$fg_bold[blue]%}%~%{$reset_color%} [$(smh_rbenv_prompt_info)|$(smh_nodenv_prompt_info)$(git_prompt_info)]
+%{$fg[yellow]%}%m%{$reset_color%}: %{$fg_bold[blue]%}%~%{$reset_color%} [$(smh_rbenv_prompt_info)|$(smh_nodenv_prompt_info)$(_omz_git_prompt_info)]
 %_${smiley} $(prompt_char) '
 
 RPROMPT='%{$fg[green]%}[%*]%{$reset_color%}'
