@@ -393,14 +393,14 @@ endfunction
 :map <leader>p :PromoteToLet<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" RESTART RAILS SERVER (when vim-rails detectes Rails)
+" RESTART RAILS SERVER (when Puma config detected, or vim-rails detects Rails)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RestartRails()
-  if RailsDetect()
+function! RestartPuma()
+  if filereadable("config/puma.rb") || RailsDetect()
     execute "AsyncRun -cwd=<root> touch tmp/restart.txt"
   endif
 endfunction
-map <leader>R :call RestartRails()<CR>
+map <leader>R :call RestartPuma()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPS TO JUMP TO SPECIFIC FZF TARGETS AND FILES
