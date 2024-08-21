@@ -87,3 +87,8 @@
   showPatch = true
 [tag]
   forceSignAnnotated = true
+
+# Custom config, such as setting up .ssh/config Host for GitHub Enterprise Cloud, EMU, etc…
+# see: https://stevenharman.net/configure-ssh-keys-for-multiple-github-accounts
+[include]
+  path = ~/.gitconfig_custom
