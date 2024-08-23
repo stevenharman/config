@@ -24,8 +24,10 @@ if [ "$(arch)" = "arm64" ]; then
 fi
 brew_cmd="${brew_dir}/bin/brew"
 
-# Export HOMEBREW_* settings
-eval "$($brew_cmd shellenv)"
+if command -v "$brew_cmd" > /dev/null 2>&1; then
+  # Export HOMEBREW_* settings
+  eval "$($brew_cmd shellenv)"
+fi
 
 # On some systems, e.g., macOS 10.15, /usr/local/bin is already at the front of
 # PATH by way of `/etc/paths`. On other systems it might not be there. `brew shellenv`
