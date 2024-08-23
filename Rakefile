@@ -1,6 +1,40 @@
 require "pathname"
 
-LINKABLES = %w[.ackrc .agignore .aprc .bashrc Brewfile .bundle .fzf.bash .fzf.zsh .gemrc .git_template .gitconfig .gitignore_global .gvimrc .hgrc .irbrc .profile .pryrc .psqlrc .railsrc .ripgreprc .rbenv/default-gems .rspec .screenrc .ssh/allowed_signers .ssh/common_config .vim .vimrc .zprofile .zsh .zshenv .zshrc].freeze
+LINKABLES = %w[
+  .ackrc
+  .agignore
+  .aprc
+  .bashrc
+  Brewfile
+  .bundle
+  .fzf
+  .bash
+  .fzf
+  .zsh
+  .gemrc
+  .git_template
+  .gitconfig
+  .gitignore_global
+  .gvimrc
+  .hgrc
+  .irbrc
+  .profile
+  .pryrc
+  .psqlrc
+  .railsrc
+  .ripgreprc
+  .rbenv/default-gems
+  .rspec
+  .screenrc
+  .ssh/allowed_signers
+  .ssh/common_config
+  .vim
+  .vimrc
+  .zprofile
+  .zsh
+  .zshenv
+  .zshrc
+].freeze
 
 desc "Symlink dotfiles into system-standard locations."
 task :install do
