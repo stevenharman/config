@@ -1,1 +1,3 @@
-script/setup
+#!/usr/bin/env bash
+
+rake install
