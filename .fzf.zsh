@@ -4,4 +4,8 @@ if [[ ! "$PATH" == *"${HOME}/.fzf/bin"* ]]; then
   export PATH="${PATH:+${PATH}:}${HOME}/.fzf/bin"
 fi
 
-source <(fzf --zsh)
+if command -v fzf > /dev/null 2>&1; then
+  source <(fzf --zsh)
+else
+  echo "fzf is not installed; skipping fzf setup for Zshell"
+fi
