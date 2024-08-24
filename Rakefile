@@ -5,12 +5,9 @@ LINKABLES = %w[
   .agignore
   .aprc
   .bashrc
-  Brewfile
-  .bundle
-  .fzf
-  .bash
-  .fzf
-  .zsh
+  .bundle/config
+  .fzf.bash
+  .fzf.zsh
   .gemrc
   .git_template
   .gitconfig
@@ -22,8 +19,8 @@ LINKABLES = %w[
   .pryrc
   .psqlrc
   .railsrc
-  .ripgreprc
   .rbenv/default-gems
+  .ripgreprc
   .rspec
   .screenrc
   .ssh/allowed_signers
@@ -34,6 +31,7 @@ LINKABLES = %w[
   .zsh
   .zshenv
   .zshrc
+  Brewfile
 ].freeze
 
 desc "Symlink dotfiles into system-standard locations."
@@ -41,6 +39,8 @@ task :install do
   skip_all = false
   overwrite_all = ENV["OVERWRITE_DOTFILES"] || false
   backup_all = false
+  retried = false
+  working_dir = Pathname.pwd
 
   LINKABLES.each do |linkable|
     skip = false
@@ -63,10 +63,25 @@ task :install do
       end
 
       next if skip || skip_all
-      FileUtils.rm_rf(target) if overwrite || overwrite_all
-      `mv "#{target}" "#{target}.backup"` if backup || backup_all
+      target.delete if overwrite || overwrite_all
+
+      if backup || backup_all
+        bak = Pathname("#{target}.backup")
+        target.rename(bak)
+      end
     end
-    `ln -s "$PWD/#{linkable}" "#{target}"`
+
+    dotfile = working_dir.join(linkable)
+    begin
+      target.make_symlink(dotfile)
+      retried = false
+    rescue Errno::ENOENT
+      raise if retried
+      retried = true
+      dir = target.dirname
+      dir.mkpath
+      retry
+    end
   end
 end
 
@@ -80,9 +95,9 @@ task :uninstall do
     end
 
     # Replace any backups made during installation
-    backup = "#{target}.backup"
+    backup = Pathname("#{target}.backup")
     if backup.exist?
-      `mv "#{backup}" "#{target}"`
+      backup.rename(target)
     end
   end
 end
