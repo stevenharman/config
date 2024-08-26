@@ -33,6 +33,8 @@ module Setup
         install_oh_my_zsh
         apt_install(dependency: :bat)
         fixup_stupid_ubuntu_only_bat_naming
+        apt_install(dependency: :"git-delta", binary: :delta)
+        apt_install(dependency: :"exuberant-ctags", binary: :ctags)
         apt_install(dependency: :fzf)
         apt_install(dependency: :ripgrep, binary: :rg)
         apt_install(dependency: :shellcheck)
