@@ -1,6 +1,5 @@
 cask_args appdir: "/Applications"
 tap "heroku/brew"
-tap "homebrew/cask"
 tap "universal-ctags/universal-ctags"
 
 brew "ack"
@@ -16,11 +15,11 @@ brew "gh"
 brew "git"
 brew "git-delta"
 brew "heroku"
-brew "macvim"
+brew "macvim" if OS.mac?
 
 brew "openssl"
 brew "nodenv"
-brew "coreutils" # Necessary to build native exensions in newer macOS's. 🤷
+brew "coreutils" if OS.mac? # Necessary to build native exensions in newer macOS's. 🤷
 brew "node-build"
 brew "rbenv"
 brew "rbenv-bundler-ruby-version"
