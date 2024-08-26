@@ -42,7 +42,7 @@ module Setup
     attr_reader :host
 
     def apt_install(dependency:, binary: dependency)
-      return unless installed?(binary)
+      return if installed?(binary)
 
       system("sudo apt-get install -y #{dependency}")
     end
