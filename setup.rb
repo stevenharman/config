@@ -30,12 +30,24 @@ module Setup
         puts("🤷 This is Windows and I've not yet bothered to figure out setting up dependencies.")
       else # assumer we're on linux
         puts("🤡 FIGURE OUT A LINUX SOLUTION! Maybe just Homebrew too?")
+        install_oh_my_zsh
       end
     end
 
     private
 
     attr_reader :host
+
+    def install_oh_my_zsh
+      zsh_home = Pathname(ENV.fetch("ZSH", "~/.oh-my-zsh")).expand_path
+
+      if zsh_home.exist?
+        puts("Oh my Zsh is already installed")
+        return
+      end
+
+      system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
+    end
 
     def mac_os?
       /darwin/.match?(host)
