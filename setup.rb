@@ -25,18 +25,27 @@ module Setup
 
     def install
       if mac_os?
-        system("brew bundle") unless system("which brew")
+        system("brew bundle") unless installed?("brew")
       elsif windows?
         puts("🤷 This is Windows and I've not yet bothered to figure out setting up dependencies.")
       else # assumer we're on linux
-        puts("🤡 FIGURE OUT A LINUX SOLUTION! Maybe just Homebrew too?")
         install_oh_my_zsh
+        apt_install(dependency: :bat)
+        apt_install(dependency: :fzf)
+        apt_install(dependency: :ripgrep, binary: :rg)
+        apt_install(dependency: :shellcheck)
       end
     end
 
     private
 
     attr_reader :host
+
+    def apt_install(dependency:, binary: dependency)
+      return unless installed?(binary)
+
+      system("sudo apt-get install -y #{dependency}")
+    end
 
     def install_oh_my_zsh
       zsh_home = Pathname(ENV.fetch("ZSH", "~/.oh-my-zsh")).expand_path
@@ -47,6 +56,12 @@ module Setup
       end
 
       system('/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"')
+    end
+
+    def installed?(dependency)
+      system("which #{dependency} > /dev/null").tap do |result|
+        puts("ℹ️  #{dependency} already installed; skipping") if result
+      end
     end
 
     def mac_os?
