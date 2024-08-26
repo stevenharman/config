@@ -1,6 +1,10 @@
 # For zsh parity
 alias ..="cd .."
 
+### stickier .bash_history
+shopt -s histappend
+export HISTIGNORE="clear:bg:fg:cd:cd -:exit:date:w:* --help"
+
 # heroku autocomplete setup
 HEROKU_AC_BASH_SETUP_PATH="$HOME"/Library/Caches/heroku/autocomplete/bash_setup
 

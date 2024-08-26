@@ -62,17 +62,6 @@ fi
 
 path_append "$HOME"/bin
 
-# Shell-specific settings
-if [[ "$SHELL" == *zsh ]]; then
-  # Nothing to see here
-  true
-elif [[ "$SHELL" == *bash ]]; then
-  ### stickier .bash_history
-  shopt -s histappend
-
-  export HISTIGNORE="clear:bg:fg:cd:cd -:exit:date:w:* --help"
-fi
-
 # Other Customization
 
 if [[ -e "$HOME"/.iterm2_shell_integration.zsh ]]; then
