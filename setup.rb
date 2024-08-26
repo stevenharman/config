@@ -7,10 +7,43 @@ module Setup
       home_dir: home_dir,
       working_dir: working_dir, overwrite_all: overwrite_all
     )
+    Dependencies.install
   end
 
   def self.uninstall(linkables:, home_dir:)
     Dotfiles.remove(linkables: linkables, home_dir: home_dir)
+  end
+
+  class Dependencies
+    def self.install
+      new.install
+    end
+
+    def initialize(host: RbConfig::CONFIG["host"])
+      @host = String(host).downcase
+    end
+
+    def install
+      if mac_os?
+        system("brew bundle") unless system("which brew")
+      elsif windows?
+        puts("🤷 This is Windows and I've not yet bothered to figure out setting up dependencies.")
+      else # assumer we're on linux
+        puts("🤡 FIGURE OUT A LINUX SOLUTION! Maybe just Homebrew too?")
+      end
+    end
+
+    private
+
+    attr_reader :host
+
+    def mac_os?
+      /darwin/.match?(host)
+    end
+
+    def windows?
+      /cygwin|mswin|mingw|bccwin|wince|emx/.match?(host)
+    end
   end
 
   class Dotfiles
@@ -65,7 +98,7 @@ module Setup
             case $stdin.gets.chomp
             when "o" then overwrite = true
             when "b" then backup = true
-            when "O" then overwrite_all = true
+            when "O" then self.overwrite_all = true
             when "B" then backup_all = true
             when "S" then skip_all = true
             when "s" then skip = true
