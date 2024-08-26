@@ -31,6 +31,7 @@ module Setup
       else # assumer we're on linux
         install_oh_my_zsh
         apt_install(dependency: :bat)
+        fixup_stupid_ubuntu_only_bat_naming
         apt_install(dependency: :fzf)
         apt_install(dependency: :ripgrep, binary: :rg)
         apt_install(dependency: :shellcheck)
@@ -45,6 +46,19 @@ module Setup
       return if installed?(binary)
 
       system("sudo apt-get install -y #{dependency}")
+    end
+
+    # Ubuntu does really stupid shit for this package, apparently:
+    # https://github.com/sharkdp/bat?tab=readme-ov-file#on-ubuntu-using-apt
+    def fixup_stupid_ubuntu_only_bat_naming
+      return if installed?("bat")
+
+      bat_exe = Pathname("~/.local/bin/bat").expand_path
+
+      return if bat_exe.exist? || bat_exe.symlink?
+
+      bat_exe.dirname.mkpath
+      bat_exe.make_symlink("/usr/bin/batcat")
     end
 
     def install_oh_my_zsh
