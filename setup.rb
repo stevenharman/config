@@ -56,7 +56,7 @@ module Setup
     def fixup_stupid_ubuntu_only_bat_naming
       return if installed?("bat")
 
-      bat_exe = Pathname("~/.local/bin/bat").expand_path
+      bat_exe = Pathname("~/bin/bat").expand_path
 
       return if bat_exe.exist? || bat_exe.symlink?
 

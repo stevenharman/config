@@ -60,6 +60,7 @@ fi
 
 # More PATH configuration
 
+mkdir -p "$HOME"/bin
 path_append "$HOME"/bin
 
 # Other Customization
