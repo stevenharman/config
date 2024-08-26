@@ -2,12 +2,13 @@ require "pathname"
 
 module Setup
   def self.install(linkables:, home_dir:, working_dir:, overwrite_all: ENV.fetch("OVERWRITE_DOTFILES", false))
+    Dependencies.install
+
     Dotfiles.setup(
       linkables: linkables,
       home_dir: home_dir,
       working_dir: working_dir, overwrite_all: overwrite_all
     )
-    Dependencies.install
   end
 
   def self.uninstall(linkables:, home_dir:)
