@@ -17,6 +17,11 @@ else
   printf "${CLEAR_LINE}⚠️${YELLOW}   .bashrc: Missing Heroku CLI Completions. See: https://devcenter.heroku.com/articles/heroku-cli-autocomplete.${NO_COLOR}\n"
 fi
 
+# Source our .profile which does a lot of path and tooling initialization. Yes,
+# it's not actually meant for Bash, but I took care not to use any zsh-specific
+# functionality, so it works for both!
+source "${HOME}/.profile"
+
 if [[ -f "$HOME/.fzf.bash" ]]; then
   source "$HOME/.fzf.bash"
 fi
