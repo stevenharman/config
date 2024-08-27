@@ -45,17 +45,23 @@ if command -v go > /dev/null 2>&1; then
   path_prepend "$(go env GOPATH)/bin"
 fi
 
+nodenv_path="${HOME}/.nodenv/bin/nodenv"
 if command -v nodenv > /dev/null 2>&1; then
   eval "$(nodenv init -)"
-
-  if command -v yarn > /dev/null 2>&1; then
-    yarn_bin="$(yarn global bin)"
-    path_append "$yarn_bin"
-  fi
+elif [ -f "${nodenv_path}" ]; then
+  eval "$(${nodenv_path} init -)"
 fi
 
+if command -v yarn > /dev/null 2>&1; then
+  yarn_bin="$(yarn global bin)"
+  path_append "$yarn_bin"
+fi
+
+rbenv_path="${HOME}/.rbenv/bin/rbenv"
 if command -v rbenv > /dev/null 2>&1; then
   eval "$(rbenv init -)"
+elif [ -f "${rbenv_path}" ]; then
+  eval "$(${rbenv_path} init -)"
 fi
 
 # More PATH configuration

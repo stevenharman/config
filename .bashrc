@@ -17,6 +17,9 @@ else
   printf "${CLEAR_LINE}⚠️${YELLOW}   .bashrc: Missing Heroku CLI Completions. See: https://devcenter.heroku.com/articles/heroku-cli-autocomplete.${NO_COLOR}\n"
 fi
 
+# `rbenv init` will forceably put itself in this file, unless this file already
+# contains the string "rbenv init." And now it does. Twice. 😏
+
 # Source our .profile which does a lot of path and tooling initialization. Yes,
 # it's not actually meant for Bash, but I took care not to use any zsh-specific
 # functionality, so it works for both!
