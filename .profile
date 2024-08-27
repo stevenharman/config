@@ -50,7 +50,7 @@ if command -v nodenv > /dev/null 2>&1; then
   eval "$(nodenv init -)"
 elif [ -f "${nodenv_bin}/nodenv" ]; then
   eval "$("${nodenv_bin}/nodenv" init - zsh)"
-  path_append "${nodenv_bin}"
+  path_prepend "${nodenv_bin}"
 fi
 
 if command -v yarn > /dev/null 2>&1; then
@@ -63,7 +63,7 @@ if command -v rbenv > /dev/null 2>&1; then
   eval "$(rbenv init -)"
 elif [ -f "${rbenv_bin}/rbenv" ]; then
   eval "$("${rbenv_bin}/rbenv" init -)"
-  path_append "${rbenv_bin}"
+  path_prepend "${rbenv_bin}"
 fi
 
 # More PATH configuration
