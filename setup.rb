@@ -31,8 +31,12 @@ module Setup
         puts("🤷 This is Windows and I've not yet bothered to figure out setting up dependencies.")
       else # assumer we're on linux
         install_oh_my_zsh
+        install_rbenv
+        install_nodenv
+
         apt_install(dependency: :bat)
         fixup_stupid_ubuntu_only_bat_naming
+
         apt_install(dependency: :"git-delta", binary: :delta)
         apt_install(dependency: :"exuberant-ctags", binary: :ctags)
         apt_install(dependency: :fzf)
@@ -73,6 +77,18 @@ module Setup
       end
 
       system('sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"')
+    end
+
+    def install_nodenv
+      # We don't want to return early because nodenv-installer will update nodenv if it's already installed.
+      # see: https://github.com/nodenv/nodenv-installer?#nodenv-installer
+      system("curl -fsSL https://github.com/nodenv/nodenv-installer/raw/HEAD/bin/nodenv-installer | bash")
+    end
+
+    def install_rbenv
+      # We don't want to return early because rbenv-installer will update rbenv if it's already installed.
+      # see: https://github.com/rbenv/rbenv-installer#rbenv-installer
+      system("curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash")
     end
 
     def installed?(dependency)
