@@ -40,7 +40,7 @@ if executable('rg')
   let g:ackprg = 'rg --vimgrep --smart-case --hidden --glob "!.git/*"'
 " 'rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 endif
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Clone fzf to ~/.fzf and run the install script; ignores Brew-installed fzf
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 let g:fzf_buffers_jump = 1
 let $FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'

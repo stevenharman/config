@@ -30,16 +30,16 @@ module Setup
       elsif windows?
         puts("🤷 This is Windows and I've not yet bothered to figure out setting up dependencies.")
       else # assumer we're on linux
+        install_fzf
         install_oh_my_zsh
-        install_rbenv
         install_nodenv
+        install_rbenv
 
         apt_install(dependency: :bat)
         fixup_stupid_ubuntu_only_bat_naming
 
         apt_install(dependency: :"git-delta", binary: :delta)
         apt_install(dependency: :"exuberant-ctags", binary: :ctags)
-        apt_install(dependency: :fzf)
         apt_install(dependency: :ripgrep, binary: :rg)
         apt_install(dependency: :shellcheck)
       end
@@ -66,6 +66,16 @@ module Setup
 
       bat_exe.dirname.mkpath
       bat_exe.make_symlink("/usr/bin/batcat")
+    end
+
+    def install_fzf
+      fzf_home = Pathname("~/.fzf").expand_path
+
+      unless fzf_home.exist?
+        system("git clone --depth 1 https://github.com/junegunn/fzf.git #{fzf_home}")
+      end
+
+      system("#{fzf_home.join("install")} --bin")
     end
 
     def install_oh_my_zsh
