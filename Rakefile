@@ -21,6 +21,7 @@ LINKABLES = %w[
   .psqlrc
   .railsrc
   .rbenv/default-gems
+  .rdbgrc
   .ripgreprc
   .rspec
   .screenrc
