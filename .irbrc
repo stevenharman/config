@@ -27,12 +27,5 @@ IRB.conf[:IRB_RC] = proc do |conf|
   conf.return_format = ('=' * (name.length - 2)) + "> %s\n"
 end
 
-class Object
-  def my_methods(include_inherited = false)
-    ignored_methods = include_inherited ? Object.methods : self.class.superclass.instance_methods
-    (self.methods - ignored_methods).sort
-  end
-end
-
 # log ActiveRecord (Rails 3)
 ActiveRecord::Base.logger = Logger.new(STDOUT) if defined? Rails::Console
