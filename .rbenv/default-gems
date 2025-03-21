@@ -1,11 +1,8 @@
 gem-ctags
 amazing_print
 bundler
-pry
-pry-byebug
-pry-doc
+debug
 rerun
-seeing_is_believing
 solargraph
 standard
 table_print
