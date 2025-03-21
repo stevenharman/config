@@ -7,6 +7,7 @@ LINKABLES = %w[
   .aprc
   .bashrc
   .bundle/config
+  .config/solargraph/config.yml
   .fzf.bash
   .fzf.zsh
   .gemrc

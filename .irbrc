@@ -1,9 +1,9 @@
-require 'rubygems'
-require 'rake'
-require 'win32console' if RUBY_PLATFORM =~ /(mswin|mingw|cygwin)32$/i
+require "rubygems"
+require "rake"
+require "win32console" if RUBY_PLATFORM.match?(/(mswin|mingw|cygwin)32$/i)
 begin
-  require 'wirble'
-  require 'hirb'
+  require "wirble"
+  require "hirb"
 rescue LoadError
   # no pretty console output :(
 end
@@ -19,12 +19,12 @@ IRB.conf[:AUTO_INDENT] = true
 
 IRB.conf[:IRB_RC] = proc do |conf|
   name = "irb: "
-  name = "rails: " if $0 == 'irb' && ENV['RAILS_ENV']
+  name = "rails: " if $0 == "irb" && ENV["RAILS_ENV"]
   leader = " " * name.length
-  conf.prompt_i = "#{name}"
+  conf.prompt_i = String(name)
   conf.prompt_s = leader + '\-" '
   conf.prompt_c = leader + '\-+ '
-  conf.return_format = ('=' * (name.length - 2)) + "> %s\n"
+  conf.return_format = ("=" * (name.length - 2)) + "> %s\n"
 end
 
 # log ActiveRecord (Rails 3)

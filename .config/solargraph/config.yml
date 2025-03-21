@@ -1,0 +1,4 @@
+---
+# Explicitly NOT including robocop b/c most of my projects use StandardRB
+reporters:
+  - require_not_found
