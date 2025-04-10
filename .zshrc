@@ -10,6 +10,11 @@ if [[ -f "$HOME/.fzf.zsh" ]]; then
   source "$HOME/.fzf.zsh"
 fi
 
+# Source iTerm2 shell integration
+if [[ -f "${HOME}/.iterm2_shell_integration.zsh" ]]; then
+  source "$HOME/.iterm2_shell_integration.zsh"
+fi
+
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
 

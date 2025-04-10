@@ -8,7 +8,7 @@ export HISTIGNORE="clear:bg:fg:cd:cd -:exit:date:w:* --help"
 # heroku autocomplete setup
 HEROKU_AC_BASH_SETUP_PATH="$HOME"/Library/Caches/heroku/autocomplete/bash_setup
 
-if [[ -f $HEROKU_AC_BASH_SETUP_PATH ]]; then
+if [[ -f "$HEROKU_AC_BASH_SETUP_PATH" ]]; then
   source "$HEROKU_AC_BASH_SETUP_PATH"
 else
   CLEAR_LINE='\r\033[K'
@@ -19,6 +19,11 @@ fi
 
 # `rbenv init` will forceably put itself in this file, unless this file already
 # contains the string "rbenv init." And now it does. Twice. 😏
+
+# Source iTerm2 shell integration
+if [[ -f "${HOME}/.iterm2_shell_integration.bash" ]]; then
+  source "$HOME/.iterm2_shell_integration.bash"
+fi
 
 # Source our .profile which does a lot of path and tooling initialization. Yes,
 # it's not actually meant for Bash, but I took care not to use any zsh-specific

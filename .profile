@@ -73,10 +73,6 @@ path_append "$HOME"/bin
 
 # Other Customization
 
-if [[ -e "$HOME"/.iterm2_shell_integration.zsh ]]; then
-  source "$HOME"/.iterm2_shell_integration.zsh
-fi
-
 # Set fzf to use ripgrep for CTRL-T in shell
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules}/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

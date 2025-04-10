@@ -26,6 +26,7 @@ LINKABLES = %w[
   .ripgreprc
   .rspec
   .screenrc
+  .shellcheckrc
   .ssh/allowed_signers
   .ssh/common_config
   .vim
