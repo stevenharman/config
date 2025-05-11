@@ -15,7 +15,7 @@ brew "gh"
 brew "git"
 brew "git-delta"
 brew "heroku"
-brew "macvim" if OS.mac?
+cask "macvim" if OS.mac?
 
 brew "openssl"
 brew "nodenv"
