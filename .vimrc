@@ -36,6 +36,8 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_types = 1
 Plug 'janko-m/vim-test'
 Plug 'mileszs/ack.vim'
+" Any empty ack search will search for the word the cursor is on
+let g:ack_use_cword_for_empty_search = 1
 if executable('rg')
   let g:ackprg = 'rg --vimgrep --smart-case --hidden --glob "!.git/*"'
 " 'rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
