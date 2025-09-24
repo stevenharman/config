@@ -439,11 +439,12 @@ let test#strategy = {
   \ 'file':    'vimterminal',
   \ 'suite':   'asyncrun',
 \}
-nmap <silent> <leader>t :TestFile<CR>
-nmap <silent> <leader>T :TestNearest<cr>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>A :TestSuite -strategy=basic<CR>
-nmap <silent> <leader>N :TestSuite --next-failure<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>tF :TestFile -strategy=basic<CR>
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>ta :TestSuite<CR>
+nmap <silent> <leader>tA :TestSuite -strategy=basic<CR>
+nmap <silent> <leader>tN :TestSuite --next-failure<CR>
 nmap <silent> <leader>L :TestLast<CR>
 nmap <silent> <leader>v :TestVisit<CR>
 
