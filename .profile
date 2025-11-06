@@ -29,13 +29,6 @@ if command -v "$brew_cmd" > /dev/null 2>&1; then
   eval "$($brew_cmd shellenv)"
 fi
 
-# On some systems, e.g., macOS 10.15, /usr/local/bin is already at the front of
-# PATH by way of `/etc/paths`. On other systems it might not be there. `brew shellenv`
-# will add it and `/usr/local/sbin` to the front of PATH. Meaning we might have
-# dupes, making PATH searching slower. To normalize all of this, we'll prepend
-# them here, and remove any dupes already there.
-path_prepend /usr/local/bin
-
 if command -v cargo > /dev/null 2>&1; then
   path_prepend "$HOME/.cargo/bin"
 fi
