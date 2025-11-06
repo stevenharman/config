@@ -34,6 +34,7 @@ let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_types = 1
+Plug 'github/copilot.vim'
 Plug 'janko-m/vim-test'
 Plug 'mileszs/ack.vim'
 " Any empty ack search will search for the word the cursor is on
