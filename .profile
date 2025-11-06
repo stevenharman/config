@@ -58,6 +58,14 @@ if command -v yarn > /dev/null 2>&1; then
   path_append "$yarn_bin"
 fi
 
+if command -v pyenv > /dev/null 2>&1; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  eval "$(pyenv init - zsh)"
+  if [ -d "$PYENV_ROOT/bin" ]; then
+    path_prepend "$PYENV_ROOT/bin"
+  fi
+fi
+
 rbenv_bin="${HOME}/.rbenv/bin"
 if command -v rbenv > /dev/null 2>&1; then
   eval "$(rbenv init -)"
@@ -67,7 +75,6 @@ elif [ -f "${rbenv_bin}/rbenv" ]; then
 fi
 
 # More PATH configuration
-
 mkdir -p "$HOME"/bin
 path_append "$HOME"/bin
 
