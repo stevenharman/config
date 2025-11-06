@@ -7,7 +7,5 @@ rescue LoadError
   # no pretty console output :(
 end
 
-require "pry-doc" rescue LoadError
-
 Pry.config.should_load_plugins = false
 Pry.config.editor = "vim"
