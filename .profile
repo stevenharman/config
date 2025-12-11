@@ -29,6 +29,11 @@ if command -v "$brew_cmd" > /dev/null 2>&1; then
   eval "$($brew_cmd shellenv)"
 fi
 
+# Ensure my "current" (as defined by my Brewfile) version of PostgreSQL is in the PATH
+if ! command -v postgres > /dev/null 2>&1; then
+  path_prepend "${brew_dir}/opt/postgresql@16/bin"
+fi
+
 if command -v cargo > /dev/null 2>&1; then
   path_prepend "$HOME/.cargo/bin"
 fi
