@@ -37,4 +37,5 @@ brew "postgresql@16"
 brew "redis"
 
 brew "shellcheck"
+brew "tflint"
 brew "tldr"
