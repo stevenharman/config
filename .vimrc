@@ -200,8 +200,15 @@ if has("gui_running") || &t_Co >= 256
   " let g:rehash256=1 " only used for Molokai color scheme
   :color neodark
 else
-  set t_Co=16     " every terminal I use supports at least 16, right?
-  :color solarized  " a 16-color safe theme
+  set t_Co=16      " every terminal I use supports at least 16, right?
+  :color solarized " a 16-color safe theme
+endif
+
+if &term =~ '256color'
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color tmux and GNU screen.
+  " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+  set t_ut=
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
