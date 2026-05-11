@@ -445,7 +445,7 @@ nnoremap <leader>f :Files<CR>
 let test#strategy = {
   \ 'nearest': 'basic',
   \ 'file':    'vimterminal',
-  \ 'suite':   'asyncrun',
+  \ 'suite':   'vimterminal',
 \}
 nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>tF :TestFile -strategy=basic<CR>
