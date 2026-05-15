@@ -15,8 +15,6 @@ brew "gh"
 brew "git"
 brew "git-delta"
 brew "heroku"
-cask "kaleidoscope" if OS.mac?
-cask "macvim-app" if OS.mac?
 
 brew "openssl"
 brew "nodenv"
@@ -40,3 +38,11 @@ brew "redis"
 brew "shellcheck"
 brew "tflint"
 brew "tldr"
+
+if OS.mac?
+  cask "dash"
+  cask "kaleidoscope"
+  cask "macvim-app"
+  cask "1password-cli"
+  cask "xnapper"
+end
