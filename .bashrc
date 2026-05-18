@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # For zsh parity
 alias ..="cd .."
 
@@ -14,6 +16,7 @@ else
   CLEAR_LINE='\r\033[K'
   NO_COLOR='\033[0m'
   YELLOW='\033[0;33m'
+  # shellcheck disable=SC2059
   printf "${CLEAR_LINE}⚠️${YELLOW}   .bashrc: Missing Heroku CLI Completions. See: https://devcenter.heroku.com/articles/heroku-cli-autocomplete.${NO_COLOR}\n"
 fi
 

@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 fzf_bin="${HOME}/.fzf/bin"
 
 if command -v fzf > /dev/null 2>&1; then

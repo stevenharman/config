@@ -8,6 +8,7 @@ zstyle ':completion:*:expand:*' keep-prefix true tag-order all-expansions
 
 # formatting and messages
 zstyle ':completion:*' verbose yes
+# shellcheck disable=SC2154
 zstyle ':completion:*:descriptions' format "- %{${fg[yellow]}%}%d%{${reset_color}%} -"
 zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches for: %d'
@@ -28,26 +29,32 @@ zstyle ':completion:*:ssh:*' tag-order 'hosts:-domain:domain'
 zstyle ':completion:*:ssh:*' group-order hosts-domain hosts-host users hosts-ipaddr
 
 ### highlight parameters with uncommon names
-zstyle ':completion:*:parameters' list-colors "=[^a-zA-Z]*=$color[red]"
+# shellcheck disable=SC2154
+zstyle ':completion:*:parameters' list-colors "=[^a-zA-Z]*=${color[red]}"
 
 ### highlight aliases
-zstyle ':completion:*:aliases' list-colors "=*=$color[green]"
+# shellcheck disable=SC2154
+zstyle ':completion:*:aliases' list-colors "=*=${color[green]}"
 
 ### highlight the original input.
-zstyle ':completion:*:original' list-colors "=*=$color[red];$color[bold]"
+# shellcheck disable=SC2154
+zstyle ':completion:*:original' list-colors "=*=${color[red]};${color[bold]}"
 
 ### highlight words like 'esac' or 'end'
-zstyle ':completion:*:reserved-words' list-colors "=*=$color[red]"
+# shellcheck disable=SC2154
+zstyle ':completion:*:reserved-words' list-colors "=*=${color[red]}"
 
 ### colorize hostname completion
-zstyle ':completion:*:*:*:*:hosts' list-colors "=*=$color[cyan];$color[bg-black]"
+# shellcheck disable=SC2154
+zstyle ':completion:*:*:*:*:hosts' list-colors "=*=${color[cyan]};${color[bg-black]}"
 
 # Disable completion of usernames
 zstyle ':completion:*' users off
 
 ## add colors to processes for kill completion
 zstyle ':completion:*:*:kill:*' verbose yes
-zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#) #([^ ]#)*=$color[cyan]=$color[yellow]=$color[green]"
+# shellcheck disable=SC2154
+zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#) #([^ ]#)*=${color[cyan]}=${color[yellow]}=${color[green]}"
 
 ## With commands like `rm' it's annoying if one gets offered the same filename
 ## again even if it is already on the command line. To avoid that:

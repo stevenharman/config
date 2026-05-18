@@ -4,6 +4,7 @@
 /tmp/
 /tags
 /.bundle/cache
+/.claude/settings.local.json
 /.vim/.netrwhist
 /.vim/autoload
 /.vim/plugged

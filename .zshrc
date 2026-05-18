@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # oh-my-zsh configuration
 export ZSH_CUSTOM="$HOME/.zsh/custom"
 # Path to oh-my-zsh configuration.
@@ -69,11 +71,13 @@ fi
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
+# shellcheck disable=SC2034
 plugins=(gem terraform yarn zsh-navigation-tools stripe)
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # zsh-navigation-tools configuration, overrides ~/.config/znt
+# shellcheck disable=SC2034
 znt_list_border=1
 
 # When using new (>5.2) Zsh version that supports 256 colors in zcurses
@@ -83,9 +87,11 @@ znt_list_border=1
 
 # When 1, pressing enter when in search mode will not only leave the mode, but
 # also do selection and leave n-history
+# shellcheck disable=SC2034
 znt_list_instant_select=0
 
 # Search keywords, iterated with F2 or Ctrl-X or Ctrl-/
+# shellcheck disable=SC2034
 znt_history_keywords=( "heroku" "WEB_CONCURRENCY" "bin/rails" )
 
 bindkey "^[" vi-cmd-mode
@@ -104,5 +110,6 @@ else
   CLEAR_LINE='\r\033[K'
   NO_COLOR='\033[0m'
   YELLOW='\033[0;33m'
+  # shellcheck disable=SC2059
   printf "${CLEAR_LINE}⚠️${YELLOW}   .zshrc: Missing Heroku CLI Completions. See: https://devcenter.heroku.com/articles/heroku-cli-autocomplete.${NO_COLOR}\n"
 fi
