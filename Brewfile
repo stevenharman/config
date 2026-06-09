@@ -1,4 +1,11 @@
 cask_args appdir: "/Applications"
+
+# On a fresh machine, run `brew bundle` then trust the tapped formulae with:
+#   brew trust --formula heroku/brew/heroku
+#   brew trust --formula universal-ctags/universal-ctags/universal-ctags
+# Or trust all taps at once (less secure):
+#   brew trust heroku/brew universal-ctags/universal-ctags
+# (If taps are already installed, you can run trust commands immediately)
 tap "heroku/brew"
 tap "universal-ctags/universal-ctags"
 

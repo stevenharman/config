@@ -27,6 +27,11 @@ brew_cmd="${brew_dir}/bin/brew"
 if command -v "$brew_cmd" > /dev/null 2>&1; then
   # Export HOMEBREW_* settings
   eval "$($brew_cmd shellenv)"
+
+  # Require tap trust by default (will be default in Homebrew 6.0.0 or 5.2.0)
+  # This prevents untrusted taps from executing formulae, casks, or commands.
+  # Can be removed once Homebrew makes this the default behavior.
+  export HOMEBREW_REQUIRE_TAP_TRUST=1
 fi
 
 # Ensure my "current" (as defined by my Brewfile) version of PostgreSQL is in the PATH
