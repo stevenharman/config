@@ -44,7 +44,6 @@ brew "redis"
 
 brew "shellcheck"
 brew "tflint"
-brew "tldr"
 
 if OS.mac?
   cask "dash"
