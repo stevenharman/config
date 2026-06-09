@@ -1,18 +1,12 @@
 cask_args appdir: "/Applications"
 
-# On a fresh machine, run `brew bundle` then trust the tapped formulae with:
-#   brew trust --formula heroku/brew/heroku
-#   brew trust --formula universal-ctags/universal-ctags/universal-ctags
-# Or trust all taps at once (less secure):
-#   brew trust heroku/brew universal-ctags/universal-ctags
-# (If taps are already installed, you can run trust commands immediately)
 tap "heroku/brew"
 tap "universal-ctags/universal-ctags"
 
 brew "ack"
 brew "bat"
 brew "fzf"
-brew "universal-ctags", args: ["HEAD"]
+brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"], trusted: true
 brew "pv"
 brew "ripgrep"
 brew "tree"
@@ -21,11 +15,10 @@ brew "wget"
 brew "gh"
 brew "git"
 brew "git-delta"
-brew "heroku"
+brew "heroku/brew/heroku", trusted: true
 
 brew "openssl"
 brew "nodenv"
-brew "coreutils" if OS.mac? # Necessary to build native exensions in newer macOS's. 🤷
 brew "node-build"
 brew "rbenv"
 brew "rbenv-bundler-ruby-version"
@@ -46,9 +39,11 @@ brew "shellcheck"
 brew "tflint"
 
 if OS.mac?
+  brew "coreutils" # Necessary to build native exensions in newer macOS's. 🤷
+
+  cask "1password-cli"
   cask "dash"
   cask "kaleidoscope"
   cask "macvim-app"
-  cask "1password-cli"
   cask "xnapper"
 end
