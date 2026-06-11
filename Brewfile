@@ -36,7 +36,7 @@ brew "postgresql@16"
 brew "redis"
 
 brew "shellcheck"
-brew "tflint"
+cask "terraform-linters/tap/tflint", trusted: true
 
 if OS.mac?
   brew "coreutils" # Necessary to build native exensions in newer macOS's. 🤷
