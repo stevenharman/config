@@ -18,13 +18,14 @@ brew "git-delta"
 brew "heroku/brew/heroku", trusted: true
 
 brew "openssl"
-brew "nodenv"
-brew "node-build"
 brew "rbenv"
 brew "rbenv-bundler-ruby-version"
 brew "rbenv-ctags"
 brew "rbenv-default-gems"
 brew "ruby-build"
+brew "ruby"
+brew "nodenv"
+brew "node-build"
 brew "node"
 brew "yarn"
 
