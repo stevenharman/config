@@ -77,6 +77,11 @@ elif [ -f "${rbenv_bin}/rbenv" ]; then
   path_prepend "${rbenv_bin}"
 fi
 
+claude_bin="${HOME}/.local/bin"
+if [ -x "$claude_bin/claude" ]; then
+  path_append "$claude_bin"
+fi
+
 # More PATH configuration
 mkdir -p "$HOME"/bin
 path_append "$HOME"/bin
