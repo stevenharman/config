@@ -37,3 +37,30 @@ To install the (currently known) dependencies,
 ```bash
 brew bundle
 ```
+
+## 🪝 Git hooks
+
+`.git_template/hooks` holds hooks that `git` copies into a repo's `.git/hooks`
+whenever you `git init` or `git clone` (via `init.templateDir` in `.gitconfig`).
+They mostly keep a `ctags` index fresh and run `bundle` after a checkout that
+touches the `Gemfile`.
+
+The hooks resolve paths with `git rev-parse --git-path …` rather than hardcoding
+`.git/…`, so they also work inside a linked worktree — where `.git` is a file, not
+a directory.
+
+### Refreshing existing repos
+
+`init.templateDir` only applies at init/clone time and never overwrites hooks that
+already exist, so repos you already have won't pick up hook changes. `refresh-git-hooks`
+syncs the current template hooks into them:
+
+```bash
+refresh-git-hooks              # dry run against the current dir
+refresh-git-hooks ~/code       # dry run against a specific root (recurses)
+refresh-git-hooks --apply      # actually write the changes
+```
+
+It backs up anything it replaces to `<name>.pre-refresh`, leaves foreign hooks
+(Husky, lefthook, overcommit, …) alone unless given `--force`, and skips
+nested/vendored repos (submodules, Vim-Plug plugins, …).

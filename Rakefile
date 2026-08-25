@@ -36,6 +36,7 @@ LINKABLES = %w[
   .zshenv
   .zshrc
   Brewfile
+  bin/refresh-git-hooks
 ].freeze
 
 desc "Symlink dotfiles into system-standard locations."

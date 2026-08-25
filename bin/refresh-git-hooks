@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+#
+# refresh-git-hooks — sync ~/.git_template/hooks into existing repos.
+#
+# The template dir is only applied at `git init`/`git clone` time, and even
+# then it won't overwrite hooks that already exist. This copies the current
+# template hooks into repos you've already got.
+#
+# It only touches hooks that are missing or recognizably ours (they carry a
+# "git_template" marker, or invoke ctags/post-merge the way our hooks do).
+# Foreign hooks (Husky, lefthook, overcommit, …) are left alone and reported;
+# pass --force to overwrite them too. Anything replaced is backed up alongside
+# as <name>.pre-refresh.
+#
+# Repos nested inside another repo's working tree (git submodules, vendored
+# clones, Vim-Plug plugins under .vim/plugged, …) are skipped — we only manage
+# top-level project repos. Worktrees need no handling either: their hooks live
+# in the main repo's common git dir, which is what gets updated here.
+#
+# Usage:
+#   refresh-git-hooks [ROOT ...]            # dry run (default ROOT: current dir)
+#   refresh-git-hooks --apply [ROOT ...]    # actually write changes
+#   refresh-git-hooks --force --apply ROOT  # also overwrite foreign hooks
+
+set -euo pipefail
+
+template="${GIT_TEMPLATE_HOOKS:-$HOME/.git_template/hooks}"
+apply=false
+force=false
+roots=()
+
+for arg in "$@"; do
+  case "$arg" in
+    --apply) apply=true ;;
+    --force) force=true ;;
+    -h|--help) sed -n '3,28p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -*) echo "unknown option: $arg" >&2; exit 2 ;;
+    *) roots+=("$arg") ;;
+  esac
+done
+[ "${#roots[@]}" -eq 0 ] && roots=("$PWD")
+
+[ -d "$template" ] || { echo "no template hooks dir: $template" >&2; exit 1; }
+
+# Should we overwrite $1? Yes if it's missing or looks like one of our hooks.
+managed() {
+  [ -e "$1" ] || return 0
+  grep -qE 'git_template|ctags|hooks/post-merge' "$1"
+}
+
+# Discover top-level repo roots. Prune node_modules for speed; real .git dirs
+# only (worktree .git files are type f, so excluded).
+repos=()
+while IFS= read -r gitdir; do
+  repos+=("$(dirname "$gitdir")")
+done < <(
+  find "${roots[@]}" \
+    \( -type d -name node_modules -prune \) -o \
+    \( -type d -name .git -print -prune \) 2>/dev/null | sort
+)
+
+$apply || echo "DRY RUN — no changes written (pass --apply). Scanning: ${roots[*]}"
+
+for repo in "${repos[@]}"; do
+  # Skip repos nested inside another discovered repo (submodules, vendored
+  # clones, Vim-Plug plugins, …) — not ours to manage.
+  nested=false
+  for other in "${repos[@]}"; do
+    [ "$other" = "$repo" ] && continue
+    case "$repo/" in "$other/"*) nested=true; break ;; esac
+  done
+  $nested && continue
+
+  hooks="$repo/.git/hooks"
+
+  for src in "$template"/*; do
+    [ -f "$src" ] || continue
+    name=$(basename "$src")
+    dst="$hooks/$name"
+
+    # Already identical → nothing to do (keeps repeated runs quiet & backup-free).
+    if [ -e "$dst" ] && cmp -s "$src" "$dst"; then
+      continue
+    fi
+
+    if managed "$dst" || $force; then
+      if $apply; then
+        mkdir -p "$hooks"
+        [ -e "$dst" ] && cp -p "$dst" "$dst.pre-refresh"
+        cp -p "$src" "$dst"
+        echo "updated       $repo → hooks/$name"
+      else
+        echo "would update  $repo → hooks/$name"
+      fi
+    else
+      echo "SKIP foreign  $repo → hooks/$name (use --force to override)"
+    fi
+  done
+done
