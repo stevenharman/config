@@ -2,9 +2,9 @@
 
 "$(git rev-parse --git-path hooks/ctags)" >/dev/null 2>&1 &
 
-if [ $1 != 0000000000000000000000000000000000000000 ]; then
-  if [ $3 = 1 -a -f Gemfile ] && command -v bundle >/dev/null &&
-    git diff --name-only $1 $2 | egrep -q '^Gemfile|\.gemspec$'
+if [ "$1" != 0000000000000000000000000000000000000000 ]; then
+  if [ "$3" = 1 ] && [ -f Gemfile ] && command -v bundle >/dev/null &&
+    git diff --name-only "$1" "$2" | grep -Eq '^Gemfile|\.gemspec$'
   then
     (unset GIT_DIR; exec bundle) | grep -v '^Using ' | grep -v ' is complete'
     true
