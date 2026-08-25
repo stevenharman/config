@@ -10,3 +10,18 @@ if [ $1 != 0000000000000000000000000000000000000000 ]; then
     true
   fi
 fi
+
+# Copy untracked, per-worktree local files when `git worktree add` creates a
+# new tree. Detected by: this is a linked worktree (git dir under worktrees/)
+# and the old ref is the null SHA (a fresh checkout).
+git_dir=$(git rev-parse --git-dir)
+case "$git_dir" in
+  */worktrees/*)
+    if [ "$1" = 0000000000000000000000000000000000000000 ]; then
+      main=$(git rev-parse --path-format=absolute --git-common-dir); main=${main%/.git}
+      for f in .env.local .env.test.local .env.development.local; do
+        [ -f "$main/$f" ] && [ ! -e "$f" ] && cp "$main/$f" "$f"
+      done
+    fi
+    ;;
+esac

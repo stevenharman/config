@@ -47,7 +47,9 @@ touches the `Gemfile`.
 
 The hooks resolve paths with `git rev-parse --git-path …` rather than hardcoding
 `.git/…`, so they also work inside a linked worktree — where `.git` is a file, not
-a directory.
+a directory. `post-checkout` additionally copies untracked, per-worktree local
+files (`.env.local`, `.env.test.local`, `.env.development.local`) from the main
+worktree when `git worktree add` creates a new tree.
 
 ### Refreshing existing repos
 
