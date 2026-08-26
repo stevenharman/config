@@ -623,6 +623,26 @@ runtime macros/matchit.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " REPOSITORY-SPECIFIC VIM CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if filereadable(".git/localvimrc")
-  source .git/localvimrc
-endif
+" Source a repo's untracked .git/localvimrc for each buffer that belongs to it.
+" The git dir is resolved from the buffer's own file (via fugitive), not the
+" launch directory, so it applies no matter where Vim was started or how the
+" file was opened. localvimrc typically sets buffer-local options — e.g.
+" disabling Copilot in work repos (see ~/.vim/scripts/disable-copilot.vim).
+function! s:SourceRepoLocalVimrc() abort
+  if !exists('*FugitiveGitDir')
+    return
+  endif
+  let l:gitdir = FugitiveGitDir()
+  if empty(l:gitdir)
+    return
+  endif
+  let l:localvimrc = l:gitdir . '/localvimrc'
+  if filereadable(l:localvimrc)
+    execute 'source' fnameescape(l:localvimrc)
+  endif
+endfunction
+
+augroup repoLocalVimrc
+  autocmd!
+  autocmd BufReadPre,BufNewFile * call s:SourceRepoLocalVimrc()
+augroup END
