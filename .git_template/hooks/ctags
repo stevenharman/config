@@ -2,7 +2,15 @@
 
 set -e
 
-PATH="/usr/local/bin:$PATH"
+# Ensure Homebrew's bin is on PATH so we find a real ctags (not the anemic
+# /usr/bin/ctags) even in minimal/GUI contexts that don't source our profile.
+# In an interactive shell these are already present, so this is a no-op.
+for dir in /opt/homebrew/bin /usr/local/bin; do
+  case ":$PATH:" in
+    *":$dir:"*) ;;
+    *) [ -d "$dir" ] && PATH="$dir:$PATH" ;;
+  esac
+done
 dir="$(git rev-parse --git-dir)"
 trap 'rm -f "$dir/tags.$$"' EXIT INT TERM
 git ls-files | \
