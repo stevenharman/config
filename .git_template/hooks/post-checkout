@@ -22,6 +22,14 @@ case "$git_dir" in
       for f in .env.local .env.test.local .env.development.local; do
         [ -f "$main/$f" ] && [ ! -e "$f" ] && cp "$main/$f" "$f"
       done
+
+      # Share Claude local settings across worktrees by symlinking back to the
+      # main worktree's copy, so edits in one place apply everywhere.
+      claude_local=".claude/settings.local.json"
+      if [ -f "$main/$claude_local" ] && [ ! -e "$claude_local" ] && [ ! -L "$claude_local" ]; then
+        mkdir -p .claude
+        ln -s "$main/$claude_local" "$claude_local"
+      fi
     fi
     ;;
 esac
