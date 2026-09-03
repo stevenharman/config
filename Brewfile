@@ -33,7 +33,7 @@ brew "graphicsmagick"
 brew "imagemagick"
 brew "jq"
 
-brew "postgresql@16"
+brew "postgresql@16" # Keep this version in sync with $PATH-munging in .profile
 brew "redis"
 
 brew "shellcheck"
