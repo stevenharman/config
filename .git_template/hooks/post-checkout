@@ -6,7 +6,11 @@ if [ "$1" != 0000000000000000000000000000000000000000 ]; then
   if [ "$3" = 1 ] && [ -f Gemfile ] && command -v bundle >/dev/null &&
     git diff --name-only "$1" "$2" | grep -Eq '^Gemfile|\.gemspec$'
   then
-    (unset GIT_DIR; exec bundle) | grep -v '^Using ' | grep -v ' is complete'
+    # Skip the install when the lockfile is already satisfied by installed
+    # gems; `bundle check` is cheaper than a no-op `bundle install`.
+    if ! (unset GIT_DIR; bundle check) >/dev/null 2>&1; then
+      (unset GIT_DIR; exec bundle install) | grep -v '^Using ' | grep -v ' is complete'
+    fi
     true
   fi
 fi
