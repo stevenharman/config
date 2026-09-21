@@ -92,3 +92,9 @@
 # see: https://stevenharman.net/configure-ssh-keys-for-multiple-github-accounts
 [include]
   path = ~/.gitconfig_custom
+
+# Managed by the Heroku CLI (`heroku git:credentials`). It blindly rewrites
+# this into --global on git operations, so we commit it to avoid dotfiles
+# churn. Not a secret: the token lives in the keychain / ~/.netrc.
+[credential "https://git.heroku.com"]
+	helper = !heroku git:credentials
