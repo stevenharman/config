@@ -9,6 +9,8 @@ module Setup
       home_dir: home_dir,
       working_dir: working_dir, overwrite_all: overwrite_all
     )
+
+    GitSigning.configure(home_dir: home_dir)
   end
 
   def self.uninstall(linkables:, home_dir:)
@@ -200,5 +202,56 @@ module Setup
 
     attr_reader :home_dir, :working_dir
     attr_accessor :overwrite_all
+  end
+
+  class GitSigning
+    OP_SSH_SIGN_PATHS = [
+      "/Applications/1Password.app/Contents/MacOS/op-ssh-sign",
+      "/opt/1Password/op-ssh-sign",
+    ].freeze
+
+    def self.configure(home_dir:)
+      new(home_dir: home_dir).configure
+    end
+
+    def initialize(home_dir:)
+      @config_path = Pathname(home_dir).join(".gitconfig_signing")
+    end
+
+    def configure
+      program = find_op_ssh_sign
+
+      if program
+        write_config(program)
+        puts "✅ Git commit signing enabled (#{program})"
+      else
+        remove_config
+        puts "ℹ️  op-ssh-sign not found; git commit signing disabled"
+      end
+    end
+
+    private
+
+    attr_reader :config_path
+
+    def find_op_ssh_sign
+      OP_SSH_SIGN_PATHS.find { |p| File.executable?(p) } ||
+        `which op-ssh-sign 2>/dev/null`.chomp.then { |p| p.empty? ? nil : p }
+    end
+
+    def write_config(program)
+      config_path.write(<<~CONFIG)
+        [gpg "ssh"]
+          program = "#{program}"
+        [commit]
+          gpgSign = true
+        [tag]
+          forceSignAnnotated = true
+      CONFIG
+    end
+
+    def remove_config
+      config_path.delete if config_path.exist?
+    end
   end
 end

@@ -4,11 +4,10 @@
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOPMo6SIjMxmWIKV6G/mc/APTsEp6mDv0w/fF7ghXqPX
 [gpg]
   format = ssh
+# Commit and tag signing via 1Password's op-ssh-sign is auto-configured by
+# `rake install` into ~/.gitconfig_signing. Re-run it if your 1Password setup changes.
 [gpg "ssh"]
-  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
   allowedSignersFile = ~/.ssh/allowed_signers
-[commit]
-  gpgSign = true
 [init]
   defaultBranch = main
   templateDir = ~/.git_template
@@ -85,12 +84,12 @@
   enabled = true
 [stash]
   showPatch = true
-[tag]
-  forceSignAnnotated = true
-
+[credential]
+  useHttpPath = true
 # Custom config, such as setting up .ssh/config Host for GitHub Enterprise Cloud, EMU, etc…
 # see: https://stevenharman.net/configure-ssh-keys-for-multiple-github-accounts
 [include]
+  path = ~/.gitconfig_signing
   path = ~/.gitconfig_custom
 
 # Managed by the GitHub CLI (`gh auth git-credential`).
