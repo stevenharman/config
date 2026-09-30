@@ -93,8 +93,16 @@
 [include]
   path = ~/.gitconfig_custom
 
+# Managed by the GitHub CLI (`gh auth git-credential`).
+[credential "https://github.com"]
+  helper =
+  helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+  helper =
+  helper = !/opt/homebrew/bin/gh auth git-credential
+
 # Managed by the Heroku CLI (`heroku git:credentials`). It blindly rewrites
 # this into --global on git operations, so we commit it to avoid dotfiles
 # churn. Not a secret: the token lives in the keychain / ~/.netrc.
 [credential "https://git.heroku.com"]
-	helper = !heroku git:credentials
+  helper = !heroku git:credentials
