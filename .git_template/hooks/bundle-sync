@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# Installed from ~/.git_template. Run by post-checkout and post-rewrite.
+#
+# Usage: bundle-sync <old-rev> <new-rev>
+#
+# If the Gemfile (or a gemspec) changed between the two revisions, make sure
+# the bundle is satisfied, installing only when `bundle check` says it isn't.
+
+old="$1"
+new="$2"
+
+[ -f Gemfile ] || exit 0
+command -v bundle >/dev/null || exit 0
+git diff --name-only "$old" "$new" | grep -Eq '^Gemfile|\.gemspec$' || exit 0
+
+# `bundle check` is cheaper than a no-op `bundle install`.
+if ! (unset GIT_DIR; bundle check) >/dev/null 2>&1; then
+  (unset GIT_DIR; exec bundle install) | grep -v '^Using ' | grep -v ' is complete'
+fi
+true

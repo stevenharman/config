@@ -1,4 +1,9 @@
 #!/bin/sh
 case "$1" in
-  rebase) exec "$(git rev-parse --git-path hooks/post-merge)" ;;
+  rebase)
+    # post-checkout skips the bundle sync mid-rebase, so do it once here.
+    # ORIG_HEAD is the branch tip from before the rebase.
+    "$(git rev-parse --git-path hooks/bundle-sync)" ORIG_HEAD HEAD
+    exec "$(git rev-parse --git-path hooks/post-merge)"
+    ;;
 esac

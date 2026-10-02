@@ -2,17 +2,16 @@
 
 "$(git rev-parse --git-path hooks/ctags)" >/dev/null 2>&1 &
 
-if [ "$1" != 0000000000000000000000000000000000000000 ]; then
-  if [ "$3" = 1 ] && [ -f Gemfile ] && command -v bundle >/dev/null &&
-    git diff --name-only "$1" "$2" | grep -Eq '^Gemfile|\.gemspec$'
-  then
-    # Skip the install when the lockfile is already satisfied by installed
-    # gems; `bundle check` is cheaper than a no-op `bundle install`.
-    if ! (unset GIT_DIR; bundle check) >/dev/null 2>&1; then
-      (unset GIT_DIR; exec bundle install) | grep -v '^Using ' | grep -v ' is complete'
-    fi
-    true
-  fi
+in_rebase() {
+  [ -d "$(git rev-parse --git-path rebase-merge)" ] || [ -d "$(git rev-parse --git-path rebase-apply)" ]
+}
+
+# Sync the bundle on branch checkouts, but not mid-rebase: a `bundle install`
+# there rewrites Gemfile.lock and any cached gems (e.g. vendor/cache), which
+# git then sees as local changes and aborts the next pick. post-rewrite syncs
+# once the rebase is done instead.
+if [ "$1" != 0000000000000000000000000000000000000000 ] && [ "$3" = 1 ] && ! in_rebase; then
+  "$(git rev-parse --git-path hooks/bundle-sync)" "$1" "$2"
 fi
 
 # Copy untracked, per-worktree local files when `git worktree add` creates a
